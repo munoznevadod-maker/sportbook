@@ -1,0 +1,13 @@
+target/
+*.war
+
+.env
+*.log
+admin-cookies.txt
+
+.github/java-upgrade/
+.idea/
+.vscode/
+*.iml
+
+node_modules/

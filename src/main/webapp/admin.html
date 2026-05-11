@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SportBook | Panel administrador</title>
+  <link rel="stylesheet" href="Assets/css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">SB</div>
+        <span>
+          <strong>SportBook</strong>
+          <small>Panel gestor</small>
+        </span>
+      </div>
+
+      <nav class="nav" aria-label="Menú de administrador">
+        <button class="active" type="button" data-view="summaryView">Resumen</button>
+        <button type="button" data-view="paymentsView">Pagos pendientes</button>
+        <button type="button" data-view="helpView">Ayuda recibida</button>
+        <button type="button" data-view="reviewsView">Reseñas</button>
+        <button type="button" data-view="blockedView">Usuarios bloqueados</button>
+      </nav>
+
+      <div class="sidebar-actions">
+        <button class="button primary" id="refreshButton" type="button">Actualizar</button>
+        <button class="button danger" id="logoutButton" type="button">Cerrar sesión</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Administrador</p>
+          <h1 id="pageTitle">Resumen</h1>
+        </div>
+        <h3 class="button">Bienvenido, administrador</h3>
+      </header>
+
+      <section class="view active" id="summaryView">
+        <div class="stats">
+          <article class="stat">
+            <span>Ingresos cobrados</span>
+            <strong id="paidIncome">0 €</strong>
+          </article>
+          <article class="stat">
+            <span>Ingresos pendientes</span>
+            <strong id="pendingIncome">0 €</strong>
+          </article>
+          <article class="stat">
+            <span>Reservas totales</span>
+            <strong id="bookingCount">0</strong>
+          </article>
+          <article class="stat">
+            <span>Usuarios bloqueados</span>
+            <strong id="blockedCount">0</strong>
+          </article>
+        </div>
+
+        <div class="panel">
+          <div class="empty" id="summaryMessage"></div>
+        </div>
+      </section>
+
+      <section class="view" id="paymentsView">
+        <div class="toolbar">
+          <div>
+            <h2>Control de pagos</h2>
+            <p class="muted">Gestiona personas que ya pagaron y personas que no han pagado todavía.</p>
+          </div>
+          
+          <div class="filters">
+            <label class="field">
+              <span>Estado</span>
+              <select id="paymentFilter">
+                <option value="all">Todos</option>
+                <option value="pending">Pendientes</option>
+                <option value="paid">Pagados</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Buscar</span>
+              <input id="bookingSearch" type="search" placeholder="Nombre, correo, actividad">
+            </label>
+          </div>
+        </div>
+
+        <div class="payment-workflow">
+          <article>
+            <strong>Transferencia antes de la actividad</strong>
+            <span>Comprueba en el banco que el importe y el cliente coinciden. Si el ingreso aparece recibido, marca la reserva como Pagado.</span>
+          </article>
+
+          <article>
+            <strong>Pagar en el centro</strong>
+            <span>Confirma el cobro en recepción o caja el día de la actividad. Después marca la reserva como Pagado.</span>
+          </article>
+        </div>
+
+        <div class="panel" id="paymentsTable"></div>
+      </section>
+
+      <section class="view" id="helpView">
+
+        <!-- AYUDA REGISTRADOS -->
+        <div class="toolbar">
+          <div>
+            <h2>Ayuda de usuarios registrados</h2>
+            <p class="muted">
+              Mensajes enviados por clientes con cuenta.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel" id="helpTable"></div>
+
+        <!-- ESPACIO -->
+        <div style="height: 40px;"></div>
+
+        <!-- AYUDA NO REGISTRADOS -->
+        <div class="toolbar">
+          <div>
+            <h2>Ayuda pública</h2>
+            <p class="muted">
+              Mensajes enviados sin iniciar sesión.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel" id="unregisteredHelpTable"></div>
+
+      </section>
+
+      <section class="view" id="reviewsView">
+        <div class="toolbar">
+          <div>
+            <h2>Reseñas</h2>
+            <p class="muted">Puedes revisar y eliminar reseñas inapropiadas.</p>
+          </div>
+        </div>
+        <div class="panel" id="reviewsTable"></div>
+      </section>
+
+      <section class="view" id="blockedView">
+        <div class="toolbar">
+          <div>
+            <h2>Usuarios bloqueados</h2>
+            <p class="muted">Bloquea correos electrónicos para impedir cuentas problemáticas.</p>
+          </div>
+          <form class="filters" id="blockForm">
+            <label class="field">
+              <span>Correo electrónico</span>
+              <input id="blockEmailInput" type="email" placeholder="cliente@correo.com" required>
+            </label>
+            <button class="button danger" type="submit">Bloquear</button>
+          </form>
+        </div>
+        <div class="panel" id="blockedTable"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+<script src="Assets/js/admin.js"></script>
+
+</body>
+</html>

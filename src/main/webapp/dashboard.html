@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SportBook | Reservas deportivas</title>
+
+  <link rel="stylesheet" href="Assets/css/dashboard.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+
+    <a class="brand" href="#reservar" aria-label="SportBook inicio">
+
+      <span class="brand-mark" aria-hidden="true">
+
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M7 18a5 5 0 0 1 0-10h10a5 5 0 0 1 0 10H7Z"></path>
+          <path d="M8 13h4"></path>
+          <path d="M10 11v4"></path>
+          <path d="M16.5 13h.01"></path>
+          <path d="M18.5 11.5h.01"></path>
+        </svg>
+
+      </span>
+
+      <span>
+        <strong>SportBook</strong>
+        <small>Reservas deportivas</small>
+      </span>
+
+    </a>
+
+    <nav class="top-nav" aria-label="Navegación principal">
+      <a href="#reservar">Reservar</a>
+      <a href="#Información">Información</a>
+      <a href="#mis-reservas">Mis reservas</a>
+      <a href="#ayuda">Ayuda</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="user-menu" id="userMenu">
+        <button class="user-profile-button" id="userMenuButton" type="button">
+          <div class="user-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M20 21a8 8 0 1 0-16 0"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+
+          <div class="user-details">
+            <small>Bienvenido</small>
+            <span id="usernameDisplay">Usuario</span>
+          </div>
+          <span class="user-arrow">▼</span>
+        </button>
+
+        <div class="user-dropdown" id="userDropdown">
+          <button class="dropdown-item logout-item" id="logoutButton" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <path d="M16 17l5-5-5-5"></path>
+              <path d="M21 12H9">
+            </svg>
+            Cerrar sesión
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="booking-hero" id="reservar" >
+      <div class="hero-copy">
+        <p class="eyebrow">Reserva online</p>
+        <h1>Elige tu deporte y guarda tu plaza</h1>
+        <p class="hero-text">Fútbol, yoga, gimnasio, pádel y natación en un mismo sitio. Selecciona actividad, horario y deja tus datos para confirmar la reserva.</p>
+
+        <div class="trust-strip" aria-label="Ventajas de reserva">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5"></path></svg>
+            Confirmación inmediata
+          </span>
+
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg>
+            Horarios disponibles
+          </span>
+
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Instalaciones cercanas
+          </span>
+        </div>
+      </div>
+
+      <form class="reservation-panel" id="bookingForm">
+        <div class="panel-heading">
+          <p class="eyebrow">Nueva reserva</p>
+          <h2>
+            Completa tus datos
+          </h2>
+        </div>
+
+        <div class="activity-picker" id="activityPicker" aria-label="Actividades">
+          <button class="activity-option" type="button" data-sport="Futbol">
+            <span class="activity-icon football">⚽</span>
+            Fútbol
+          </button>
+
+          <button class="activity-option" type="button" data-sport="Yoga">
+            <span class="activity-icon yoga">🧘</span>
+            Yoga
+          </button>
+
+          <button class="activity-option" type="button" data-sport="Gimnasio">
+            <span class="activity-icon gym">🏋️</span>
+            Gimnasio
+          </button>
+
+          <button class="activity-option" type="button" data-sport="Padel">
+            <span class="activity-icon padel">🎾</span>
+            Pádel
+          </button>
+
+          <button class="activity-option" type="button" data-sport="Natacion">
+            <span class="activity-icon swim">🏊</span>
+            Natación
+          </button>
+        </div>
+
+        <div class="form-grid">
+          <label class="field">
+            <span>Actividad</span>
+            <select id="sport" name="sport" required>
+              <option value="" selected>
+                Selecciona una actividad
+              </option>
+              <option value="Futbol">Fútbol</option>
+              <option value="Yoga">Yoga</option>
+              <option value="Gimnasio">Gimnasio</option>
+              <option value="Padel">Pádel</option>
+              <option value="Natacion">Natación</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Instalación</span>
+            <select id="resource" name="resource" required>
+              <option value="" selected>
+                Selecciona una instalación
+              </option>
+            </select>
+          </label>
+
+          <div class="location-preview" id="resourceLocation">
+            <span>Dirección</span>
+            <strong>
+              Selecciona una instalación para ver dónde ir.
+            </strong>
+          </div>
+
+          <label class="field">
+            <span>Fecha</span>
+            <input
+              id="bookingDate"
+              name="bookingDate"
+              type="date"
+              required>
+          </label>
+
+          <label class="field">
+            <span>Hora</span>
+            <select id="bookingTime" name="bookingTime" required>
+              <option value="" selected>
+                Selecciona una hora
+              </option>
+            </select>
+          </label>
+          <label class="field">
+
+            <span>Personas</span>
+
+            <input
+              id="people"
+              name="people"
+              type="number"
+              min="1"
+              max="30"
+              placeholder="1"
+              required>
+          </label>
+
+          <label class="field">
+            <span>Método de pago</span>
+            <select id="paymentMethod" name="paymentMethod" required>
+              <option value="" selected>Selecciona cómo pagarás</option>
+              <option value="Centro">Pagar en el centro</option>
+              <option value="Transferencia">Transferencia antes de la actividad</option>
+            </select>
+          </label>
+
+          <label class="field">
+
+            <span>Nombre</span>
+
+            <input
+              id="clientName"
+              name="clientName"
+              type="text"
+              placeholder="Tu nombre completo"
+              required>
+
+          </label>
+
+          <input
+            id="phone"
+            name="phone"
+            type="hidden"
+            value="No especificado">
+
+          <input
+            id="email"
+            name="email"
+            type="hidden">
+        </div>
+
+        <div class="summary-box">
+
+          <div>
+            <span class="summary-label">
+              Resumen
+            </span>
+
+            <strong id="summaryTitle">
+              Sin actividad seleccionada
+            </strong>
+
+            <small id="summaryMeta">
+              El total aparecerá al elegir actividad y personas.
+            </small>
+          </div>
+
+          <div class="summary-price" id="summaryPrice">
+            --
+          </div>
+        </div>
+
+        <div class="payment-note" aria-live="polite">
+          <strong>Pago pendiente</strong>
+          <span>
+            Tu plaza queda reservada ahora y el pago se realiza en el centro el día de la actividad.
+          </span>
+        </div>
+
+        <div class="form-actions">
+
+          <button class="button secondary" type="reset">
+            Limpiar
+          </button>
+
+          <button class="button primary" type="submit">
+            Reservar y pagar en el centro
+          </button>
+        </div>
+      </form>
+    </section>
+
+
+    <div class="bookings-section" id="Información">
+
+      <div class="facility-images" id="facilityImages">
+
+        <img
+          src="https://images.unsplash.com/photo-1574629810360-7efbbe195018"
+          alt="Instalación deportiva">
+
+        <img
+          src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438"
+          alt="Instalación deportiva">
+
+      </div>
+
+      <div class="facility-info">
+
+        <h3 id="facilityTitle">
+          Información de la instalación
+        </h3>
+
+        <p id="facilityDescription">
+          Selecciona una actividad para ver imágenes,
+          horarios y disponibilidad.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="facility-data">
+
+      <div class="facility-card">
+
+        <strong>
+          Horario
+        </strong>
+
+        <span id="facilitySchedule">
+          --
+        </span>
+
+      </div>
+
+      <div class="facility-card">
+
+        <strong>
+          Días disponibles
+        </strong>
+
+        <span id="facilityDays">
+          --
+        </span>
+
+      </div>
+
+      <div class="facility-card occupied">
+
+        <strong>
+          Horas ocupadas
+        </strong>
+
+        <span id="facilityBusy">
+          --
+        </span>
+
+      </div>
+
+    </div>
+
+  <section class="bookings-section" id="mis-reservas">
+
+    <div class="section-heading split">
+
+      <div>
+
+        <p class="eyebrow">
+          Tus reservas
+        </p>
+
+        <h2>
+          Mis reservas
+        </h2>
+
+      </div>
+
+      <div style="display:flex; gap:12px; align-items:center;">
+        <button
+          class="button secondary"
+          id="refreshBookingsButton"
+          type="button">
+          Actualizar
+        </button>
+        <button class="button danger"id="clearBookingsButton"type="button">
+          Vaciar
+        </button>
+      </div>
+    </div>
+    <div class="reservations-list"id="bookingsList">
+    </div>
+  </section>
+
+  <section class="support-reviews">
+    <section class="support-section" id="ayuda">
+      <div class="section-heading">
+        <p class="eyebrow">Ayuda</p>
+        <h2>
+          ¿Necesitas ayuda?
+        </h2>
+      </div>
+
+      <form class="panel-form" id="helpForm">
+        <div class="form-grid">
+          <label class="field">
+            <span>Nombre</span>
+
+            <input
+              name="helpName"
+              type="text"
+              placeholder="Tu nombre"
+              required>
+          </label>
+
+          <label class="field">
+            <span>Correo electrónico</span>
+            <input
+              name="helpEmail"
+              type="email"
+              placeholder="tu@correo.com"
+              required>
+          </label>
+
+          <label class="field">
+            <span>Motivo</span>
+            <select name="helpReason" required>
+              <option value="" selected>Selecciona un motivo</option>
+              <option>Reservas</option>
+              <option>Pagos</option>
+              <option>Cuenta</option>
+              <option>Instalaciones</option>
+              <option>Otro</option>
+            </select>
+          </label>
+
+          <label class="field wide">
+            <span>Mensaje</span>
+            <textarea
+              name="helpMessage"
+              rows="4"
+              placeholder="Cuéntanos qué necesitas"
+              required></textarea>
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button class="button secondary" type="reset">
+            Limpiar
+          </button>
+          <button class="button primary" type="submit">
+            Enviar solicitud
+          </button>
+        </div>
+      </form>
+    </section>
+      <section class="reviews-section" id="resenas" aria-labelledby="reviewsTitle">
+        <div class="section-heading split">
+          <p class="eyebrow">Reseñas</p>
+          <div>
+            <h2 id="reviewsTitle">Comparte tu experiencia</h2>
+          </div>
+        </div>
+
+        <form class="panel-form" id="reviewForm">
+          <div class="form-grid">
+            <label class="field">
+              <span>Nombre</span>
+              <input name="reviewName" type="text" placeholder="Tu nombre" required>
+            </label>
+
+            <label class="field">
+              <span>Actividad</span>
+              <select name="reviewSport" required>
+                <option value="" selected>Selecciona una actividad</option>
+                <option value="Futbol">Fútbol</option>
+                <option>Yoga</option>
+                <option>Gimnasio</option>
+                <option value="Padel">Pádel</option>
+                <option value="Natacion">Natación</option>
+              </select>
+            </label>
+
+            <div class="field wide">
+              <span>Valoración</span>
+              <div class="star-rating" id="starRating" role="radiogroup" aria-label="Valoración con estrellas">
+                <button type="button" data-rating="1" aria-label="1 estrella">&#9733;</button>
+                <button type="button" data-rating="2" aria-label="2 estrellas">&#9733;</button>
+                <button type="button" data-rating="3" aria-label="3 estrellas">&#9733;</button>
+                <button type="button" data-rating="4" aria-label="4 estrellas">&#9733;</button>
+                <button type="button" data-rating="5" aria-label="5 estrellas">&#9733;</button>
+              </div>
+            </div>
+
+            <label class="field wide">
+              <span>Comentario</span>
+              <textarea name="reviewComment" rows="4" placeholder="Escribe tu reseña" required></textarea>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button class="button secondary" type="reset">Limpiar</button>
+            <button class="button secondary" id="cancelReviewEditButton" type="button" hidden>Cancelar edición</button>
+            <button class="button primary" id="reviewSubmitButton" type="submit">Publicar reseña</button>
+          </div>
+        </form>
+
+        <div class="reviews-list" id="reviewsList"></div>
+        <div class="empty-state" id="reviewsEmptyState">
+          <strong>Aún no hay reseñas</strong>
+          <span>Sé la primera persona en valorar una actividad.</span>
+        </div>
+      </section>
+  </main>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+      <div class="bookings-panel" id="bookingsPanel" role="dialog" aria-modal="true" aria-labelledby="bookingsPanelTitle" hidden>
+        <button class="bookings-panel-backdrop" type="button" data-close-bookings-panel aria-label="Cerrar panel de reservas"></button>
+        <aside class="bookings-panel-content">
+          <div class="bookings-panel-header">
+            <div>
+              <p class="eyebrow">Tus reservas</p>
+              <h2 id="bookingsPanelTitle">Todas mis reservas</h2>
+            </div>
+            <button class="icon-button" type="button" data-close-bookings-panel aria-label="Cerrar panel de reservas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M18 6 6 18"></path>
+                <path d="m6 6 12 12"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="reservations-list panel-reservations-list" id="panelBookingsList"></div>
+          <div class="empty-state panel-empty-state" id="panelEmptyState">
+            <strong>Aún no tienes reservas</strong>
+            <span>Cuando confirmes una actividad, aparecerá aquí.</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <div class="toast" id="toast"></div>
+
+  <script src="Assets/js/script.js"></script>
+
+</body>
+</html>

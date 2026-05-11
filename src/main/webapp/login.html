@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar sesión | SportBook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assets/css/login.css">
+</head>
+<body>
+
+<div class="login-container">
+    <div class="login-box">
+        <h1>Bienvenido a SportBook</h1>
+        <p>Inicia sesión para poder hacer tus reservas</p>
+
+        <form id="loginForm" method="POST">
+
+            <div class="input-group">
+                <label for="login">Correo o usuario</label>
+                <input type="text" id="login" placeholder="Correo o nombre de usuario" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" placeholder="********" required>
+            </div>
+
+            <button type="submit" class="btn-login">Iniciar sesión</button>
+
+            <p id="error" style="color:red;"></p>
+
+            <div class="extra-links">
+
+                <a id="forgotPasswordLink" href="forgot-password.html">
+                    ¿Olvidaste tu contraseña?
+                </a>
+
+                <a href="register.html">
+                    ¿No tienes cuenta? <strong>Regístrate</strong>
+                </a>
+
+                <div class="divider"></div>
+
+                <a class="back-home" href="index.html">
+                    ← Volver al Menú Principal
+                </a>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="Assets/js/login.js"></script>
+
+</body>
+</html>

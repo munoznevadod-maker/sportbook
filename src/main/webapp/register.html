@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Crear cuenta | SportBook</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <link
+        rel="stylesheet"
+        href="Assets/css/register.css"
+    >
+</head>
+
+<body>
+
+<div class="register-container">
+
+    <div class="register-box">
+
+        <h1>Crea tu cuenta</h1>
+        <p>Únete a SportBook y empieza a reservar tu deporte favorito</p>
+
+        <form id="registroForm" method="POST">
+
+            <!-- USUARIO -->
+            <div class="input-group">
+
+                <label for="nombre">Usuario</label>
+
+                <input type="text" id="nombre" placeholder="Tu nombre de usuario" required>
+
+            </div>
+
+            <!-- EMAIL -->
+            <div class="input-group">
+
+                <label for="email">Correo electrónico</label>
+
+                <input type="email" id="email" placeholder="tu@correo.com" required>
+
+            </div>
+
+            <!-- CONTRASEÑA -->
+            <div class="input-group">
+                <label for="password">Contraseña</label>
+
+                <div class="password-wrapper">
+
+                    <input type="password" id="password" placeholder="********" required>
+
+                    <button type="button" class="toggle-password" onclick="togglePassword('password', this)">👁️</button>
+
+                </div>
+            </div>
+
+            <!-- CONFIRMAR -->
+            <div class="input-group">
+
+                <label for="confirm">Confirmar contraseña</label>
+
+                <div class="password-wrapper">
+
+                    <input type="password" id="confirm" placeholder="********" required
+                    >
+
+                    <button type="button" class="toggle-password" onclick="togglePassword('confirm', this)">👁️</button>
+
+                </div>
+
+            </div>
+
+            <button
+                type="submit"
+                class="btn-register"
+            >
+                Crear cuenta
+            </button>
+
+            <p id="error" style="color:red;"></p>
+
+            <div class="extra-links">
+
+                <a href="login.html">
+                    ¿Ya tienes cuenta? Inicia sesión
+                </a>
+
+                <div class="divider"></div>
+
+                <a
+                    class="back-home"
+                    href="index.html"
+                >
+                    ← Volver al Menú Principal
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="Assets/js/register.js"></script>
+
+</body>
+</html>
