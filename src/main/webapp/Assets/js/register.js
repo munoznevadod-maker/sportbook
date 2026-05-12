@@ -85,7 +85,7 @@ document
         password
     };
 
-    fetch(fetch`${API_BASE}/auth/register`, {
+    fetch(`${API_BASE}/auth/register`, {
 
         method: "POST",
 
