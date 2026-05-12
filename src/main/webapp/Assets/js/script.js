@@ -1,11 +1,26 @@
-﻿const STORAGE_KEY = "sportbook-client-reservations-v1";
+﻿// =========================
+// API BASE
+// =========================
+
+const API_BASE =
+  location.hostname.includes("railway.app")
+    ? location.origin
+    : "http://localhost:8085";
+
+const PUBLIC_API =
+  location.hostname.includes("railway.app")
+    ? `${location.origin}/api`
+    : "http://localhost:8085/api";
+
+
+
+const STORAGE_KEY = "sportbook-client-reservations-v1";
 const HELP_STORAGE_KEY = "sportbook-help-requests-v1";
 const REVIEW_STORAGE_KEY = "sportbook-reviews-v1";
 const AUTH_STORAGE_KEY = "sportbook-authenticated";
 const USER_EMAIL_STORAGE_KEY = "sportbook-user-email";
 const USER_PHONE_STORAGE_KEY = "sportbook-user-phone";
 const USERNAME_STORAGE_KEY = "sportbook-username";
-const PUBLIC_API = "http://localhost:8085/api";
 
 const activities = {
 
@@ -423,7 +438,7 @@ async function updateSlotAvailability() {
 
     const response =
       await fetch(
-        `http://localhost:8085/api/reservas/disponibilidad?date=${selectedDate}&resource=${selectedResource}`
+        `${PUBLIC_API}/reservas/disponibilidad?date=${selectedDate}&resource=${selectedResource}`
       );
 
     const data =
@@ -741,7 +756,7 @@ elements.form?.addEventListener(
 
       const response =
         await fetch(
-          "http://localhost:8085/api/reservas",
+          `${PUBLIC_API}/reservas`,
           {
             method: "POST",
 
@@ -838,7 +853,7 @@ async function cargarReservas() {
 
     const response =
       await fetch(
-        "http://localhost:8085/api/reservas/usuario",
+        `${PUBLIC_API}/reservas/usuario`,
         {
           credentials:
             "include"
@@ -1352,7 +1367,7 @@ async function cargarResenas() {
 
     const response =
       await fetch(
-        "http://localhost:8085/api/resenas"
+        `${PUBLIC_API}/resenas`
       );
 
     const data =
@@ -1495,7 +1510,7 @@ elements.reviewForm?.addEventListener(
 
       const response =
         await fetch(
-          "http://localhost:8085/api/resenas",
+          `${PUBLIC_API}/resenas`,
           {
             method: "POST",
 
@@ -1604,7 +1619,7 @@ document.addEventListener(
 
       const response =
         await fetch(
-          `http://localhost:8085/api/reservas/${id}`,
+          `${PUBLIC_API}/reservas/${id}`,
           {
             method: "DELETE"
           }

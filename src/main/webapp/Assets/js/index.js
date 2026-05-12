@@ -1,3 +1,18 @@
+// =========================
+// API BASE
+// =========================
+
+const API_BASE =
+  location.hostname.includes("railway.app")
+    ? location.origin
+    : "http://localhost:8085";
+
+const PUBLIC_API =
+  location.hostname.includes("railway.app")
+    ? `${location.origin}/api`
+    : "http://localhost:8085/api";
+
+
 const scrollHint = document.querySelector(".scroll-hint");
 const scrollTargets = ["#about", "#features", "#instalaciones", "#ayuda"];
 let nextSectionIndex = 0;
@@ -164,7 +179,7 @@ if (publicHelpForm) {
             try {
                 const response =
                     await fetch(
-                        "http://localhost:8085/public-help-list",
+                        `${API_BASE}/public-help-list`,
                         {
                             method: "POST",
                             headers: {

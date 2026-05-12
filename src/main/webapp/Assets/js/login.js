@@ -1,3 +1,19 @@
+// =========================
+// API BASE
+// =========================
+
+const API_BASE =
+  location.hostname.includes("railway.app")
+    ? location.origin
+    : "http://localhost:8085";
+
+const PUBLIC_API =
+  location.hostname.includes("railway.app")
+    ? `${location.origin}/api`
+    : "http://localhost:8085/api";
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const form =
@@ -56,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const res =
           await fetch(
-            "http://localhost:8085/auth/login",
+            `${API_BASE}/auth/login`,
             {
               method: "POST",
 

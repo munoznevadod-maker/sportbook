@@ -1,6 +1,16 @@
-﻿const API_BASE = window.location.port === "8085"
-  ? ""
-  : "http://localhost:8085";
+﻿// =========================
+// API BASE
+// =========================
+
+const API_BASE =
+  location.hostname.includes("railway.app")
+    ? location.origin
+    : "http://localhost:8085";
+
+const PUBLIC_API =
+  location.hostname.includes("railway.app")
+    ? `${location.origin}/api`
+    : "http://localhost:8085/api";
 
 const elements = {
 

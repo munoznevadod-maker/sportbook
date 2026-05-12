@@ -1,3 +1,20 @@
+// =========================
+// API BASE
+// =========================
+
+const API_BASE =
+  location.hostname.includes("railway.app")
+    ? location.origin
+    : "http://localhost:8085";
+
+const PUBLIC_API =
+  location.hostname.includes("railway.app")
+    ? `${location.origin}/api`
+    : "http://localhost:8085/api";
+
+
+
+
 const params = new URLSearchParams(window.location.search);
 
 const redirect = params.get("redirect");
@@ -68,7 +85,7 @@ document
         password
     };
 
-    fetch("http://localhost:8085/auth/register", {
+    fetch(fetch`${API_BASE}/auth/register`, {
 
         method: "POST",
 
