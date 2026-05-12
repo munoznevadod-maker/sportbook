@@ -1,16 +1,13 @@
-﻿// =========================
+// =========================
 // API BASE
 // =========================
 
 const API_BASE =
-  location.hostname.includes("railway.app")
-    ? location.origin
+  window.location.protocol.startsWith("http")
+    ? window.location.origin
     : "http://localhost:8085";
 
-const PUBLIC_API =
-  location.hostname.includes("railway.app")
-    ? `${location.origin}/api`
-    : "http://localhost:8085/api";
+const PUBLIC_API = `${API_BASE}/api`;
 
 const elements = {
 
@@ -1029,14 +1026,54 @@ elements.refreshButton?.addEventListener(
 
 elements.logoutButton?.addEventListener(
   "click",
-  () => {
+  async () => {
+
+    try {
+      await fetch(`${API_BASE}/auth/logout`, {
+        method: "POST",
+        credentials: "same-origin"
+      });
+    } catch (error) {
+      console.error("No se pudo cerrar la sesion en el servidor", error);
+    }
 
     localStorage.removeItem(
       "sportbook-authenticated"
     );
 
-    window.location.href =
-      "index.html";
+    const logoutMessage =
+      document.createElement("div");
+
+    logoutMessage.className =
+      "logout-screen";
+
+    logoutMessage.innerHTML = `
+
+      <div class="logout-card">
+
+        <div class="logout-icon">
+
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M20 6 9 17l-5-5"></path>
+          </svg>
+
+        </div>
+
+        <h2>Sesión cerrada</h2>
+        <p>Volviendo al inicio...</p>
+
+      </div>
+
+    `;
+
+    document.body.appendChild(
+      logoutMessage
+    );
+
+    setTimeout(() => {
+      window.location.href =
+        "index.html";
+    }, 1800);
 
   }
 );

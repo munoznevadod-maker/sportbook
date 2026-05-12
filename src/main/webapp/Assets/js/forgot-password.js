@@ -7,14 +7,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   
   const API_BASE =
-    location.hostname.includes("railway.app")
-      ? location.origin
+    window.location.protocol.startsWith("http")
+      ? window.location.origin
       : "http://localhost:8085";
-  
-  const PUBLIC_API =
-    location.hostname.includes("railway.app")
-      ? `${location.origin}/api`
-      : "http://localhost:8085/api";
+
+  const PUBLIC_API = `${API_BASE}/api`;
   
   const params =
     new URLSearchParams(

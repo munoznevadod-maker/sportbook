@@ -1,16 +1,13 @@
-﻿// =========================
+// =========================
 // API BASE
 // =========================
 
 const API_BASE =
-  location.hostname.includes("railway.app")
-    ? location.origin
+  window.location.protocol.startsWith("http")
+    ? window.location.origin
     : "http://localhost:8085";
 
-const PUBLIC_API =
-  location.hostname.includes("railway.app")
-    ? `${location.origin}/api`
-    : "http://localhost:8085/api";
+const PUBLIC_API = `${API_BASE}/api`;
 
 
 
@@ -1161,7 +1158,16 @@ const logoutButton =
 
 logoutButton?.addEventListener(
   "click",
-  () => {
+  async () => {
+
+    try {
+      await fetch(`${API_BASE}/auth/logout`, {
+        method: "POST",
+        credentials: "same-origin"
+      });
+    } catch (error) {
+      console.error("No se pudo cerrar la sesion en el servidor", error);
+    }
 
     localStorage.removeItem(
       AUTH_STORAGE_KEY
@@ -1298,7 +1304,7 @@ elements.helpForm?.addEventListener(
 
       const response =
         await fetch(
-          "http://localhost:8085/admin/ayuda",
+          `${API_BASE}/admin/ayuda`,
           {
             method: "POST",
 

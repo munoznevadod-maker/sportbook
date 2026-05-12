@@ -97,3 +97,36 @@ Estos elementos no forman parte del codigo fuente y se pueden regenerar o recrea
 - `admin-cookies.txt`: archivo local de pruebas de sesion.
 - `.github/java-upgrade/`: registros temporales de herramientas de actualizacion.
 - `.vscode/`: configuracion local del editor.
+
+## Railway
+
+El proyecto está preparado para desplegarse como servicio Docker en Railway:
+
+1. Sube este repositorio a GitHub.
+2. Crea un proyecto en Railway desde ese repo.
+3. Añade un servicio MySQL en Railway y enlázalo con la app.
+4. Configura las variables de base de datos si Railway no las inyecta automáticamente:
+   - `MYSQLHOST`
+   - `MYSQLPORT`
+   - `MYSQLDATABASE`
+   - `MYSQLUSER`
+   - `MYSQLPASSWORD`
+5. Railway inyecta `PORT`; el `Dockerfile` configura Tomcat para escuchar en ese puerto.
+
+El frontend usa `window.location.origin`, así que en Railway no llama a `localhost`: llama al mismo dominio público de Railway.
+
+## Acceso desde otros dispositivos
+
+En local, no abras el HTML como archivo. Abre la app servida por Tomcat:
+
+```text
+http://IP_DE_TU_PC:8085
+```
+
+Ejemplo:
+
+```text
+http://192.168.1.50:8085
+```
+
+Todos los JavaScript usan el mismo origen de la página, por eso desde móvil/tablet apuntarán al servidor correcto y no a `localhost` del dispositivo.
