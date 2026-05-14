@@ -62,8 +62,27 @@ public class UsuarioLoginModel {
     }
 
     public boolean estaBloqueado(String login) {
+        String cleanLogin = normalizarLogin(login);
+
         try {
-            return BloqueoUsuarioModel.estaBloqueado(login);
+            try (Connection con = ConexionBD.getConnection();
+                 PreparedStatement ps = con.prepareStatement(
+                         "SELECT email, bloqueado FROM usuarios WHERE LOWER(email) = LOWER(?) OR username = ?")) {
+
+                ps.setString(1, cleanLogin);
+                ps.setString(2, cleanLogin);
+
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (rs.next()) {
+                        String email = rs.getString("email");
+                        boolean bloqueado = rs.getBoolean("bloqueado");
+
+                        return bloqueado || BloqueoUsuarioModel.estaBloqueado(email);
+                    }
+                }
+            }
+
+            return BloqueoUsuarioModel.estaBloqueado(cleanLogin);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
