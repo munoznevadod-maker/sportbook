@@ -9,10 +9,10 @@ public class UsuarioRegisterModel {
                              String email,
                              String password) {
 
-        try {
-
+        try (
             Connection con =
-                ConexionBD.getConnection();
+                ConexionBD.getConnection()
+        ) {
 
             if (BloqueoUsuarioModel
                     .estaBloqueado(email)) {
@@ -20,22 +20,25 @@ public class UsuarioRegisterModel {
                 return false;
             }
 
-            PreparedStatement ps =
-                con.prepareStatement(
+            try (
+                PreparedStatement ps =
+                    con.prepareStatement(
 
-                    "INSERT INTO usuarios " +
-                    "(username, email, password) " +
-                    "VALUES (?, ?, ?)"
+                        "INSERT INTO usuarios " +
+                        "(username, email, password) " +
+                        "VALUES (?, ?, ?)"
 
-                );
+                    )
+            ) {
 
-            ps.setString(1, username);
-            ps.setString(2, email);
-            ps.setString(3, PasswordUtil.hash(password));
+                ps.setString(1, username);
+                ps.setString(2, email);
+                ps.setString(3, PasswordUtil.hash(password));
 
-            int filas = ps.executeUpdate();
+                int filas = ps.executeUpdate();
 
-            return filas > 0;
+                return filas > 0;
+            }
 
         } catch (Exception e) {
 

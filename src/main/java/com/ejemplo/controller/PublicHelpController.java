@@ -1,6 +1,9 @@
 package com.ejemplo.controller;
 
 import com.ejemplo.model.ConexionBD;
+import com.ejemplo.model.PublicHelpModel;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -8,12 +11,19 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Type;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 @WebServlet({"/public-help-list"})
 public class PublicHelpController extends HttpServlet {
+    private final Gson gson = new Gson();
+    private final Type mapType = new TypeToken<Map<String, Object>>() {}.getType();
 
     @Override
     protected void doPost(
@@ -21,49 +31,37 @@ public class PublicHelpController extends HttpServlet {
             HttpServletResponse response)
             throws ServletException, IOException {
 
-        response.setContentType("application/json");
+        response.setContentType("application/json;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
 
         try {
 
-            String body =
-                    request.getReader()
-                            .lines()
-                            .reduce("", String::concat);
+            Map<String, Object> body =
+                    gson.fromJson(request.getReader(), mapType);
 
             String nombre =
-                    body.split("\"nombre\":\"")[1]
-                            .split("\"")[0];
+                    stringValue(body, "nombre");
 
             String gmail =
-                    body.split("\"gmail\":\"")[1]
-                            .split("\"")[0];
+                    stringValue(body, "gmail");
 
             String motivo =
-                    body.split("\"motivo\":\"")[1]
-                            .split("\"")[0];
+                    stringValue(body, "motivo");
 
             String mensaje =
-                    body.split("\"mensaje\":\"")[1]
-                            .split("\"")[0];
+                    stringValue(body, "mensaje");
 
-            Connection con =
-                    ConexionBD.getConnection();
+            boolean ok =
+                    new PublicHelpModel()
+                            .guardar(nombre, gmail, motivo, mensaje);
 
-            PreparedStatement ps =
-                    con.prepareStatement(
-                            "INSERT INTO ayudas_publicas(nombre,gmail,motivo,mensaje) VALUES(?,?,?,?)"
-                    );
+            Map<String, Object> result =
+                    new LinkedHashMap<>();
 
-            ps.setString(1, nombre);
-            ps.setString(2, gmail);
-            ps.setString(3, motivo);
-            ps.setString(4, mensaje);
-
-            ps.executeUpdate();
+            result.put("ok", ok);
 
             response.getWriter().print(
-                    "{\"ok\":true}"
+                    gson.toJson(result)
             );
 
         } catch (Exception e) {
@@ -72,8 +70,13 @@ public class PublicHelpController extends HttpServlet {
 
             response.setStatus(500);
 
+            Map<String, Object> result =
+                    new LinkedHashMap<>();
+
+            result.put("ok", false);
+
             response.getWriter().print(
-                    "{\"ok\":false}"
+                    gson.toJson(result)
             );
         }
     }
@@ -84,62 +87,42 @@ public class PublicHelpController extends HttpServlet {
             HttpServletResponse response)
             throws ServletException, IOException {
 
-        response.setContentType("application/json");
+        response.setContentType("application/json;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
 
         PrintWriter out = response.getWriter();
 
         try {
 
-            Connection con =
-                    ConexionBD.getConnection();
+            List<Map<String, Object>> ayudas =
+                    new ArrayList<>();
 
-            PreparedStatement ps =
-                    con.prepareStatement(
-                            "SELECT * FROM ayudas_publicas ORDER BY id DESC"
-                    );
+            try (
+                    Connection con =
+                            ConexionBD.getConnection();
 
-            ResultSet rs = ps.executeQuery();
+                    PreparedStatement ps =
+                            con.prepareStatement(
+                                    "SELECT id, nombre, gmail, motivo, mensaje FROM ayudas_publicas ORDER BY id DESC"
+                            );
 
-            StringBuilder json =
-                    new StringBuilder("[");
+                    ResultSet rs =
+                            ps.executeQuery()
+            ) {
+                while (rs.next()) {
+                    Map<String, Object> item =
+                            new LinkedHashMap<>();
 
-            boolean first = true;
-
-            while (rs.next()) {
-
-                if (!first) {
-                    json.append(",");
+                    item.put("id", rs.getInt("id"));
+                    item.put("nombre", rs.getString("nombre"));
+                    item.put("gmail", rs.getString("gmail"));
+                    item.put("tema", rs.getString("motivo"));
+                    item.put("mensaje", rs.getString("mensaje"));
+                    ayudas.add(item);
                 }
-
-                json.append("{")
-                        .append("\"id\":")
-                        .append(rs.getInt("id"))
-                        .append(",")
-
-                        .append("\"nombre\":\"")
-                        .append(rs.getString("nombre"))
-                        .append("\",")
-
-                        .append("\"gmail\":\"")
-                        .append(rs.getString("gmail"))
-                        .append("\",")
-
-                        .append("\"tema\":\"")
-                        .append(rs.getString("motivo"))
-                        .append("\",")
-
-                        .append("\"mensaje\":\"")
-                        .append(rs.getString("mensaje"))
-                        .append("\"")
-                        .append("}");
-
-                first = false;
             }
 
-            json.append("]");
-
-            out.print(json.toString());
+            out.print(gson.toJson(ayudas));
 
         } catch (Exception e) {
 
@@ -147,5 +130,21 @@ public class PublicHelpController extends HttpServlet {
 
             out.print("[]");
         }
+    }
+
+    private String stringValue(
+            Map<String, Object> data,
+            String key) {
+
+        if (data == null) {
+            return "";
+        }
+
+        Object value =
+                data.get(key);
+
+        return value == null
+                ? ""
+                : String.valueOf(value).trim();
     }
 }

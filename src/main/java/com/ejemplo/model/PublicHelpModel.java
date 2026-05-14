@@ -11,26 +11,29 @@ public class PublicHelpModel {
             String motivo,
             String mensaje) {
 
-        try {
-
+        try (
             Connection con =
-                ConexionBD.getConnection();
+                ConexionBD.getConnection()
+        ) {
 
-            PreparedStatement ps =
-                con.prepareStatement(
+            try (
+                PreparedStatement ps =
+                    con.prepareStatement(
 
-                    "INSERT INTO ayudas_publicas " +
-                    "(nombre, gmail, motivo, mensaje) " +
-                    "VALUES (?, ?, ?, ?)"
+                        "INSERT INTO ayudas_publicas " +
+                        "(nombre, gmail, motivo, mensaje) " +
+                        "VALUES (?, ?, ?, ?)"
 
-                );
+                    )
+            ) {
 
-            ps.setString(1, nombre);
-            ps.setString(2, gmail);
-            ps.setString(3, motivo);
-            ps.setString(4, mensaje);
+                ps.setString(1, nombre);
+                ps.setString(2, gmail);
+                ps.setString(3, motivo);
+                ps.setString(4, mensaje);
 
-            return ps.executeUpdate() > 0;
+                return ps.executeUpdate() > 0;
+            }
 
         } catch (Exception e) {
 
