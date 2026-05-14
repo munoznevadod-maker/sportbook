@@ -15,7 +15,7 @@ const AUTH_STORAGE_KEY = "sportbook-authenticated";
 const USER_EMAIL_STORAGE_KEY = "sportbook-user-email";
 const USER_PHONE_STORAGE_KEY = "sportbook-user-phone";
 const USERNAME_STORAGE_KEY = "sportbook-username";
-const BIZUM_PHONE = "600 123 456";
+const BIZUM_PHONE = "+34 600 123 456";
 
 const activities = {
 
@@ -131,6 +131,12 @@ const elements = {
   paymentInfo:
     document.querySelector("#paymentInfo"),
 
+  paymentInfoTitle:
+    document.querySelector("#paymentInfoTitle"),
+
+  bookingSubmitButton:
+    document.querySelector("#bookingSubmitButton"),
+
   activityPicker:
     document.querySelector("#activityPicker"),
 
@@ -186,8 +192,47 @@ function renderPaymentInfo() {
 
   if (!elements.paymentInfo) return;
 
+  const method =
+    elements.paymentMethod?.value || "Bizum";
+
+  if (method === "Centro") {
+
+    if (elements.paymentInfoTitle) {
+      elements.paymentInfoTitle.textContent =
+        "Pago en el centro pendiente";
+    }
+
+    elements.paymentInfo.textContent =
+      "Deberas ir a la instalacion el dia de la reserva y pagar alli en persona antes de empezar la actividad.";
+
+    if (elements.bookingSubmitButton) {
+      elements.bookingSubmitButton.textContent =
+        "Reservar y pagar en el centro";
+    }
+
+    return;
+  }
+
+  if (elements.paymentInfoTitle) {
+    elements.paymentInfoTitle.textContent =
+      "Pago por Bizum pendiente";
+  }
+
   elements.paymentInfo.textContent =
     `Deberas pagar por Bizum al telefono ${BIZUM_PHONE} como maximo un dia antes de la reserva.`;
+
+  if (elements.bookingSubmitButton) {
+    elements.bookingSubmitButton.textContent =
+      "Reservar y pagar por Bizum";
+  }
+}
+
+
+function reservationPaymentMessage(method) {
+
+  return method === "Centro"
+    ? "Tu plaza queda reservada. Deberas ir a la instalacion el dia de la reserva y pagar alli en persona antes de empezar la actividad."
+    : `Tu plaza queda reservada. Paga por Bizum al telefono ${BIZUM_PHONE} como maximo un dia antes de la reserva.`;
 }
 
 
@@ -498,6 +543,11 @@ elements.people?.addEventListener(
   updateSummary
 );
 
+elements.paymentMethod?.addEventListener(
+  "change",
+  renderPaymentInfo
+);
+
 
 const facilityData = {
 
@@ -790,7 +840,7 @@ elements.form?.addEventListener(
             </h2>
 
             <p>
-              Tu plaza queda reservada. Paga por Bizum al telefono ${BIZUM_PHONE} como maximo un dia antes de la reserva.
+              ${reservationPaymentMessage(reservation.paymentMethod)}
             </p>
           </div>`;
 
@@ -943,10 +993,18 @@ function renderReservations(
             ${paymentMethodLabel(reservation.paymentMethod)}
           </p>
 
-          <p class="reservation-meta">
-            Bizum:
-            ${BIZUM_PHONE}
-          </p>
+          ${reservation.paymentMethod === "Bizum"
+            ? `
+              <p class="reservation-meta">
+                Bizum:
+                ${BIZUM_PHONE}
+              </p>
+            `
+            : `
+              <p class="reservation-meta">
+                Pago presencial en la instalacion
+              </p>
+            `}
 
           <p class="reservation-meta">
             ${reservation.client}
