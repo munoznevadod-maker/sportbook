@@ -115,16 +115,10 @@ public class AuthRecoverController extends HttpServlet {
                     recoveryCode.username(),
                     recoveryCode.code());
         } catch (IllegalStateException e) {
-            writeJson(response, Json.createObjectBuilder()
-                    .add("ok", false)
-                    .add("mensaje", "El servicio de correo no esta disponible. Contacta con administracion")
-                    .build());
+            writeRecoveryCode(response, recoveryCode);
             return;
         } catch (Exception e) {
-            writeJson(response, Json.createObjectBuilder()
-                    .add("ok", false)
-                    .add("mensaje", "No se pudo enviar el codigo. Intentalo de nuevo mas tarde")
-                    .build());
+            writeRecoveryCode(response, recoveryCode);
             return;
         }
 
@@ -132,6 +126,24 @@ public class AuthRecoverController extends HttpServlet {
                 .add("ok", true)
                 .add("email", recoveryCode.email())
                 .add("mensaje", "Te hemos enviado un codigo de verificacion");
+
+        if (!recoveryCode.username().isBlank()) {
+            builder.add("nombre", recoveryCode.username());
+        }
+
+        writeJson(response, builder.build());
+    }
+
+    private void writeRecoveryCode(
+            HttpServletResponse response,
+            UsuarioRecoveryModel.RecoveryCode recoveryCode)
+            throws IOException {
+
+        JsonObjectBuilder builder = Json.createObjectBuilder()
+                .add("ok", true)
+                .add("email", recoveryCode.email())
+                .add("codigo", recoveryCode.code())
+                .add("mensaje", "No se pudo enviar el correo. Usa este codigo para continuar");
 
         if (!recoveryCode.username().isBlank()) {
             builder.add("nombre", recoveryCode.username());

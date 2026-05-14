@@ -4,9 +4,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   
   const API_BASE =
-    window.location.protocol.startsWith("http")
-      ? window.location.origin
-      : "http://localhost:8085";
+    window.location.port === "5500" ||
+    window.location.protocol === "file:"
+      ? "http://localhost:8085"
+      : window.location.origin;
 
   const PUBLIC_API = `${API_BASE}/api`;
   
@@ -166,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         accountFound.innerHTML = `
           <strong>
-            Revisa tu correo
+            ${data.codigo ? "Codigo de recuperacion" : "Revisa tu correo"}
           </strong>
 
           ${
@@ -177,6 +178,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
           Hemos enviado un código de 6 dígitos a ${escapeHtml(selectedEmail)}.
         `;
+
+        if (data.codigo) {
+          accountFound.innerHTML = `
+            <strong>
+              Codigo de recuperacion
+            </strong>
+
+            ${
+              data.nombre
+              ? `${escapeHtml(data.nombre)}<br>`
+              : ""
+            }
+
+            Usa este codigo para continuar:
+            <strong>${escapeHtml(data.codigo)}</strong>
+          `;
+        }
 
         checkForm.classList.add(
           "hidden"
