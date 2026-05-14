@@ -108,6 +108,20 @@ function formatDate(dateISO) {
     return "Sin fecha";
   }
 
+  const rawDate =
+    String(dateISO).trim();
+
+  const parsedDate =
+    rawDate.includes("T")
+      ? new Date(rawDate)
+      : rawDate.includes(" ")
+        ? new Date(rawDate.replace(" ", "T"))
+        : new Date(`${rawDate}T12:00:00`);
+
+  if (Number.isNaN(parsedDate.getTime())) {
+    return rawDate;
+  }
+
   return new Intl.DateTimeFormat(
     "es-ES",
     {
@@ -115,9 +129,7 @@ function formatDate(dateISO) {
       month: "short",
       year: "numeric"
     }
-  ).format(
-    new Date(`${dateISO}T12:00:00`)
-  );
+  ).format(parsedDate);
 }
 
 function displayPaymentMethod(method) {
@@ -718,6 +730,7 @@ async function renderBlocked() {
 
             <tr>
               <th>Correo</th>
+              <th>Motivo</th>
               <th>Fecha</th>
               <th>Acciones</th>
             </tr>
@@ -732,6 +745,10 @@ async function renderBlocked() {
 
                 <td>
                   ${escapeHTML(user.email)}
+                </td>
+
+                <td>
+                  ${escapeHTML(user.motivo)}
                 </td>
 
                 <td>
