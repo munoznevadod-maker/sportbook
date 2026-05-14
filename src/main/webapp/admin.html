@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SportBook | Panel administrador</title>
   <link rel="stylesheet" href="Assets/css/admin.css">
+  <link rel="icon" type="image/x-icon" href="Assets/img/icon.png">
 </head>
 <body>
   <div class="admin-layout">
@@ -112,6 +113,12 @@
               Mensajes enviados por clientes con cuenta.
             </p>
           </div>
+          <div class="filters">
+            <label class="field">
+              <span>Buscar usuario</span>
+              <input id="helpSearch" type="search" placeholder="Usuario o correo">
+            </label>
+          </div>
         </div>
 
         <div class="panel" id="helpTable"></div>
@@ -124,6 +131,12 @@
             <p class="muted">
               Mensajes enviados sin iniciar sesión.
             </p>
+          </div>
+          <div class="filters">
+            <label class="field">
+              <span>Buscar remitente</span>
+              <input id="publicHelpSearch" type="search" placeholder="Nombre o correo">
+            </label>
           </div>
         </div>
 

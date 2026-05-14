@@ -32,6 +32,12 @@ const elements = {
     document.querySelector("#paymentsTable"),
   helpTable:
     document.querySelector("#helpTable"),
+  helpSearch:
+    document.querySelector("#helpSearch"),
+  publicHelpSearch:
+    document.querySelector("#publicHelpSearch"),
+  unregisteredHelpTable:
+    document.querySelector("#unregisteredHelpTable"),
   reviewsTable:
     document.querySelector("#reviewsTable"),
   blockedTable:
@@ -50,6 +56,7 @@ const elements = {
 
 let reservations = [];
 let helpRequests = [];
+let publicHelpRequests = [];
 let reviews = [];
 let blockedUsers = [];
 let authRedirecting = false;
@@ -63,6 +70,13 @@ function escapeHTML(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function normalizeSearch(value) {
+
+  return String(value ?? "")
+    .trim()
+    .toLowerCase();
 }
 
 function formatCurrency(value) {
@@ -338,6 +352,15 @@ async function cargarAyudasPublicas() {
     const ayudas =
       await response.json();
 
+    publicHelpRequests =
+      Array.isArray(ayudas)
+        ? ayudas
+        : [];
+
+    renderPublicHelp();
+
+    return;
+
     if (!ayudas.length) {
 
       panel.innerHTML =
@@ -416,6 +439,99 @@ async function cargarAyudasPublicas() {
         "No se pudieron cargar las ayudas públicas."
       );
   }
+}
+
+
+function renderPublicHelp() {
+
+  const search =
+    normalizeSearch(
+      elements.publicHelpSearch?.value
+    );
+
+  const filtered =
+    publicHelpRequests.filter(a => {
+
+      const text =
+        [
+          a.nombre,
+          a.gmail,
+          a.tema,
+          a.mensaje
+        ].join(" ").toLowerCase();
+
+      return text.includes(search);
+    });
+
+  if (!filtered.length) {
+
+    elements.unregisteredHelpTable.innerHTML =
+      emptyMarkup(
+        "No hay mensajes",
+        search
+          ? "No coincide ningun mensaje publico."
+          : "Los formularios publicos apareceran aqui."
+      );
+
+    return;
+  }
+
+  elements.unregisteredHelpTable.innerHTML = `
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>Nombre</th>
+            <th>Gmail</th>
+            <th>Motivo</th>
+            <th>Mensaje</th>
+            <th>Tipo</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          ${filtered.map(a => `
+
+            <tr>
+
+              <td>
+                ${escapeHTML(a.nombre)}
+              </td>
+
+              <td>
+                ${escapeHTML(a.gmail)}
+              </td>
+
+              <td>
+                ${escapeHTML(a.tema)}
+              </td>
+
+              <td>
+                ${escapeHTML(a.mensaje)}
+              </td>
+
+              <td>
+                <span class="badge danger">
+                  No registrado
+                </span>
+              </td>
+
+            </tr>
+
+          `).join("")}
+
+        </tbody>
+
+      </table>
+
+    </div>
+  `;
 }
 
 
@@ -896,7 +1012,26 @@ function renderPayments() {
 
 function renderHelp() {
 
-  if (!helpRequests.length) {
+  const search =
+    normalizeSearch(
+      elements.helpSearch?.value
+    );
+
+  const filtered =
+    helpRequests.filter(r => {
+
+      const text =
+        [
+          r.nombre,
+          r.gmail,
+          r.tema,
+          r.mensaje
+        ].join(" ").toLowerCase();
+
+      return text.includes(search);
+    });
+
+  if (!filtered.length) {
 
     elements.helpTable.innerHTML =
       emptyMarkup(
@@ -927,7 +1062,7 @@ function renderHelp() {
 
         <tbody>
 
-          ${helpRequests.map(r => `
+          ${filtered.map(r => `
 
             <tr>
 
@@ -976,6 +1111,16 @@ elements.paymentFilter?.addEventListener(
 elements.bookingSearch?.addEventListener(
   "input",
   renderPayments
+);
+
+elements.helpSearch?.addEventListener(
+  "input",
+  renderHelp
+);
+
+elements.publicHelpSearch?.addEventListener(
+  "input",
+  renderPublicHelp
 );
 
 elements.refreshButton?.addEventListener(
