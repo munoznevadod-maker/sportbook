@@ -197,9 +197,7 @@
           <label class="field">
             <span>Método de pago</span>
             <select id="paymentMethod" name="paymentMethod" required>
-              <option value="" selected>Selecciona cómo pagarás</option>
-              <option value="Centro">Pagar en el centro</option>
-              <option value="Transferencia">Transferencia antes de la actividad</option>
+              <option value="Bizum" selected>Bizum</option>
             </select>
           </label>
 
@@ -250,9 +248,9 @@
         </div>
 
         <div class="payment-note" aria-live="polite">
-          <strong>Pago pendiente</strong>
-          <span>
-            Tu plaza queda reservada ahora y el pago se realiza en el centro el día de la actividad.
+          <strong>Pago por Bizum pendiente</strong>
+          <span id="paymentInfo">
+            Deberas pagar por Bizum como maximo un dia antes de la reserva.
           </span>
         </div>
 
@@ -263,7 +261,7 @@
           </button>
 
           <button class="button primary" type="submit">
-            Reservar y pagar en el centro
+            Reservar y pagar por Bizum
           </button>
         </div>
       </form>

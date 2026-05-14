@@ -134,15 +134,25 @@ function formatDate(dateISO) {
 
 function displayPaymentMethod(method) {
 
-  return method === "Transferencia"
-    ? "Transferencia"
-    : "En el centro";
+  if (method === "Bizum") {
+    return "Bizum";
+  }
+
+  if (method === "Transferencia") {
+    return "Transferencia";
+  }
+
+  return "En el centro";
 }
 
 function paymentVerificationText(reservation) {
 
   if (reservation.paymentStatus === "Pagado") {
     return "Pago comprobado por administración.";
+  }
+
+  if (reservation.paymentMethod === "Bizum") {
+    return "Comprobar Bizum recibido antes de la reserva y marcar como pagado.";
   }
 
   if (reservation.paymentMethod === "Transferencia") {

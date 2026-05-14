@@ -15,6 +15,7 @@ const AUTH_STORAGE_KEY = "sportbook-authenticated";
 const USER_EMAIL_STORAGE_KEY = "sportbook-user-email";
 const USER_PHONE_STORAGE_KEY = "sportbook-user-phone";
 const USERNAME_STORAGE_KEY = "sportbook-username";
+const BIZUM_PHONE = "600 123 456";
 
 const activities = {
 
@@ -127,6 +128,9 @@ const elements = {
   paymentMethod:
     document.querySelector("#paymentMethod"),
 
+  paymentInfo:
+    document.querySelector("#paymentInfo"),
+
   activityPicker:
     document.querySelector("#activityPicker"),
 
@@ -166,6 +170,25 @@ const elements = {
 };
 
 let selectedRating = 0;
+
+
+function paymentMethodLabel(method) {
+
+  return method === "Bizum"
+    ? "Bizum"
+    : method === "Transferencia"
+      ? "Transferencia"
+      : "En el centro";
+}
+
+
+function renderPaymentInfo() {
+
+  if (!elements.paymentInfo) return;
+
+  elements.paymentInfo.textContent =
+    `Deberas pagar por Bizum al telefono ${BIZUM_PHONE} como maximo un dia antes de la reserva.`;
+}
 
 
 function renderLoggedUser() {
@@ -767,7 +790,7 @@ elements.form?.addEventListener(
             </h2>
 
             <p>
-              Tu plaza queda reservada. Pago pendiente en el centro.
+              Tu plaza queda reservada. Paga por Bizum al telefono ${BIZUM_PHONE} como maximo un dia antes de la reserva.
             </p>
           </div>`;
 
@@ -917,9 +940,12 @@ function renderReservations(
 
           <p class="reservation-meta">
             Pago:
-            ${reservation.paymentMethod === "Transferencia"
-              ? "Transferencia"
-              : "En el centro"}
+            ${paymentMethodLabel(reservation.paymentMethod)}
+          </p>
+
+          <p class="reservation-meta">
+            Bizum:
+            ${BIZUM_PHONE}
           </p>
 
           <p class="reservation-meta">
@@ -1527,6 +1553,8 @@ document.addEventListener(
   () => {
 
     renderLoggedUser();
+
+    renderPaymentInfo();
 
     cargarReservas();
 

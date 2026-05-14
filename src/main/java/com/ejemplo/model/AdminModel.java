@@ -880,6 +880,7 @@ public class AdminModel {
             );
 
         return switch (value) {
+            case "Bizum" -> "Bizum";
             case "Transferencia" -> "Transferencia";
             default -> "Centro";
         };
