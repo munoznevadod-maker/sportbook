@@ -179,9 +179,6 @@ body {
     color: #000;
 }
 
-/* =========================
-   SIMETRIA GLOBAL AUTH
-========================= */
 
 .register-box,
 .extra-links,
@@ -226,9 +223,6 @@ body {
     place-items: center;
 }
 
-/* =========================
-   RESPONSIVE GLOBAL AUTH
-========================= */
 
 @media (max-width: 480px) {
     body {

@@ -1,6 +1,3 @@
-// =========================
-// API BASE
-// =========================
 
 const API_BASE =
   window.location.protocol.startsWith("http")
@@ -170,9 +167,6 @@ const elements = {
 
 let selectedRating = 0;
 
-/* =========================
-   USUARIO
-========================= */
 
 function renderLoggedUser() {
 
@@ -188,9 +182,6 @@ function renderLoggedUser() {
 
 }
 
-/* =========================
-   TOAST
-========================= */
 
 function showToast(message) {
 
@@ -262,9 +253,6 @@ function escapeHTML(value) {
     .replaceAll("'", "&#039;");
 }
 
-/* =========================
-   DINERO
-========================= */
 
 function formatCurrency(value) {
 
@@ -278,9 +266,6 @@ function formatCurrency(value) {
 
 }
 
-/* =========================
-   RESUMEN
-========================= */
 
 function updateSummary() {
 
@@ -322,9 +307,6 @@ function updateSummary() {
 
 }
 
-/* =========================
-   ACTIVIDAD
-========================= */
 
 function updateActivity(sport) {
 
@@ -414,9 +396,6 @@ elements.sport?.addEventListener(
   }
 );
 
-/* =========================
-   DISPONIBILIDAD
-========================= */
 
 async function updateSlotAvailability() {
 
@@ -495,9 +474,6 @@ elements.people?.addEventListener(
   "input",
   updateSummary
 );
-/* =========================
-   INSTALACIONES
-========================= */
 
 
 const facilityData = {
@@ -678,9 +654,6 @@ function renderFacilityInfo(sport) {
 
 }
 
-/* =========================
-   CREAR RESERVA
-========================= */
 
 elements.form?.addEventListener(
   "submit",
@@ -835,9 +808,6 @@ elements.form?.addEventListener(
   }
 );
 
-/* =========================
-   CARGAR RESERVAS
-========================= */
 
 async function cargarReservas() {
 
@@ -887,9 +857,6 @@ async function cargarReservas() {
   }
 }
 
-/* =========================
-   RENDER RESERVAS
-========================= */
 
 function renderReservations(
   reservations = []
@@ -999,9 +966,6 @@ function renderReservations(
 
 }
 
-/* =========================
-   ACTUALIZAR RESERVAS
-========================= */
 
 elements.refreshBookingsButton?.addEventListener(
   "click",
@@ -1030,9 +994,6 @@ elements.refreshBookingsButton?.addEventListener(
   }
 );
 
-/* =========================
-   MENU USUARIO
-========================= */
 
 const userMenuButton =
   document.getElementById(
@@ -1084,9 +1045,6 @@ document.addEventListener(
   }
 );
 
-/* =========================
-   BIENVENIDA
-========================= */
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -1147,9 +1105,6 @@ document.addEventListener(
   }
 );
 
-/* =========================
-   CERRAR SESIÓN
-========================= */
 
 const logoutButton =
   document.querySelector(
@@ -1234,9 +1189,6 @@ logoutButton?.addEventListener(
   }
 );
 
-/* =========================
-   EVENTOS
-========================= */
 
 elements.bookingDate?.addEventListener(
   "change",
@@ -1259,9 +1211,6 @@ elements.sport?.addEventListener(
   updateSlotAvailability
 );
 
-/* =========================
-   AYUDA REGISTRADOS
-========================= */
 
 elements.helpForm?.addEventListener(
   "submit",
@@ -1357,9 +1306,6 @@ elements.helpForm?.addEventListener(
   }
 );
 
-/* =========================
-   RESEÑAS
-========================= */
 
 function renderStars(rating) {
 
@@ -1575,9 +1521,6 @@ elements.reviewForm?.addEventListener(
   }
 );
 
-/* =========================
-   INICIO
-========================= */
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -1596,9 +1539,6 @@ document.addEventListener(
   }
 );
 
-/* =========================
-   CANCELAR RESERVA
-========================= */
 
 document.addEventListener(
   "click",

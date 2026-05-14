@@ -1,9 +1,11 @@
 target/
 *.war
+*.zip
 
 .env
 *.log
 admin-cookies.txt
+Explicacion/
 
 .github/java-upgrade/
 .idea/

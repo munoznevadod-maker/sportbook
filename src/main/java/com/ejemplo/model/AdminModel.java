@@ -15,9 +15,6 @@ import java.util.Map;
 
 public class AdminModel {
 
-    // =========================
-    // RESERVAS
-    // =========================
 
     public List<Map<String, Object>> listarReservas()
             throws Exception {
@@ -415,9 +412,6 @@ public class AdminModel {
         }
     }
 
-    // =========================
-    // AYUDA
-    // =========================
 
     public List<Map<String, Object>> listarAyuda()
             throws Exception {
@@ -598,9 +592,6 @@ public class AdminModel {
         );
     }
 
-    // =========================
-    // RESEÑAS
-    // =========================
 
     public List<Map<String, Object>> listarResenas()
             throws Exception {
@@ -719,9 +710,6 @@ public class AdminModel {
         );
     }
 
-    // =========================
-    // BLOQUEADOS
-    // =========================
 
     public List<Map<String, Object>> listarBloqueados()
             throws Exception {
@@ -762,9 +750,6 @@ public class AdminModel {
             );
     }
 
-    // =========================
-    // UTILIDADES
-    // =========================
 
     private boolean eliminarPorId(
             String tabla,

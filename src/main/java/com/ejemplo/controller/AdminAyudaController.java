@@ -20,9 +20,6 @@ import java.util.Map;
 @WebServlet("/admin/ayuda")
 public class AdminAyudaController extends HttpServlet {
 
-    // =========================
-    // OPTIONS
-    // =========================
 
     @Override
     protected void doOptions(
@@ -45,9 +42,6 @@ public class AdminAyudaController extends HttpServlet {
         );
     }
 
-    // =========================
-    // GET
-    // =========================
 
     @Override
     protected void doGet(
@@ -144,9 +138,6 @@ public class AdminAyudaController extends HttpServlet {
         }
     }
 
-    // =========================
-    // POST
-    // =========================
 
     @Override
     protected void doPost(

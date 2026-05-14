@@ -1,6 +1,3 @@
-// =========================
-// API BASE
-// =========================
 
 const API_BASE =
   window.location.protocol.startsWith("http")
@@ -57,9 +54,6 @@ let reviews = [];
 let blockedUsers = [];
 let authRedirecting = false;
 
-// =========================
-// UTILIDADES
-// =========================
 
 function escapeHTML(value) {
 
@@ -230,9 +224,6 @@ function handleAuthError(response) {
   return false;
 }
 
-// =========================
-// CARGAR RESERVAS MYSQL
-// =========================
 
 async function loadReservations() {
 
@@ -281,9 +272,6 @@ async function loadReservations() {
   }
 }
 
-// =========================
-// AYUDA REGISTRADOS
-// =========================
 
 async function loadHelpRequests() {
 
@@ -330,9 +318,6 @@ async function loadHelpRequests() {
   }
 }
 
-// =========================
-// AYUDAS PÚBLICAS
-// =========================
 
 async function cargarAyudasPublicas() {
 
@@ -433,9 +418,6 @@ async function cargarAyudasPublicas() {
   }
 }
 
-// =========================
-// RESEÑAS
-// =========================
 
 async function loadReviews() {
 
@@ -565,9 +547,6 @@ function renderReviews() {
   `;
 }
 
-// =========================
-// BLOQUEADOS
-// =========================
 
 async function renderBlocked() {
 
@@ -672,9 +651,6 @@ async function renderBlocked() {
   }
 }
 
-// =========================
-// RESUMEN
-// =========================
 
 function renderSummary() {
 
@@ -725,9 +701,6 @@ function renderSummary() {
   `;
 }
 
-// =========================
-// RESERVAS
-// =========================
 
 function renderPayments() {
 
@@ -920,9 +893,6 @@ function renderPayments() {
   `;
 }
 
-// =========================
-// AYUDA
-// =========================
 
 function renderHelp() {
 
@@ -997,9 +967,6 @@ function renderHelp() {
   `;
 }
 
-// =========================
-// EVENTOS
-// =========================
 
 elements.paymentFilter?.addEventListener(
   "change",
@@ -1078,9 +1045,6 @@ elements.logoutButton?.addEventListener(
   }
 );
 
-// =========================
-// NAVEGACIÓN
-// =========================
 
 elements.navButtons.forEach(button => {
 
@@ -1123,9 +1087,6 @@ elements.navButtons.forEach(button => {
 
 });
 
-// =========================
-// BOTONES PAGADO/PENDIENTE
-// =========================
 
 document.addEventListener(
   "click",
@@ -1257,9 +1218,6 @@ document.addEventListener(
   }
 );
 
-// =========================
-// BLOQUEAR
-// =========================
 
 elements.blockForm?.addEventListener(
   "submit",
@@ -1342,9 +1300,6 @@ elements.blockForm?.addEventListener(
   }
 );
 
-// =========================
-// DESBLOQUEAR
-// =========================
 
 elements.blockedTable?.addEventListener(
   "click",
@@ -1382,6 +1337,10 @@ elements.blockedTable?.addEventListener(
           }
         );
 
+      if (handleAuthError(response)) {
+        return;
+      }
+
       const data =
         await response.json();
 
@@ -1393,11 +1352,21 @@ elements.blockedTable?.addEventListener(
 
         await renderBlocked();
 
+      } else {
+
+        showToast(
+          data.mensaje ||
+          "No se pudo desbloquear el usuario."
+        );
       }
 
     } catch (error) {
 
       console.error(error);
+
+      showToast(
+        "Error de conexión al desbloquear."
+      );
 
     }
 
@@ -1473,9 +1442,6 @@ elements.reviewsTable?.addEventListener(
   }
 );
 
-// =========================
-// INICIO
-// =========================
 
 async function renderAll() {
 

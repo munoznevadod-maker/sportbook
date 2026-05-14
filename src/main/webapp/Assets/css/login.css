@@ -133,9 +133,6 @@ body {
     }
 }
 
-/* =========================
-   SIMETRIA GLOBAL AUTH
-========================= */
 
 .login-box,
 .extra-links,
@@ -173,9 +170,6 @@ body {
     padding: 0.85rem 1rem;
 }
 
-/* =========================
-   RESPONSIVE GLOBAL AUTH
-========================= */
 
 @media (max-width: 480px) {
     body {

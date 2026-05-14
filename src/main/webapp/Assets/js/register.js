@@ -1,6 +1,3 @@
-// =========================
-// API BASE
-// =========================
 
 const API_BASE =
   window.location.protocol.startsWith("http")
@@ -27,9 +24,6 @@ if (loginLink && redirect === "ayuda") {
     
 }
 
-// =========================
-// MOSTRAR / OCULTAR PASSWORD
-// =========================
 
 function togglePassword(inputId, button) {
 

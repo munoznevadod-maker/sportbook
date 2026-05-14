@@ -1,6 +1,3 @@
-// =========================
-// API BASE
-// =========================
 
 const API_BASE =
   window.location.protocol.startsWith("http")
@@ -105,9 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ""
           ).toLowerCase();
 
-        // =========================
-        // GUARDAR DATOS
-        // =========================
         localStorage.setItem(
           "sportbook-authenticated",
           "true"
@@ -146,9 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
           )
         );
 
-        // =========================
-        // REDIRECCIÓN
-        // =========================
 
         if (role === "admin") {
 

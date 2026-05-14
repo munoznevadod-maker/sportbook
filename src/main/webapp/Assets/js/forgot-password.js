@@ -1,6 +1,3 @@
-// =========================
-// API BASE
-// =========================
 
 
 
@@ -74,9 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let selectedEmail = "";
   let verifiedCode = "";
 
-  // =========================
-  // MOSTRAR / OCULTAR PASSWORD
-  // =========================
 
   window.togglePassword =
     function(inputId, button) {
@@ -98,9 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
 
-  // =========================
-  // REDIRECT AYUDA
-  // =========================
 
   if (
     backToLoginLink &&
@@ -111,9 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
       "login.html?redirect=ayuda";
   }
 
-  // =========================
-  // BUSCAR CUENTA
-  // =========================
 
   checkForm.addEventListener(
     "submit",
@@ -215,9 +203,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   );
 
-  // =========================
-  // VERIFICAR CODIGO
-  // =========================
 
   verifyCodeForm.addEventListener(
     "submit",
@@ -259,9 +244,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   );
 
-  // =========================
-  // CAMBIAR PASSWORD
-  // =========================
 
   resetForm.addEventListener(
     "submit",
@@ -374,9 +356,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   );
 
-  // =========================
-  // MENSAJES
-  // =========================
 
   function setMessage(text, type) {
 
@@ -388,9 +367,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .trim();
   }
 
-  // =========================
-  // SEGURIDAD HTML
-  // =========================
 
   function escapeHtml(value) {
 

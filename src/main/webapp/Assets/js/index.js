@@ -1,6 +1,3 @@
-// =========================
-// API BASE
-// =========================
 
 const API_BASE =
   window.location.protocol.startsWith("http")
@@ -142,9 +139,6 @@ window.addEventListener(
 
 updateNextSection();
 
-// =========================
-// FORMULARIO AYUDA PUBLICA
-// =========================
 
 const publicHelpForm =document.querySelector("#publicHelpForm");
 
