@@ -1,7 +1,11 @@
 
 const API_BASE =
   window.location.protocol.startsWith("http")
-    ? window.location.origin
+    ? (
+      ["5500", "5501", "8089"].includes(window.location.port)
+        ? `${window.location.protocol}//${window.location.hostname}:8085`
+        : window.location.origin
+    )
     : "http://localhost:8085";
 
 const PUBLIC_API = `${API_BASE}/api`;
@@ -69,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
             `${API_BASE}/auth/login`,
             {
               method: "POST",
+              credentials: "include",
 
               headers: {
                 "Content-Type":
@@ -133,13 +138,16 @@ document.addEventListener("DOMContentLoaded", () => {
           role
         );
 
-        console.log(
-          "EMAIL GUARDADO:",
-          localStorage.getItem(
-            "sportbook-user-email"
-          )
-        );
-
+        if (data.profileImage) {
+          localStorage.setItem(
+            "sportbook-profile-image",
+            data.profileImage
+          );
+        } else {
+          localStorage.removeItem(
+            "sportbook-profile-image"
+          );
+        }
 
         if (role === "admin") {
 

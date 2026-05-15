@@ -22,14 +22,14 @@ public class ResenaController extends HttpServlet {
 
     @Override
     protected void doOptions(HttpServletRequest request, HttpServletResponse response) {
-        AuthSupport.cors(response);
+        AuthSupport.cors(request, response);
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
-        AuthSupport.cors(response);
+        AuthSupport.cors(request, response);
         response.setContentType("application/json;charset=UTF-8");
 
         try {
@@ -48,7 +48,7 @@ public class ResenaController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
-        AuthSupport.cors(response);
+        AuthSupport.cors(request, response);
         response.setContentType("application/json;charset=UTF-8");
 
         HttpSession session = request.getSession(false);

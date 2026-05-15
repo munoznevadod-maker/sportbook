@@ -18,14 +18,14 @@ public class AuthLoginController extends HttpServlet {
 
     @Override
     protected void doOptions(HttpServletRequest request, HttpServletResponse response) {
-        AuthSupport.cors(response);
+        AuthSupport.cors(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
-        AuthSupport.cors(response);
+        AuthSupport.cors(request, response);
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json;charset=UTF-8");
 
@@ -63,6 +63,7 @@ public class AuthLoginController extends HttpServlet {
         String rol = model.obtenerRol(login);
         String username = model.obtenerUsername(login);
         String email = model.obtenerEmail(login);
+        String profileImage = model.obtenerProfileImage(login);
 
         HttpSession sesion = request.getSession(true);
         sesion.setMaxInactiveInterval(30 * 60);
@@ -76,6 +77,7 @@ public class AuthLoginController extends HttpServlet {
                 .add("rol", rol)
                 .add("username", username)
                 .add("email", email)
+                .add("profileImage", profileImage)
                 .build();
 
         response.getWriter().print(json.toString());

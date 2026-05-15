@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SportBook | Panel administrador</title>
-  <link rel="stylesheet" href="Assets/css/admin.css">
+  <link rel="stylesheet" href="Assets/css/admin.css?v=5">
   <link rel="icon" type="image/x-icon" href="Assets/img/icon.png">
 </head>
 <body>
@@ -113,7 +113,7 @@
               Mensajes enviados por clientes con cuenta.
             </p>
           </div>
-          <div class="filters">
+          <div class="filters search-filter">
             <label class="field">
               <span>Buscar usuario</span>
               <input id="helpSearch" type="search" placeholder="Usuario o correo">
@@ -132,7 +132,7 @@
               Mensajes enviados sin iniciar sesión.
             </p>
           </div>
-          <div class="filters">
+          <div class="filters search-filter">
             <label class="field">
               <span>Buscar remitente</span>
               <input id="publicHelpSearch" type="search" placeholder="Nombre o correo">
@@ -170,12 +170,17 @@
         </div>
         <div class="panel" id="blockedTable"></div>
       </section>
+
+      <footer class="admin-footer">
+        <span>SportBook &copy; 2026</span>
+        <span>Panel administrador</span>
+      </footer>
     </main>
   </div>
 
   <div class="toast" id="toast"></div>
 
-<script src="Assets/js/admin.js"></script>
+<script src="Assets/js/admin.js?v=3"></script>
 
 </body>
 </html>

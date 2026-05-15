@@ -533,6 +533,50 @@ a {
     font-weight: 700;
 }
 
+.site-footer {
+    border-top: 1px solid rgba(255, 204, 0, 0.16);
+    background-color: rgba(0, 0, 0, 0.42);
+}
+
+.footer-inner {
+    width: min(1120px, calc(100% - 4rem));
+    min-height: 118px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(190px, 1fr) auto minmax(190px, 1fr);
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: fit-content;
+    color: var(--accent);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.site-footer nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.site-footer nav a:hover {
+    color: var(--accent);
+}
+
+.site-footer p {
+    justify-self: end;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.5;
+}
+
 @media (max-width: 1050px) {
     .navbar {
         flex-direction: column;
@@ -552,6 +596,18 @@ a {
 
     .help-panel {
         grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 1.5rem 0;
+        text-align: center;
+    }
+
+    .site-footer p {
+        justify-self: center;
+        text-align: center;
     }
 
     .help-actions {
@@ -632,6 +688,15 @@ a {
 
     .help-actions {
         display: grid;
+    }
+
+    .footer-inner {
+        width: min(100% - 2rem, 1120px);
+    }
+
+    .site-footer nav {
+        flex-wrap: wrap;
+        gap: 0.85rem;
     }
 }
 
@@ -819,5 +884,577 @@ video {
     .public-help-form input,
     .public-help-form select {
         min-height: 46px;
+    }
+}
+
+body {
+    background:
+        linear-gradient(135deg, rgba(15, 15, 15, 0.98), rgba(24, 24, 24, 0.98)),
+        linear-gradient(180deg, rgba(255, 204, 0, 0.05), transparent 36rem);
+}
+
+.navbar {
+    border-bottom: 1px solid rgba(255, 204, 0, 0.18);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+}
+
+.navbar nav a {
+    position: relative;
+    padding: 0.35rem 0;
+}
+
+.navbar nav a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    border-radius: 999px;
+    background-color: var(--accent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.25s ease;
+}
+
+.navbar nav a:hover::after {
+    transform: scaleX(1);
+}
+
+.hero {
+    min-height: calc(100vh - 74px);
+    align-content: center;
+    padding-bottom: 4rem;
+}
+
+.hero-content {
+    padding-bottom: 2rem;
+}
+
+.hero h1 {
+    font-size: clamp(3.3rem, 7vw, 5.8rem);
+    letter-spacing: 0;
+}
+
+.hero-stats,
+.help-panel,
+.info-card,
+.card,
+.facility-card {
+    backdrop-filter: blur(12px);
+}
+
+.info-card,
+.card,
+.facility-card,
+.help-panel {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
+        var(--panel);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.info-card,
+.card {
+    display: grid;
+    align-content: start;
+}
+
+.facility-card {
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.facility-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 204, 0, 0.32);
+    box-shadow: var(--shadow-accent);
+}
+
+.facility-card img {
+    filter: saturate(0.95) contrast(1.04);
+}
+
+.section-title h2 {
+    letter-spacing: 0;
+}
+
+.public-help-form input:focus,
+.public-help-form select:focus,
+.public-help-form textarea:focus {
+    outline: none;
+    border-color: rgba(255, 204, 0, 0.7);
+    box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.16);
+}
+
+.site-footer {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+@media (max-width: 680px) {
+    .hero {
+        align-content: end;
+        padding-bottom: 2rem;
+    }
+}
+body {
+    background:
+        linear-gradient(120deg, rgba(255, 204, 0, 0.08), transparent 36%),
+        linear-gradient(250deg, rgba(70, 214, 210, 0.06), transparent 42%),
+        linear-gradient(135deg, #090909, #161616 52%, #101318);
+    color: #f7f7f7;
+}
+
+.navbar {
+    padding: 1rem clamp(1rem, 3vw, 3rem);
+    background: rgba(8, 8, 8, 0.9);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+.navbar nav a {
+    position: relative;
+    padding: 0.45rem 0;
+}
+
+.navbar nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+
+.navbar nav a:hover::after {
+    transform: scaleX(1);
+}
+
+.hero {
+    min-height: min(820px, calc(100vh - 74px));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero h1 {
+    letter-spacing: 0;
+    text-shadow: 0 18px 60px rgba(0, 0, 0, 0.65);
+}
+
+.hero p,
+.section-title p,
+.card p,
+.info-card p,
+.facility-body p,
+.help-panel p {
+    color: rgba(255, 255, 255, 0.76);
+    line-height: 1.7;
+}
+
+.hero-label,
+.section-title span,
+.facility-tag {
+    width: max-content;
+    padding: 0.3rem 0.65rem;
+    border: 1px solid rgba(255, 204, 0, 0.4);
+    border-radius: 999px;
+    background: rgba(255, 204, 0, 0.08);
+}
+
+.section-title {
+    max-width: 860px;
+    margin-inline: auto;
+}
+
+.section-title h2 {
+    margin-top: 0.85rem;
+    color: #fff;
+    line-height: 1.08;
+}
+
+.info-card,
+.card,
+.facility-card,
+.help-panel,
+.hero-stats div {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
+        var(--panel);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+.info-card,
+.card {
+    min-height: 230px;
+    display: grid;
+    align-content: start;
+    gap: 0.85rem;
+}
+
+.card-number,
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #ffcc00;
+    color: #111;
+    font-weight: 900;
+    box-shadow: 0 12px 28px rgba(255, 204, 0, 0.22);
+}
+
+.info-card h3,
+.card h3,
+.facility-body h3,
+.help-panel h3 {
+    color: #fff;
+    line-height: 1.2;
+}
+
+.facility-card {
+    overflow: hidden;
+}
+
+.facility-card img {
+    height: 230px;
+    filter: saturate(0.96) contrast(1.04);
+}
+
+.facility-body {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.facility-address {
+    color: rgba(70, 214, 210, 0.95) !important;
+}
+
+.nav-buttons a,
+.hero-actions a,
+.public-help-form button,
+.btn-main,
+.btn-secondary {
+    min-height: 48px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.public-help-form input,
+.public-help-form select,
+.public-help-form textarea {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: #111;
+    min-height: 50px;
+}
+
+.public-help-form input:focus,
+.public-help-form select:focus,
+.public-help-form textarea:focus {
+    outline: none;
+    border-color: rgba(255, 204, 0, 0.78);
+    box-shadow: 0 0 0 4px rgba(255, 204, 0, 0.12);
+}
+
+.help-panel {
+    position: relative;
+    overflow: hidden;
+}
+
+.help-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ffcc00, #46d6d2);
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        border-radius: 0 0 18px 18px;
+    }
+
+    .section-title {
+        text-align: left;
+    }
+
+    .info-card,
+    .card {
+        min-height: auto;
+    }
+}
+
+.main-box,
+main {
+    width: 100%;
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) auto minmax(180px, 1fr);
+}
+
+.nav-buttons {
+    justify-content: end;
+}
+
+.hero-content,
+.section-title {
+    display: grid;
+    justify-items: start;
+    gap: 0.85rem;
+}
+
+.hero-stats,
+.about-grid,
+.cards,
+.facilities-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.hero-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.about-grid,
+.cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+}
+
+.features-section .cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.facilities-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+}
+
+.info-card,
+.card,
+.facility-card {
+    height: 100%;
+}
+
+.facility-body {
+    display: grid;
+    gap: 0.65rem;
+}
+
+.public-help-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.public-help-form label,
+.public-help-form input,
+.public-help-form select,
+.public-help-form textarea,
+.public-help-form button {
+    width: 100%;
+}
+
+.public-help-form label.wide,
+.public-help-form button,
+.public-help-form .form-message {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 1050px) {
+    .navbar,
+    .features-section .cards,
+    .about-grid,
+    .cards,
+    .facilities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-buttons,
+    .navbar nav {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 700px) {
+    .hero-stats,
+    .public-help-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+.help-panel {
+    width: min(1150px, calc(100% - 2rem));
+    grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.45fr);
+    gap: clamp(1.4rem, 3vw, 2.5rem);
+    padding: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.help-panel h3 {
+    color: #fff;
+    line-height: 1.12;
+}
+
+.help-panel p {
+    max-width: 360px;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 1.05rem;
+}
+
+.public-help-form {
+    align-items: start;
+}
+
+.public-help-form span {
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
+.public-help-form input,
+.public-help-form select,
+.public-help-form textarea {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: #101010;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.public-help-form input,
+.public-help-form select {
+    min-height: 58px;
+    height: 58px;
+    padding: 0 1rem;
+}
+
+.public-help-form textarea {
+    min-height: 204px;
+    padding: 1rem;
+    resize: vertical;
+    line-height: 1.55;
+}
+
+.public-help-form input::placeholder,
+.public-help-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.42);
+    font-family: inherit;
+}
+
+.public-help-form input:focus,
+.public-help-form select:focus,
+.public-help-form textarea:focus {
+    outline: none;
+    border-color: rgba(255, 204, 0, 0.8);
+    box-shadow: 0 0 0 4px rgba(255, 204, 0, 0.12);
+}
+
+.public-help-form button {
+    min-height: 60px;
+    border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+    .help-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .help-panel p {
+        max-width: none;
+    }
+}
+
+.navbar {
+    min-height: 96px;
+    grid-template-columns: minmax(260px, 1fr) auto minmax(260px, 1fr);
+    gap: 1.25rem;
+    padding: 1rem clamp(1.25rem, 3vw, 2.6rem);
+    border-bottom: 1px solid rgba(255, 204, 0, 0.22);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.01)),
+        rgba(5, 5, 5, 0.94);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42);
+}
+
+.logo {
+    min-width: 0;
+    gap: 0.9rem;
+}
+
+.logo-mark {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(255, 204, 0, 0.24);
+}
+
+.logo span:last-child {
+    color: var(--accent);
+    font-size: clamp(1.45rem, 2vw, 1.9rem);
+    font-weight: 900;
+}
+
+.navbar nav {
+    gap: 0.35rem;
+    padding: 0.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.045);
+}
+
+.navbar nav a {
+    min-height: 42px;
+    display: inline-grid;
+    place-items: center;
+    padding: 0 1.05rem;
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.88);
+    font-weight: 800;
+}
+
+.navbar nav a::after {
+    display: none;
+}
+
+.navbar nav a:hover {
+    color: #111;
+    background: #ffcc00;
+    box-shadow: 0 10px 24px rgba(255, 204, 0, 0.22);
+}
+
+.nav-buttons {
+    justify-content: end;
+}
+
+.nav-buttons a {
+    min-height: 48px;
+    border-radius: 12px;
+}
+
+@media (max-width: 1050px) {
+    .navbar {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .navbar nav {
+        width: 100%;
+        justify-content: center;
+        overflow-x: auto;
+    }
+
+    .nav-buttons {
+        justify-content: center;
     }
 }

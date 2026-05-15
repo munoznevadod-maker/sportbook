@@ -1,9 +1,6 @@
 CREATE DATABASE IF NOT EXISTS bd1;
 USE bd1;
 
--- =========================
--- USUARIOS
--- =========================
 
 CREATE TABLE IF NOT EXISTS usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -12,6 +9,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     password VARCHAR(255) NOT NULL,
     rol ENUM('USER','ADMIN') DEFAULT 'USER',
     bloqueado BOOLEAN DEFAULT FALSE,
+    profile_image MEDIUMTEXT NULL,
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -20,9 +18,6 @@ VALUES ('admin','admin@gmail.com','1234','ADMIN')
 ON DUPLICATE KEY UPDATE
 rol = 'ADMIN';
 
--- =========================
--- RESERVAS
--- =========================
 
 CREATE TABLE IF NOT EXISTS reservas (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -53,9 +48,6 @@ CREATE TABLE IF NOT EXISTS reservas (
     ON DELETE SET NULL
 );
 
--- =========================
--- AYUDA
--- =========================
 
 CREATE TABLE IF NOT EXISTS ayuda (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -74,9 +66,6 @@ CREATE TABLE IF NOT EXISTS ayuda (
     ON DELETE SET NULL
 );
 
--- =========================
--- AYUDAS PUBLICAS
--- =========================
 
 CREATE TABLE IF NOT EXISTS ayudas_publicas (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -88,9 +77,6 @@ CREATE TABLE IF NOT EXISTS ayudas_publicas (
     DEFAULT CURRENT_TIMESTAMP
 );
 
--- =========================
--- RECUPERACION DE CONTRASENA
--- =========================
 
 CREATE TABLE IF NOT EXISTS password_reset_codes (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -103,9 +89,6 @@ CREATE TABLE IF NOT EXISTS password_reset_codes (
     INDEX idx_reset_expira (expira_en)
 );
 
--- =========================
--- RESEÑAS
--- =========================
 
 CREATE TABLE IF NOT EXISTS resenas (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -122,9 +105,6 @@ CREATE TABLE IF NOT EXISTS resenas (
     ON DELETE SET NULL
 );
 
--- =========================
--- USUARIOS BLOQUEADOS
--- =========================
 
 CREATE TABLE IF NOT EXISTS usuarios_bloqueados (
     id INT AUTO_INCREMENT PRIMARY KEY,

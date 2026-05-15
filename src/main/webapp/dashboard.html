@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SportBook | Reservas deportivas</title>
-  <link rel="stylesheet" href="Assets/css/dashboard.css">
+  <link rel="stylesheet" href="Assets/css/dashboard.css?v=13">
   <link rel="icon" type="image/x-icon" href="Assets/img/icon.png">
 </head>
 
@@ -13,7 +13,7 @@
 
   <header class="site-header">
 
-    <a class="brand" href="#reservar" aria-label="SportBook inicio">
+    <div class="brand"  aria-label="SportBook inicio">
 
       <span class="brand-mark" aria-hidden="true">
 
@@ -32,7 +32,7 @@
         <small>Reservas deportivas</small>
       </span>
 
-    </a>
+    </div>
 
     <nav class="top-nav" aria-label="Navegación principal">
       <a href="#reservar">Reservar</a>
@@ -59,11 +59,37 @@
         </button>
 
         <div class="user-dropdown" id="userDropdown">
+          <div class="account-summary">
+            <div class="user-avatar small">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M20 21a8 8 0 1 0-16 0"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <div>
+              <strong id="accountMenuName">Usuario</strong>
+              <span>Cuenta SportBook</span>
+            </div>
+          </div>
+
+          <button class="dropdown-item" id="viewProfileButton" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M20 21a8 8 0 1 0-16 0"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Foto de perfil
+          </button>
+
+          <div class="account-status">
+            <span>Estado de cuenta</span>
+            <strong>Perfil activo</strong>
+          </div>
+
           <button class="dropdown-item logout-item" id="logoutButton" type="button">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
               <path d="M16 17l5-5-5-5"></path>
-              <path d="M21 12H9">
+              <path d="M21 12H9"></path>
             </svg>
             Cerrar sesión
           </button>
@@ -227,32 +253,34 @@
             type="hidden">
         </div>
 
-        <div class="summary-box">
+        <div class="checkout-summary">
+          <div class="summary-box">
 
-          <div>
-            <span class="summary-label">
-              Resumen
+            <div>
+              <span class="summary-label">
+                Resumen de reserva
+              </span>
+
+              <strong id="summaryTitle">
+                Sin actividad seleccionada
+              </strong>
+
+              <small id="summaryMeta">
+                El total aparecerá al elegir actividad y personas.
+              </small>
+            </div>
+
+            <div class="summary-price" id="summaryPrice">
+              --
+            </div>
+          </div>
+
+          <div class="payment-note" aria-live="polite">
+            <strong id="paymentInfoTitle">Pago por Bizum pendiente</strong>
+            <span id="paymentInfo">
+              Deberás pagar por Bizum como máximo un día antes de la reserva.
             </span>
-
-            <strong id="summaryTitle">
-              Sin actividad seleccionada
-            </strong>
-
-            <small id="summaryMeta">
-              El total aparecerá al elegir actividad y personas.
-            </small>
           </div>
-
-          <div class="summary-price" id="summaryPrice">
-            --
-          </div>
-        </div>
-
-        <div class="payment-note" aria-live="polite">
-          <strong id="paymentInfoTitle">Pago por Bizum pendiente</strong>
-          <span id="paymentInfo">
-            Deberas pagar por Bizum como maximo un dia antes de la reserva.
-          </span>
         </div>
 
         <div class="form-actions">
@@ -274,11 +302,11 @@
       <div class="facility-images" id="facilityImages">
 
         <img
-          src="https://images.unsplash.com/photo-1574629810360-7efbbe195018"
+          src="https://images.pexels.com/photos/12768058/pexels-photo-12768058.jpeg?cs=srgb&dl=pexels-introspectivedsgn-12768058.jpg&fm=jpg"
           alt="Instalación deportiva">
 
         <img
-          src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438"
+          src="https://images.pexels.com/photos/17211446/pexels-photo-17211446.jpeg?cs=srgb&dl=pexels-eyecon-design-500632474-17211446.jpg&fm=jpg"
           alt="Instalación deportiva">
 
       </div>
@@ -324,7 +352,7 @@
 
       </div>
 
-      <div class="facility-card occupied">
+      <div class="facility-card occupied" id="facilityBusyCard" hidden>
 
         <strong>
           Horas ocupadas
@@ -400,7 +428,7 @@
               required>
           </label>
 
-          <label class="field">
+          <label class="field wide">
             <span>Motivo</span>
             <select name="helpReason" required>
               <option value="" selected>Selecciona un motivo</option>
@@ -489,7 +517,74 @@
           <span>Sé la primera persona en valorar una actividad.</span>
         </div>
       </section>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="footer-brand" href="#reservar">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M7 18a5 5 0 0 1 0-10h10a5 5 0 0 1 0 10H7Z"></path>
+            <path d="M8 13h4"></path>
+            <path d="M10 11v4"></path>
+            <path d="M16.5 13h.01"></path>
+            <path d="M18.5 11.5h.01"></path>
+          </svg>
+        </span>
+        <span>SportBook</span>
+      </a>
+
+      <nav aria-label="Navegacion del pie de pagina">
+        <a href="#reservar">Reservar</a>
+        <a href="#Información">Información</a>
+        <a href="#mis-reservas">Mis reservas</a>
+        <a href="#ayuda">Ayuda</a>
+      </nav>
+
+      <p>SportBook &copy; 2026. Gestiona tus reservas deportivas.</p>
+    </div>
+  </footer>
+
+      <div class="account-modal" id="accountModal" role="dialog" aria-modal="true" aria-labelledby="accountModalTitle" hidden>
+        <div class="account-modal-card">
+          <div class="account-modal-head">
+            <div>
+              <p class="eyebrow">Cuenta</p>
+              <h2 id="accountModalTitle">Foto de perfil</h2>
+            </div>
+            <button class="account-close" id="accountModalClose" type="button" aria-label="Cerrar">×</button>
+          </div>
+
+          <div class="account-profile-card">
+            <div class="user-avatar large">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M20 21a8 8 0 1 0-16 0"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <div>
+              <strong id="accountProfileName">Usuario</strong>
+              <span>Personaliza tu cuenta con una imagen.</span>
+            </div>
+          </div>
+
+          <form class="account-form" id="accountProfileForm">
+            <label class="profile-upload-field">
+              <span>Imagen de perfil</span>
+              <input id="profileImageInput" type="file" accept="image/*">
+              <small>Tamaño recomendado: 400 x 400 px. La foto se centra y se optimiza automáticamente al guardar.</small>
+            </label>
+
+            <div class="account-actions">
+              <button class="button secondary" id="accountCancelButton" type="button">Cancelar</button>
+              <button class="button primary" type="submit">Guardar foto</button>
+              <button class="button secondary account-remove-photo" id="removeProfileImageButton" type="button">Quitar foto</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
       <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
       <div class="bookings-panel" id="bookingsPanel" role="dialog" aria-modal="true" aria-labelledby="bookingsPanelTitle" hidden>
@@ -515,11 +610,7 @@
           </div>
         </aside>
       </div>
-    </section>
-  </main>
-  <div class="toast" id="toast"></div>
-
-  <script src="Assets/js/script.js"></script>
+  <script src="Assets/js/script.js?v=18"></script>
 
 </body>
 </html>

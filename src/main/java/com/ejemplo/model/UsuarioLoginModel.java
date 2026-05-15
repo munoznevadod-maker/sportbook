@@ -101,6 +101,11 @@ public class UsuarioLoginModel {
         return obtenerCampo(login, "email", "");
     }
 
+    public String obtenerProfileImage(String login) {
+        UsuarioPerfilModel.ensureProfileImageColumn();
+        return obtenerCampo(login, "profile_image", "");
+    }
+
     public void actualizarPasswordHash(int idUsuario, String password) {
         try (Connection con = ConexionBD.getConnection();
              PreparedStatement ps = con.prepareStatement(
@@ -127,7 +132,8 @@ public class UsuarioLoginModel {
 
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    return rs.getString(campo);
+                    String value = rs.getString(campo);
+                    return value == null ? valorPorDefecto : value;
                 }
             }
 

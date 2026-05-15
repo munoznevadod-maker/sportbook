@@ -1,7 +1,11 @@
 
 const API_BASE =
   window.location.protocol.startsWith("http")
-    ? window.location.origin
+    ? (
+      ["5500", "5501", "8089"].includes(window.location.port)
+        ? `${window.location.protocol}//${window.location.hostname}:8085`
+        : window.location.origin
+    )
     : "http://localhost:8085";
 
 const PUBLIC_API = `${API_BASE}/api`;
@@ -15,6 +19,7 @@ const AUTH_STORAGE_KEY = "sportbook-authenticated";
 const USER_EMAIL_STORAGE_KEY = "sportbook-user-email";
 const USER_PHONE_STORAGE_KEY = "sportbook-user-phone";
 const USERNAME_STORAGE_KEY = "sportbook-username";
+const USER_PROFILE_IMAGE_STORAGE_KEY = "sportbook-profile-image";
 const BIZUM_PHONE = "+34 600 123 456";
 
 const activities = {
@@ -175,7 +180,14 @@ const elements = {
 
 };
 
+const facilityBusyCard =
+  document.querySelector("#facilityBusyCard");
+
+const facilityBusyText =
+  document.querySelector("#facilityBusy");
+
 let selectedRating = 0;
+let lastRenderedFacilityKey = "";
 
 
 function paymentMethodLabel(method) {
@@ -248,6 +260,48 @@ function renderLoggedUser() {
     username;
   }
 
+  const accountMenuName =
+    document.querySelector("#accountMenuName");
+
+  const accountProfileName =
+    document.querySelector("#accountProfileName");
+
+  if (accountMenuName) {
+    accountMenuName.textContent =
+      username;
+  }
+
+  if (accountProfileName) {
+    accountProfileName.textContent =
+      username;
+  }
+
+  const profileImage =
+    localStorage.getItem(
+      USER_PROFILE_IMAGE_STORAGE_KEY
+    );
+
+  document.querySelectorAll(
+    ".user-avatar"
+  ).forEach(avatar => {
+
+    if (profileImage) {
+      avatar.style.backgroundImage =
+        `url("${profileImage}")`;
+
+      avatar.classList.add(
+        "has-photo"
+      );
+    } else {
+      avatar.style.backgroundImage =
+        "";
+
+      avatar.classList.remove(
+        "has-photo"
+      );
+    }
+  });
+
 }
 
 
@@ -291,6 +345,10 @@ function clearStoredSession() {
 
   localStorage.removeItem(
     USERNAME_STORAGE_KEY
+  );
+
+  localStorage.removeItem(
+    USER_PROFILE_IMAGE_STORAGE_KEY
   );
 }
 
@@ -473,6 +531,8 @@ async function updateSlotAvailability() {
   const selectedResource =
     elements.resource.value;
 
+  renderOccupiedHours([]);
+
   if (
     !selectedDate ||
     !selectedResource
@@ -492,6 +552,10 @@ async function updateSlotAvailability() {
       (data.hours || []).map(hour =>
         hour.substring(0, 5)
       );
+
+    renderOccupiedHours(
+      occupiedHours
+    );
 
     const options =
       elements.bookingTime.querySelectorAll("option");
@@ -534,8 +598,40 @@ async function updateSlotAvailability() {
 
     console.error(error);
 
+    renderOccupiedHours([]);
+
   }
 
+}
+
+function renderOccupiedHours(hours = []) {
+
+  if (
+    !facilityBusyCard ||
+    !facilityBusyText
+  ) return;
+
+  const uniqueHours =
+    [...new Set(hours)]
+      .filter(Boolean)
+      .sort();
+
+  if (!uniqueHours.length) {
+
+    facilityBusyText.textContent =
+      "--";
+
+    facilityBusyCard.hidden =
+      true;
+
+    return;
+  }
+
+  facilityBusyText.textContent =
+    uniqueHours.join(", ");
+
+  facilityBusyCard.hidden =
+    false;
 }
 
 elements.people?.addEventListener(
@@ -560,9 +656,9 @@ const facilityData = {
 
     images: [
 
-      "https://images.mnstatic.com/d0/a0/d0a007464e72c260365b989dd6efef9f.jpg",
+      "https://images.pexels.com/photos/12768058/pexels-photo-12768058.jpeg?cs=srgb&dl=pexels-introspectivedsgn-12768058.jpg&fm=jpg",
 
-      "https://golsmedia.com/wp-content/uploads/2018/07/Dh6Yfb0X0AAD-Ik.jpg"
+      "https://images.pexels.com/photos/12536501/pexels-photo-12536501.jpeg?cs=srgb&dl=pexels-jason-scott-3936034-12536501.jpg&fm=jpg"
 
     ],
 
@@ -573,7 +669,7 @@ const facilityData = {
       "Lunes a Domingo",
 
     busy:
-      "18:00, 19:00 y 20:00"
+      ""
 
   },
 
@@ -586,9 +682,9 @@ const facilityData = {
 
     images: [
 
-      "https://hips.hearstapps.com/hmg-prod/images/sivanda-yoga-1637660943.jpg?resize=980:*",
+      "https://images.pexels.com/photos/7318661/pexels-photo-7318661.jpeg?cs=srgb&dl=pexels-mart-production-7318661.jpg&fm=jpg",
 
-      "https://adrprojects.com/wp-content/uploads/2024/07/sala-yoga-43.webp"
+      "https://images.pexels.com/photos/7318661/pexels-photo-7318661.jpeg?cs=srgb&dl=pexels-mart-production-7318661.jpg&fm=jpg"
 
     ],
 
@@ -599,7 +695,7 @@ const facilityData = {
       "Lunes a Sábado",
 
     busy:
-      "18:00 y 19:30"
+      ""
 
   },
 
@@ -612,9 +708,9 @@ const facilityData = {
 
     images: [
 
-      "https://perfilsport.es/wp-content/uploads/2022/07/sala-fitness-cardio.jpg",
+      "https://images.pexels.com/photos/17211446/pexels-photo-17211446.jpeg?cs=srgb&dl=pexels-eyecon-design-500632474-17211446.jpg&fm=jpg",
 
-      "https://www.rocfit.com/wp-content/uploads/2019/12/sala-fitness-universidad-de-santiago-1.jpg"
+      "https://images.pexels.com/photos/17211446/pexels-photo-17211446.jpeg?cs=srgb&dl=pexels-eyecon-design-500632474-17211446.jpg&fm=jpg"
 
     ],
 
@@ -625,7 +721,7 @@ const facilityData = {
       "Todos los días",
 
     busy:
-      "17:00, 18:00 y 19:00"
+      ""
 
   },
 
@@ -651,7 +747,7 @@ const facilityData = {
       "Lunes a Domingo",
 
     busy:
-      "20:00 y 21:00"
+      ""
 
   },
 
@@ -664,9 +760,9 @@ const facilityData = {
 
     images: [
 
-      "https://www.comunidad.madrid/docs/styles/free_crop_1920w_x2/public/assets/2024/02/05/img_0142.jpg?VersionId=NEILrTT9lPjthhyKkQ__oknHvC2c_aOt&itok=9QfQu7ix",
+      "https://images.pexels.com/photos/9030294/pexels-photo-9030294.jpeg?cs=srgb&dl=pexels-kindelmedia-9030294.jpg&fm=jpg",
 
-      "https://moveandgo.es/contenido/piscina-torrelavega-01.jpg"
+      "https://images.pexels.com/photos/9030294/pexels-photo-9030294.jpeg?cs=srgb&dl=pexels-kindelmedia-9030294.jpg&fm=jpg"
 
     ],
 
@@ -677,15 +773,208 @@ const facilityData = {
       "Todos los días",
 
     busy:
-      "17:00 y 19:00"
+      ""
 
   }
 
 };
 
+const resourceFacilityData = {
+
+  "Futbol 11": {
+    title: "Campo Futbol 11",
+    description:
+      "Campo exterior de cesped artificial para partidos completos. Incluye porterias reglamentarias, iluminacion nocturna y vestuarios.",
+    images: [
+      "https://images.pexels.com/photos/12768058/pexels-photo-12768058.jpeg?cs=srgb&dl=pexels-introspectivedsgn-12768058.jpg&fm=jpg",
+      "https://images.pexels.com/photos/12536501/pexels-photo-12536501.jpeg?cs=srgb&dl=pexels-jason-scott-3936034-12536501.jpg&fm=jpg"
+    ],
+    schedule: "09:00 - 22:00",
+    days: "Lunes a Domingo"
+  },
+
+  "Futbol 7": {
+    title: "Campo Futbol 7",
+    description:
+      "Campo anexo para grupos medianos, entrenamientos y partidos rapidos. Superficie de cesped artificial y acceso directo a vestuarios.",
+    images: [
+      "https://images.pexels.com/photos/12536501/pexels-photo-12536501.jpeg?cs=srgb&dl=pexels-jason-scott-3936034-12536501.jpg&fm=jpg",
+      "https://images.pexels.com/photos/12768058/pexels-photo-12768058.jpeg?cs=srgb&dl=pexels-introspectivedsgn-12768058.jpg&fm=jpg"
+    ],
+    schedule: "09:00 - 21:30",
+    days: "Lunes a Sabado"
+  },
+
+  "Fútbol sala": {
+    title: "Pabellon Futbol Sala",
+    description:
+      "Pista cubierta con suelo tecnico, gradas y buena iluminacion. Pensada para partidos indoor durante todo el ano.",
+    images: [
+      "https://images.pexels.com/photos/9787275/pexels-photo-9787275.jpeg?cs=srgb&dl=pexels-ibrahim-9119962-9787275.jpg&fm=jpg",
+      "https://images.pexels.com/photos/9787275/pexels-photo-9787275.jpeg?cs=srgb&dl=pexels-ibrahim-9119962-9787275.jpg&fm=jpg"
+    ],
+    schedule: "10:00 - 22:00",
+    days: "Lunes a Domingo"
+  },
+
+  "Sala Zen": {
+    title: "Sala Zen",
+    description:
+      "Sala tranquila para clases de yoga suave, respiracion y movilidad. Ambiente silencioso, climatizado y con material incluido.",
+    images: [
+      "https://images.pexels.com/photos/7318661/pexels-photo-7318661.jpeg?cs=srgb&dl=pexels-mart-production-7318661.jpg&fm=jpg",
+      "https://images.pexels.com/photos/7318661/pexels-photo-7318661.jpeg?cs=srgb&dl=pexels-mart-production-7318661.jpg&fm=jpg"
+    ],
+    schedule: "08:00 - 20:30",
+    days: "Lunes a Sabado"
+  },
+
+  "Sala Norte": {
+    title: "Sala Norte",
+    description:
+      "Espacio amplio para clases grupales de yoga dinamico. Cuenta con ventilacion natural, espejos y zona de estiramientos.",
+    images: [
+      "https://images.pexels.com/photos/7318661/pexels-photo-7318661.jpeg?cs=srgb&dl=pexels-mart-production-7318661.jpg&fm=jpg",
+      "https://images.pexels.com/photos/7318661/pexels-photo-7318661.jpeg?cs=srgb&dl=pexels-mart-production-7318661.jpg&fm=jpg"
+    ],
+    schedule: "09:30 - 21:00",
+    days: "Lunes a Viernes"
+  },
+
+  Terraza: {
+    title: "Terraza Yoga",
+    description:
+      "Zona exterior para sesiones al aire libre. Ideal para clases de manana y grupos reducidos con luz natural.",
+    images: [
+      "https://images.pexels.com/photos/7318661/pexels-photo-7318661.jpeg?cs=srgb&dl=pexels-mart-production-7318661.jpg&fm=jpg",
+      "https://images.pexels.com/photos/7318661/pexels-photo-7318661.jpeg?cs=srgb&dl=pexels-mart-production-7318661.jpg&fm=jpg"
+    ],
+    schedule: "08:00 - 19:30",
+    days: "Martes a Domingo"
+  },
+
+  "Zona fuerza": {
+    title: "Zona Fuerza",
+    description:
+      "Area de musculacion con pesos libres, bancos, barras y maquinas guiadas. Recomendada para rutinas de fuerza.",
+    images: [
+      "https://images.pexels.com/photos/17211446/pexels-photo-17211446.jpeg?cs=srgb&dl=pexels-eyecon-design-500632474-17211446.jpg&fm=jpg",
+      "https://images.pexels.com/photos/17211446/pexels-photo-17211446.jpeg?cs=srgb&dl=pexels-eyecon-design-500632474-17211446.jpg&fm=jpg"
+    ],
+    schedule: "07:00 - 23:00",
+    days: "Todos los dias"
+  },
+
+  "Zona cardio": {
+    title: "Zona Cardio",
+    description:
+      "Espacio con cintas, bicicletas, elipticas y remo. Ideal para sesiones individuales de resistencia y calentamiento.",
+    images: [
+      "https://images.pexels.com/photos/17211446/pexels-photo-17211446.jpeg?cs=srgb&dl=pexels-eyecon-design-500632474-17211446.jpg&fm=jpg",
+      "https://images.pexels.com/photos/17211446/pexels-photo-17211446.jpeg?cs=srgb&dl=pexels-eyecon-design-500632474-17211446.jpg&fm=jpg"
+    ],
+    schedule: "07:00 - 22:30",
+    days: "Todos los dias"
+  },
+
+  "Entrenamiento personal": {
+    title: "Entrenamiento Personal",
+    description:
+      "Sala tecnica para sesiones guiadas con entrenador. Permite trabajo personalizado, evaluacion y seguimiento.",
+    images: [
+      "https://images.pexels.com/photos/17211446/pexels-photo-17211446.jpeg?cs=srgb&dl=pexels-eyecon-design-500632474-17211446.jpg&fm=jpg",
+      "https://images.pexels.com/photos/17211446/pexels-photo-17211446.jpeg?cs=srgb&dl=pexels-eyecon-design-500632474-17211446.jpg&fm=jpg"
+    ],
+    schedule: "08:00 - 20:00",
+    days: "Lunes a Viernes"
+  },
+
+  "Pista de pádel 1": {
+    title: "Pista Padel 1",
+    description:
+      "Pista exterior con cristal, iluminacion y buen agarre. Recomendada para partidos de tarde y parejas habituales.",
+    images: [
+      "https://offloadmedia.feverup.com/lisboasecreta.co/wp-content/uploads/2022/07/08090140/Padel-os-melhores-campos-para-jogar-em-Lisboa-Foto-por-%40abcpadel-_2.jpeg",
+      "https://offloadmedia.feverup.com/lisboasecreta.co/wp-content/uploads/2022/07/08090141/Padel-os-melhores-campos-para-jogar-em-Lisboa-Foto-por-%40abcpadel-_1.jpeg"
+    ],
+    schedule: "09:00 - 22:30",
+    days: "Lunes a Domingo"
+  },
+
+  "Pista de pádel 2": {
+    title: "Pista Padel 2",
+    description:
+      "Pista exterior para reservas rapidas, clases y partidos casuales. Dispone de iluminacion y zona de descanso cercana.",
+    images: [
+      "https://offloadmedia.feverup.com/lisboasecreta.co/wp-content/uploads/2022/07/08090141/Padel-os-melhores-campos-para-jogar-em-Lisboa-Foto-por-%40abcpadel-_1.jpeg",
+      "https://offloadmedia.feverup.com/lisboasecreta.co/wp-content/uploads/2022/07/08090140/Padel-os-melhores-campos-para-jogar-em-Lisboa-Foto-por-%40abcpadel-_2.jpeg"
+    ],
+    schedule: "09:00 - 22:30",
+    days: "Lunes a Domingo"
+  },
+
+  "Pista cubierta": {
+    title: "Pista Padel Cubierta",
+    description:
+      "Pista indoor protegida de lluvia y viento. Perfecta para jugar con condiciones estables durante todo el ano.",
+    images: [
+      "https://offloadmedia.feverup.com/lisboasecreta.co/wp-content/uploads/2022/07/08090140/Padel-os-melhores-campos-para-jogar-em-Lisboa-Foto-por-%40abcpadel-_2.jpeg",
+      "https://offloadmedia.feverup.com/lisboasecreta.co/wp-content/uploads/2022/07/08090141/Padel-os-melhores-campos-para-jogar-em-Lisboa-Foto-por-%40abcpadel-_1.jpeg"
+    ],
+    schedule: "10:30 - 23:00",
+    days: "Lunes a Domingo"
+  },
+
+  "Calle 1": {
+    title: "Piscina Calle 1",
+    description:
+      "Calle para natacion libre y entrenamiento tecnico. Recomendada para usuarios que buscan ritmo continuo.",
+    images: [
+      "https://images.pexels.com/photos/9030294/pexels-photo-9030294.jpeg?cs=srgb&dl=pexels-kindelmedia-9030294.jpg&fm=jpg",
+      "https://images.pexels.com/photos/9030294/pexels-photo-9030294.jpeg?cs=srgb&dl=pexels-kindelmedia-9030294.jpg&fm=jpg"
+    ],
+    schedule: "08:00 - 21:30",
+    days: "Todos los dias"
+  },
+
+  "Calle 2": {
+    title: "Piscina Calle 2",
+    description:
+      "Calle de natacion para sesiones suaves, tecnica y resistencia. Buena opcion para horarios de media manana.",
+    images: [
+      "https://images.pexels.com/photos/9030294/pexels-photo-9030294.jpeg?cs=srgb&dl=pexels-kindelmedia-9030294.jpg&fm=jpg",
+      "https://images.pexels.com/photos/9030294/pexels-photo-9030294.jpeg?cs=srgb&dl=pexels-kindelmedia-9030294.jpg&fm=jpg"
+    ],
+    schedule: "08:00 - 21:30",
+    days: "Todos los dias"
+  },
+
+  "Piscina infantil": {
+    title: "Piscina Infantil",
+    description:
+      "Piscina de poca profundidad para aprendizaje y actividades familiares. Temperatura controlada y acceso supervisado.",
+    images: [
+      "https://images.pexels.com/photos/9030294/pexels-photo-9030294.jpeg?cs=srgb&dl=pexels-kindelmedia-9030294.jpg&fm=jpg",
+      "https://images.pexels.com/photos/9030294/pexels-photo-9030294.jpeg?cs=srgb&dl=pexels-kindelmedia-9030294.jpg&fm=jpg"
+    ],
+    schedule: "10:00 - 19:00",
+    days: "Lunes a Sabado"
+  }
+};
+
 function renderFacilityInfo(sport) {
 
+  const selectedResource =
+    elements.resource?.value || "";
+
+  const facilityKey =
+    `${sport || ""}|${selectedResource}`;
+
+  lastRenderedFacilityKey =
+    facilityKey;
+
   const data =
+    resourceFacilityData[selectedResource] ||
     facilityData[sport];
 
   if (!data) return;
@@ -710,10 +999,7 @@ function renderFacilityInfo(sport) {
   ).textContent =
     data.days;
 
-  document.getElementById(
-    "facilityBusy"
-  ).textContent =
-    data.busy;
+  renderOccupiedHours([]);
 
   document.getElementById(
     "facilityImages"
@@ -721,7 +1007,7 @@ function renderFacilityInfo(sport) {
 
     data.images.map(image => `
 
-      <img src="${image}" alt="${data.title}">
+      <img src="${image}" alt="${data.title}" onerror="this.src='Assets/img/hero-sportbook.png'; this.alt='Imagen no disponible de ${data.title}';">
 
     `).join("");
 
@@ -1202,7 +1488,7 @@ logoutButton?.addEventListener(
     try {
       await fetch(`${API_BASE}/auth/logout`, {
         method: "POST",
-        credentials: "same-origin"
+        credentials: "include"
       });
     } catch (error) {
       console.error("No se pudo cerrar la sesion en el servidor", error);
@@ -1222,6 +1508,10 @@ logoutButton?.addEventListener(
 
     localStorage.removeItem(
       USERNAME_STORAGE_KEY
+    );
+
+    localStorage.removeItem(
+      USER_PROFILE_IMAGE_STORAGE_KEY
     );
 
     const logoutMessage =
@@ -1279,15 +1569,48 @@ elements.bookingDate?.addEventListener(
   updateSlotAvailability
 );
 
+function handleResourceChange() {
+
+  updateResourceLocation();
+
+  renderFacilityInfo(
+    elements.sport.value
+  );
+
+  updateSlotAvailability();
+
+}
+
+function syncSelectedFacilityInfo() {
+
+  const sport =
+    elements.sport?.value || "";
+
+  const selectedResource =
+    elements.resource?.value || "";
+
+  const facilityKey =
+    `${sport}|${selectedResource}`;
+
+  if (
+    sport &&
+    facilityKey !== lastRenderedFacilityKey
+  ) {
+
+    renderFacilityInfo(
+      sport
+    );
+  }
+}
+
 elements.resource?.addEventListener(
   "change",
-  () => {
+  handleResourceChange
+);
 
-    updateResourceLocation();
-
-    updateSlotAvailability();
-
-  }
+elements.resource?.addEventListener(
+  "input",
+  handleResourceChange
 );
 
 elements.sport?.addEventListener(
@@ -1612,6 +1935,8 @@ document.addEventListener(
 
     renderLoggedUser();
 
+    loadProfileImageFromServer();
+
     renderPaymentInfo();
 
     cargarReservas();
@@ -1622,6 +1947,397 @@ document.addEventListener(
 
     cargarResenas();
 
+    setInterval(
+      syncSelectedFacilityInfo,
+      300
+    );
+
+  }
+);
+
+const accountModal =
+  document.querySelector("#accountModal");
+
+const accountModalTitle =
+  document.querySelector("#accountModalTitle");
+
+const accountModalClose =
+  document.querySelector("#accountModalClose");
+
+const accountCancelButton =
+  document.querySelector("#accountCancelButton");
+
+const accountProfileForm =
+  document.querySelector("#accountProfileForm");
+
+const profileImageInput =
+  document.querySelector("#profileImageInput");
+
+const removeProfileImageButton =
+  document.querySelector("#removeProfileImageButton");
+
+let selectedProfileImage =
+  "";
+
+function optimizeProfileImage(file) {
+
+  return new Promise((resolve, reject) => {
+
+    const image =
+      new Image();
+
+    const imageUrl =
+      URL.createObjectURL(file);
+
+    image.addEventListener(
+      "load",
+      () => {
+
+        const canvas =
+          document.createElement("canvas");
+
+        const size =
+          400;
+
+        canvas.width =
+          size;
+
+        canvas.height =
+          size;
+
+        const context =
+          canvas.getContext("2d");
+
+        const scale =
+          Math.max(
+            size / image.width,
+            size / image.height
+          );
+
+        const width =
+          image.width * scale;
+
+        const height =
+          image.height * scale;
+
+        const x =
+          (size - width) / 2;
+
+        const y =
+          (size - height) / 2;
+
+        context.drawImage(
+          image,
+          x,
+          y,
+          width,
+          height
+        );
+
+        URL.revokeObjectURL(
+          imageUrl
+        );
+
+        resolve(
+          canvas.toDataURL(
+            "image/jpeg",
+            0.86
+          )
+        );
+      }
+    );
+
+    image.addEventListener(
+      "error",
+      () => {
+        URL.revokeObjectURL(
+          imageUrl
+        );
+
+        reject(
+          new Error("No se pudo procesar la imagen.")
+        );
+      }
+    );
+
+    image.src =
+      imageUrl;
+  });
+}
+
+function resetProfileImageInput() {
+
+  selectedProfileImage =
+    "";
+
+  if (profileImageInput) {
+    profileImageInput.value =
+      "";
+  }
+}
+
+function openAccountModal(title = "Foto de perfil") {
+
+  if (!accountModal) return;
+
+  if (accountModalTitle) {
+    accountModalTitle.textContent =
+      title;
+  }
+
+  resetProfileImageInput();
+  renderLoggedUser();
+
+  accountModal.hidden =
+    false;
+
+  userDropdown?.classList.remove("show");
+}
+
+function closeAccountModal() {
+
+  if (accountModal) {
+    accountModal.hidden =
+      true;
+  }
+}
+
+async function loadProfileImageFromServer() {
+
+  try {
+    const response =
+      await fetch(
+        `${API_BASE}/auth/profile-image`,
+        {
+          credentials: "include"
+        }
+      );
+
+    if (response.status === 401) {
+      return;
+    }
+
+    const data =
+      await response.json();
+
+    if (response.ok && data.ok) {
+      if (data.profileImage) {
+        localStorage.setItem(
+          USER_PROFILE_IMAGE_STORAGE_KEY,
+          data.profileImage
+        );
+      } else {
+        localStorage.removeItem(
+          USER_PROFILE_IMAGE_STORAGE_KEY
+        );
+      }
+
+      renderLoggedUser();
+    }
+  } catch (error) {
+    console.error(
+      "No se pudo cargar la foto de perfil",
+      error
+    );
+  }
+}
+
+document.querySelector("#viewProfileButton")?.addEventListener(
+  "click",
+  () => openAccountModal("Foto de perfil")
+);
+
+accountModalClose?.addEventListener(
+  "click",
+  closeAccountModal
+);
+
+accountCancelButton?.addEventListener(
+  "click",
+  closeAccountModal
+);
+
+accountModal?.addEventListener(
+  "click",
+  event => {
+    if (event.target === accountModal) {
+      closeAccountModal();
+    }
+  }
+);
+
+accountProfileForm?.addEventListener(
+  "submit",
+  async event => {
+    event.preventDefault();
+
+    if (!selectedProfileImage) {
+      showToast(
+        "Selecciona una imagen de perfil."
+      );
+
+      return;
+    }
+
+    try {
+      const response =
+        await fetch(
+          `${API_BASE}/auth/profile-image`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type":
+                "application/json"
+            },
+            credentials: "include",
+            body: JSON.stringify({
+              profileImage:
+                selectedProfileImage
+            })
+          }
+        );
+
+      const data =
+        await response.json();
+
+      if (response.status === 401) {
+        redirectToLogin();
+        return;
+      }
+
+      if (!response.ok || !data.ok) {
+        showToast(
+          data.mensaje ||
+          "No se pudo guardar la foto."
+        );
+
+        return;
+      }
+
+      localStorage.setItem(
+        USER_PROFILE_IMAGE_STORAGE_KEY,
+        data.profileImage ||
+        selectedProfileImage
+      );
+    } catch (error) {
+      console.error(
+        "No se pudo guardar la foto de perfil",
+        error
+      );
+
+      showToast(
+        "No se pudo guardar en tu cuenta."
+      );
+
+      return;
+    }
+
+    renderLoggedUser();
+    resetProfileImageInput();
+    showToast("Foto de perfil actualizada.");
+    closeAccountModal();
+  }
+);
+
+profileImageInput?.addEventListener(
+  "change",
+  async event => {
+
+    const file =
+      event.target.files?.[0];
+
+    if (!file) {
+      selectedProfileImage =
+        "";
+
+      return;
+    }
+
+    if (!file.type.startsWith("image/")) {
+      resetProfileImageInput();
+      showToast("Selecciona un archivo de imagen.");
+      return;
+    }
+
+    try {
+      selectedProfileImage =
+        await optimizeProfileImage(file);
+
+      document.querySelectorAll(
+        ".account-modal .user-avatar"
+      ).forEach(avatar => {
+        avatar.style.backgroundImage =
+          `url("${selectedProfileImage}")`;
+
+        avatar.classList.add(
+          "has-photo"
+        );
+      });
+    } catch (error) {
+      console.error(
+        "No se pudo preparar la imagen de perfil",
+        error
+      );
+
+      resetProfileImageInput();
+      showToast(
+        "No se pudo preparar esa imagen."
+      );
+    }
+  }
+);
+
+removeProfileImageButton?.addEventListener(
+  "click",
+  async () => {
+
+    try {
+      const response =
+        await fetch(
+          `${API_BASE}/auth/profile-image`,
+          {
+            method: "DELETE",
+            credentials: "include"
+          }
+        );
+
+      const data =
+        await response.json();
+
+      if (response.status === 401) {
+        redirectToLogin();
+        return;
+      }
+
+      if (!response.ok || !data.ok) {
+        showToast(
+          data.mensaje ||
+          "No se pudo quitar la foto."
+        );
+
+        return;
+      }
+    } catch (error) {
+      console.error(
+        "No se pudo eliminar la foto de perfil",
+        error
+      );
+
+      showToast(
+        "No se pudo quitar de tu cuenta."
+      );
+
+      return;
+    }
+
+    localStorage.removeItem(
+      USER_PROFILE_IMAGE_STORAGE_KEY
+    );
+
+    resetProfileImageInput();
+    renderLoggedUser();
+    showToast("Foto de perfil eliminada.");
+    closeAccountModal();
   }
 );
 

@@ -144,7 +144,7 @@ a:focus-visible {
 main {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 2rem 0 4rem;
+  padding: 2rem 0 3rem;
 }
 
 .booking-hero {
@@ -368,6 +368,29 @@ h2 {
   background-color: #191919;
 }
 
+.checkout-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.checkout-summary .summary-box,
+.checkout-summary .payment-note {
+  margin: 0;
+  min-height: 112px;
+}
+
+.checkout-summary .summary-box::before {
+  content: none;
+  display: none;
+}
+
+.checkout-summary .summary-box {
+  justify-content: space-between;
+  padding: 1.25rem;
+}
+
 .summary-label,
 .summary-box small {
   display: block;
@@ -397,6 +420,7 @@ h2 {
 
 .payment-note {
   display: grid;
+  align-content: center;
   gap: 0.25rem;
   margin-top: 0.75rem;
   border: 1px solid rgba(255, 204, 0, 0.26);
@@ -793,6 +817,50 @@ h2 {
   transform: translateY(0);
 }
 
+.site-footer {
+  border-top: 1px solid rgba(255, 204, 0, 0.16);
+  background-color: rgba(0, 0, 0, 0.42);
+}
+
+.footer-inner {
+  width: min(1180px, calc(100% - 32px));
+  min-height: 118px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(190px, 1fr) auto minmax(190px, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: fit-content;
+  color: var(--accent);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.site-footer nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.site-footer nav a:hover {
+  color: var(--accent);
+}
+
+.site-footer p {
+  justify-self: end;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.5;
+}
+
 @media (max-width: 992px) {
   .site-header {
     grid-template-columns: 1fr;
@@ -846,6 +914,18 @@ h2 {
   .support-reviews {
     grid-template-columns: 1fr;
   }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding: 1.5rem 0;
+    text-align: center;
+  }
+
+  .site-footer p {
+    justify-self: center;
+    text-align: center;
+  }
 }
 
 @media (max-width: 600px) {
@@ -856,6 +936,11 @@ h2 {
   .top-nav {
     flex-direction: column;
     gap: 0.8rem;
+  }
+
+  .site-footer nav {
+    flex-wrap: wrap;
+    gap: 0.85rem;
   }
 
   main {
@@ -1248,6 +1333,258 @@ h2 {
 
 .logout-item{
   color:#ff6b5f;
+}
+
+.account-summary {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.account-summary strong,
+.account-summary span {
+  display: block;
+}
+
+.account-summary strong {
+  color: #fff;
+  font-weight: 900;
+}
+
+.account-summary span {
+  margin-top: 0.2rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.82rem;
+}
+
+.user-avatar.small {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+}
+
+.user-avatar.large {
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+}
+
+.user-avatar.has-photo {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.user-avatar.has-photo svg {
+  display: none;
+}
+
+.user-dropdown {
+  width: 290px;
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015)),
+    #171717;
+}
+
+.dropdown-item {
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  font-weight: 800;
+}
+
+.dropdown-item:hover {
+  color: #111;
+  background: #ffcc00;
+}
+
+.account-status {
+  display: grid;
+  gap: 0.2rem;
+  margin: 0.35rem 1rem 0.65rem;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(255, 204, 0, 0.22);
+  border-radius: 12px;
+  background:
+    linear-gradient(90deg, rgba(255, 204, 0, 0.12), rgba(255, 255, 255, 0.03));
+}
+
+.account-status span {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.account-status strong {
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.logout-item:hover {
+  color: #111;
+  background: #ff6b5f;
+}
+
+.account-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(8px);
+}
+
+.account-modal[hidden] {
+  display: none;
+}
+
+.account-modal-card {
+  width: min(100%, 560px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.016)),
+    #1f1f1f;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.48);
+}
+
+.account-modal-card::before {
+  content: "";
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, #ffcc00, #46d6d2);
+}
+
+.account-modal-head,
+.account-profile-card,
+.account-form {
+  padding: 1.35rem;
+}
+
+.account-modal-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.account-modal-head h2 {
+  margin: 0;
+}
+
+.account-close {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #fff;
+  background: #111;
+  font-size: 1.5rem;
+}
+
+.account-profile-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 204, 0, 0.045);
+}
+
+.account-profile-card strong,
+.account-profile-card span {
+  display: block;
+}
+
+.account-profile-card strong {
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.account-profile-card span {
+  margin-top: 0.3rem;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.account-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.account-form label,
+.account-settings-row {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.account-form label span,
+.account-settings-row span {
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 800;
+}
+
+.account-form label small {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.account-form input {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 8px;
+  padding: 0 1rem;
+  color: #fff;
+  background: #101010;
+  font: inherit;
+}
+
+.profile-upload-field input {
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+}
+
+.profile-upload-field input::file-selector-button {
+  margin-right: 1rem;
+  border: 0;
+  border-radius: 7px;
+  padding: 0.65rem 0.9rem;
+  color: #111;
+  background: #ffcc00;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.account-form input:focus {
+  outline: none;
+  border-color: rgba(255, 204, 0, 0.78);
+  box-shadow: 0 0 0 4px rgba(255, 204, 0, 0.12);
+}
+
+.account-settings-row {
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.account-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.account-remove-photo {
+  grid-column: 1 / -1;
 }
 
 @media (max-width:600px){
@@ -1747,5 +2084,699 @@ canvas {
 
   .hero-copy {
     padding-top: 0;
+  }
+}
+
+body {
+  background:
+    linear-gradient(135deg, rgba(15, 15, 15, 0.98), rgba(24, 24, 24, 0.98)),
+    linear-gradient(180deg, rgba(255, 204, 0, 0.05), transparent 42rem);
+}
+
+.site-header {
+  border-bottom: 1px solid rgba(255, 204, 0, 0.18);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+}
+
+.top-nav a {
+  position: relative;
+  padding: 0.35rem 0;
+}
+
+.top-nav a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 999px;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+
+.top-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.booking-hero {
+  align-items: center;
+}
+
+h1 {
+  font-size: clamp(2.7rem, 5vw, 4.25rem);
+}
+
+.reservation-panel,
+.bookings-section,
+.support-section,
+.reviews-section,
+.activity-card,
+.facility-card,
+.summary-box,
+.payment-note,
+.review-item,
+.reservation-item {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
+    var(--panel);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.reservation-panel,
+.bookings-section,
+.support-section,
+.reviews-section {
+  backdrop-filter: blur(12px);
+}
+
+.activity-option,
+.field input,
+.field select,
+.field textarea,
+.location-preview {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: rgba(255, 204, 0, 0.7);
+}
+
+.button.primary {
+  box-shadow: 0 8px 22px rgba(255, 204, 0, 0.2);
+}
+
+.trust-strip span {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.bookings-section:has(.facility-images) {
+  display: grid;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+    #1f1f1f;
+}
+
+.bookings-section:has(.facility-images) .facility-images {
+  padding: 0.75rem;
+  background: #141414;
+  gap: 0.75rem;
+}
+
+.bookings-section:has(.facility-images) .facility-images img {
+  height: clamp(190px, 19vw, 255px);
+  border-radius: 10px;
+  filter: saturate(0.96) contrast(1.04);
+}
+
+.bookings-section:has(.facility-images) .facility-info {
+  position: relative;
+  display: grid;
+  gap: 0.7rem;
+  padding: 1.35rem 1.6rem 1.55rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(90deg, rgba(255, 204, 0, 0.14), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
+}
+
+.bookings-section:has(.facility-images) .facility-info::before {
+  content: "INSTALACION";
+  width: max-content;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid rgba(255, 204, 0, 0.38);
+  border-radius: 999px;
+  color: #ffcc00;
+  background: rgba(255, 204, 0, 0.08);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.bookings-section:has(.facility-images) .facility-info h3 {
+  position: relative;
+  width: fit-content;
+  margin: 0;
+  padding-bottom: 0.45rem;
+  color: #fff;
+  font-size: clamp(1.8rem, 3vw, 2.75rem);
+  line-height: 1.02;
+}
+
+.bookings-section:has(.facility-images) .facility-info h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: min(100%, 180px);
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffcc00, rgba(255, 204, 0, 0.12));
+}
+
+.bookings-section:has(.facility-images) .facility-info p {
+  max-width: 760px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.facility-data {
+  align-items: stretch;
+}
+
+.bookings-section:has(.facility-images) + .facility-data {
+  margin-top: 1rem;
+}
+
+.facility-card {
+  min-height: 96px;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+    #1f1f1f;
+}
+
+.facility-card strong {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+
+.facility-card span {
+  display: block;
+  margin-top: 0.55rem;
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+@media (max-width: 700px) {
+  .bookings-section:has(.facility-images) .facility-images {
+    grid-template-columns: 1fr;
+  }
+
+  .bookings-section:has(.facility-images) .facility-info {
+    padding: 1.1rem;
+  }
+}
+
+.support-reviews {
+  align-items: stretch;
+}
+
+.support-section,
+.reviews-section {
+  height: 100%;
+}
+
+.site-footer {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.support-reviews {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem;
+}
+
+.support-section,
+.reviews-section {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  min-height: 600px;
+}
+
+.support-reviews .section-heading,
+.support-reviews .section-heading.split {
+  display: grid;
+  justify-content: start;
+  align-items: start;
+  gap: 0.55rem;
+  min-height: 82px;
+  margin-bottom: 1.25rem;
+}
+
+.support-reviews .section-heading h2 {
+  max-width: 100%;
+  margin: 0;
+  font-size: clamp(1.8rem, 2.4vw, 2.45rem);
+  line-height: 1.08;
+  text-align: left;
+}
+
+.support-reviews .panel-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.support-reviews .form-grid {
+  gap: 1rem;
+}
+
+.support-reviews .field textarea {
+  min-height: 164px;
+}
+
+.support-reviews .form-actions {
+  margin-top: 0.4rem;
+}
+
+.reviews-section .reviews-list,
+.reviews-section .empty-state {
+  margin-top: auto;
+}
+
+.reviews-section .empty-state.visible {
+  min-height: 132px;
+  place-content: center;
+  padding: 1.5rem 1rem 0;
+}
+
+@media (max-width: 900px) {
+  .support-section,
+  .reviews-section {
+    min-height: auto;
+  }
+}
+body {
+  background:
+    linear-gradient(120deg, rgba(255, 204, 0, 0.09), transparent 38%),
+    linear-gradient(250deg, rgba(70, 214, 210, 0.06), transparent 42%),
+    linear-gradient(135deg, #080808, #151515 55%, #101318);
+}
+
+.site-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  background: rgba(8, 8, 8, 0.9);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+.brand-mark,
+.activity-icon,
+.user-avatar {
+  border-radius: 13px;
+}
+
+.booking-hero {
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.hero-copy {
+  max-width: 640px;
+}
+
+.eyebrow,
+.panel-heading p,
+.section-heading p {
+  width: max-content;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid rgba(255, 204, 0, 0.38);
+  border-radius: 999px;
+  background: rgba(255, 204, 0, 0.08);
+}
+
+h1,
+h2 {
+  letter-spacing: 0;
+}
+
+.hero-text,
+.muted,
+.activity-card p,
+.location-preview,
+.payment-note,
+.review-comment {
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.65;
+}
+
+.reservation-panel,
+.bookings-section,
+.support-section,
+.reviews-section,
+.activity-card,
+.summary-box,
+.payment-note,
+.review-item,
+.reservation-item,
+.location-preview,
+.auth-required,
+.bookings-panel-content {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.016)),
+    var(--panel);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.3);
+}
+
+.reservation-panel,
+.bookings-section,
+.support-section,
+.reviews-section {
+  border-radius: 14px;
+}
+
+.activity-option,
+.field input,
+.field select,
+.field textarea,
+.star-rating button,
+.user-profile-button {
+  border-radius: 8px;
+}
+
+.activity-option {
+  min-height: 116px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+    #141414;
+}
+
+.activity-option.active {
+  box-shadow: 0 18px 38px rgba(255, 204, 0, 0.22);
+}
+
+.field input,
+.field select,
+.field textarea {
+  background: #101010;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  box-shadow: 0 0 0 4px rgba(255, 204, 0, 0.12);
+}
+
+.button {
+  border-radius: 8px;
+  min-height: 50px;
+}
+
+.button.primary {
+  box-shadow: 0 14px 34px rgba(255, 204, 0, 0.22);
+}
+
+.button.primary:hover {
+  box-shadow: 0 18px 42px rgba(255, 204, 0, 0.32);
+}
+
+.summary-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-box::before,
+.support-section::before,
+.reviews-section::before {
+  content: "";
+  display: block;
+  height: 4px;
+  margin: -1rem -1rem 1rem;
+  background: linear-gradient(90deg, #ffcc00, #46d6d2);
+}
+
+.support-section,
+.reviews-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.review-item {
+  border-radius: 10px;
+}
+
+.site-footer {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
+    #080808;
+}
+
+main {
+  display: grid;
+  gap: 2rem;
+}
+
+.booking-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(520px, 620px);
+  align-items: center;
+}
+
+.reservation-panel,
+.bookings-section,
+.support-section,
+.reviews-section {
+  padding: clamp(1.4rem, 2.4vw, 2rem);
+}
+
+.panel-heading,
+.section-heading,
+.section-heading.split {
+  display: grid;
+  gap: 0.6rem;
+  align-items: start;
+}
+
+.activity-picker {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.activity-option {
+  width: 100%;
+  aspect-ratio: 1 / 0.78;
+  min-height: 110px;
+  display: grid;
+  place-items: center;
+}
+
+.booking-form,
+.form-grid,
+.help-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.field,
+.field input,
+.field select,
+.field textarea,
+.location-preview,
+.summary-box,
+.payment-note {
+  width: 100%;
+}
+
+.field.wide,
+  .summary-box,
+  .payment-note,
+  .checkout-summary,
+  .form-actions,
+  .help-form-grid .wide,
+  .help-form-grid textarea {
+  grid-column: 1 / -1;
+}
+
+.form-actions,
+.review-actions,
+.reservation-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.form-actions .button,
+.review-actions .button,
+.reservation-actions .button {
+  width: 100%;
+}
+
+.facility-images,
+.facility-data {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.facility-data {
+  align-items: stretch;
+}
+
+.facility-card {
+  display: grid;
+  align-content: center;
+}
+
+.support-reviews {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.support-section,
+.reviews-section {
+  height: 100%;
+}
+
+@media (max-width: 1100px) {
+  .booking-hero,
+  .support-reviews {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .activity-picker,
+  .booking-form,
+  .form-grid,
+  .help-form-grid,
+  .facility-images,
+  .facility-data,
+  .checkout-summary,
+  .form-actions,
+  .review-actions,
+  .reservation-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-option {
+    aspect-ratio: auto;
+  }
+}
+
+.site-header {
+  min-height: 96px;
+  grid-template-columns: minmax(260px, 1fr) auto minmax(260px, 1fr);
+  gap: 1.25rem;
+  padding: 1rem clamp(1.25rem, 3vw, 2.6rem);
+  border-bottom: 1px solid rgba(255, 204, 0, 0.22);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.01)),
+    rgba(5, 5, 5, 0.94);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42);
+}
+
+.brand {
+  min-width: 0;
+  gap: 0.9rem;
+  padding: 0.55rem 0.75rem 0.55rem 0;
+}
+
+.brand-mark {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(255, 204, 0, 0.24);
+}
+
+.brand-mark svg {
+  width: 24px;
+  height: 24px;
+}
+
+.brand strong {
+  font-size: clamp(1.45rem, 2vw, 1.9rem);
+  letter-spacing: 0;
+}
+
+.brand small {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.86rem;
+}
+
+.top-nav {
+  gap: 0.35rem;
+  padding: 0.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.top-nav a {
+  min-height: 42px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0 1.05rem;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 800;
+}
+
+.top-nav a:hover {
+  color: #111;
+  background: #ffcc00;
+  box-shadow: 0 10px 24px rgba(255, 204, 0, 0.22);
+}
+
+.top-nav a::after {
+  display: none;
+}
+
+.header-actions {
+  min-width: 0;
+}
+
+.user-profile-button {
+  min-height: 62px;
+  padding: 0.55rem 0.8rem;
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015)),
+    #151515;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+}
+
+.user-profile-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 204, 0, 0.45);
+  box-shadow: 0 14px 32px rgba(255, 204, 0, 0.13);
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+}
+
+.user-details small {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.user-details span {
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.user-arrow {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 1000px) {
+  .site-header {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+  }
+
+  .brand,
+  .header-actions {
+    justify-self: center;
+  }
+
+  .top-nav {
+    width: 100%;
+    justify-content: center;
+    overflow-x: auto;
   }
 }

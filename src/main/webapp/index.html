@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>SportBook | Reservas deportivas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Assets/css/estilos.css">
+    <link rel="stylesheet" href="Assets/css/estilos.css?v=4">
     <link rel="icon" type="image/x-icon" href="Assets/img/icon.png">
 </head>
 <body>
@@ -12,10 +12,10 @@
 <div class="main-box">
 
     <header class="navbar">
-        <a href="#home" class="logo">
+        <div class="logo">
             <span class="logo-mark">SB</span>
             <span>SportBook</span>
-        </a>
+        </div>
 
         <nav aria-label="Navegación principal">
             <a href="#home">Inicio</a>
@@ -217,9 +217,9 @@
                     <label>
                         <span>Tipo de consulta</span>
                         <select name="topic" required>
-                            <option value="" selected>Selecciona una opcion</option>
+                            <option value="" selected>Selecciona una opción</option>
                             <option>Horarios de reservas</option>
-                            <option>Direccion de instalaciones</option>
+                            <option>Dirección de instalaciones</option>
                             <option>Precios o pagos</option>
                             <option>Actividades disponibles</option>
                             <option>Otra duda</option>
@@ -228,7 +228,7 @@
 
                     <label class="wide">
                         <span>Mensaje</span>
-                        <textarea name="message" rows="5" placeholder="Escribe aqui tu pregunta" required></textarea>
+                        <textarea name="message" rows="5" placeholder="Cuéntanos qué necesitas" required></textarea>
                     </label>
 
                     <button class="btn-main" type="submit">Enviar pregunta</button>
@@ -239,9 +239,27 @@
 
     </main>
 
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a href="#home" class="footer-brand">
+                <span class="logo-mark">SB</span>
+                <span>SportBook</span>
+            </a>
+
+            <nav aria-label="Navegacion del pie de pagina">
+                <a href="#about">Nosotros</a>
+                <a href="#features">Servicios</a>
+                <a href="#instalaciones">Instalaciones</a>
+                <a href="#ayuda">Ayuda</a>
+            </nav>
+
+            <p>SportBook &copy; 2026. Reservas deportivas online.</p>
+        </div>
+    </footer>
+
 </div>
 
-<script src="Assets/js/index.js"></script>
+<script src="Assets/js/index.js?v=4"></script>
 
 </body>
 </html>

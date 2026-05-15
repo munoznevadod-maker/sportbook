@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <title>Iniciar sesión | SportBook</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Assets/css/login.css">
+    <link rel="stylesheet" href="Assets/css/login.css?v=7">
     <link rel="icon" type="image/x-icon" href="Assets/img/icon.png">
 </head>
 <body>
 
 <div class="login-container">
     <div class="login-box">
+        <div class="auth-brand" aria-hidden="true">
+            <span>SB</span>
+            <strong>SportBook</strong>
+        </div>
+
         <h1>Bienvenido a SportBook</h1>
         <p>Inicia sesión para poder hacer tus reservas</p>
 
         <form id="loginForm" method="POST">
-
             <div class="input-group">
                 <label for="login">Correo o usuario</label>
                 <input type="text" id="login" placeholder="Correo o nombre de usuario" required>
@@ -31,7 +35,6 @@
             <p id="error" style="color:red;"></p>
 
             <div class="extra-links">
-
                 <a id="forgotPasswordLink" href="forgot-password.html">
                     ¿Olvidaste tu contraseña?
                 </a>
@@ -43,15 +46,16 @@
                 <div class="divider"></div>
 
                 <a class="back-home" href="index.html">
-                    ← Volver al Menú Principal
+                    ← Volver al menú principal
                 </a>
-
             </div>
         </form>
     </div>
 </div>
 
-<script src="Assets/js/login.js"></script>
+
+
+<script src="Assets/js/login.js?v=9"></script>
 
 </body>
 </html>

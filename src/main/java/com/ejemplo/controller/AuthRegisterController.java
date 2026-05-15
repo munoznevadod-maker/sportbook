@@ -17,14 +17,14 @@ public class AuthRegisterController extends HttpServlet {
 
     @Override
     protected void doOptions(HttpServletRequest request, HttpServletResponse response) {
-        AuthSupport.cors(response);
+        AuthSupport.cors(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
-        AuthSupport.cors(response);
+        AuthSupport.cors(request, response);
         request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json;charset=UTF-8");
 
