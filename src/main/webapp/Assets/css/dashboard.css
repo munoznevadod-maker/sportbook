@@ -15,10 +15,10 @@
   --accent: #ffcc00;
   --accent-hover: #ffd633;
   --danger: #ff6b5f;
-  --shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  --shadow-accent: 0 6px 20px rgba(255, 204, 0, 0.3);
-  --radius: 10px;
-  --focus: 0 0 0 3px rgba(255, 204, 0, 0.24);
+  --shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.3);
+  --shadow-accent: 0 0.375rem 1.25rem rgba(255, 204, 0, 0.3);
+  --radius: 0.625rem;
+  --focus: 0 0 0 0.1875rem rgba(255, 204, 0, 0.24);
 }
 
 html {
@@ -66,12 +66,12 @@ a:focus-visible {
   top: 0;
   z-index: 100;
   display: grid;
-  grid-template-columns: minmax(190px, 1fr) auto minmax(190px, 1fr);
+  grid-template-columns: minmax(11.875rem, 1fr) auto minmax(11.875rem, 1fr);
   align-items: center;
   gap: 1.5rem;
   padding: 1rem 2rem;
   background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(0.625rem);
 }
 
 .brand {
@@ -82,14 +82,14 @@ a:focus-visible {
 }
 
 .brand-mark {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
+  width: 2.625rem;
+  height: 2.625rem;
+  border-radius: 0.625rem;
   display: grid;
   place-items: center;
   color: #111111;
   background: var(--accent);
-  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.25);
+  box-shadow: 0 0.25rem 0.9375rem rgba(255, 204, 0, 0.25);
 }
 
 .brand-mark svg,
@@ -97,8 +97,8 @@ a:focus-visible {
 .trust-strip svg,
 .activity-icon svg,
 .reservation-action svg {
-  width: 18px;
-  height: 18px;
+  width: 1.125rem;
+  height: 1.125rem;
   stroke-width: 2;
 }
 
@@ -142,17 +142,17 @@ a:focus-visible {
 }
 
 main {
-  width: min(1180px, calc(100% - 32px));
+  width: min(73.75rem, calc(100% - 2rem));
   margin: 0 auto;
   padding: 2rem 0 3rem;
 }
 
 .booking-hero {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(380px, 1.1fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(23.75rem, 1.1fr);
   gap: 2rem;
   align-items: start;
-  min-height: calc(100vh - 112px);
+  min-height: calc(100vh - 7rem);
   padding-top: 4rem;
 }
 
@@ -169,7 +169,7 @@ main {
 }
 
 h1 {
-  max-width: 620px;
+  max-width: 38.75rem;
   margin-bottom: 1rem;
   color: #ffffff;
   font-size: 3rem;
@@ -187,7 +187,7 @@ h2 {
 }
 
 .hero-text {
-  max-width: 560px;
+  max-width: 35rem;
   margin-bottom: 2rem;
   color: var(--muted);
   font-size: 1.2rem;
@@ -204,9 +204,9 @@ h2 {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  min-height: 38px;
-  border: 1px solid var(--line);
-  border-radius: 5px;
+  min-height: 2.375rem;
+  border: 0.0625rem solid var(--line);
+  border-radius: 0.3125rem;
   padding: 0 0.85rem;
   color: var(--muted);
   background-color: rgba(31, 31, 31, 0.88);
@@ -222,7 +222,7 @@ h2 {
 .bookings-section,
 .support-section,
 .reviews-section {
-  border: 1px solid var(--line);
+  border: 0.0625rem solid var(--line);
   border-radius: var(--radius);
   background-color: var(--panel);
   box-shadow: var(--shadow);
@@ -245,8 +245,8 @@ h2 {
 
 .activity-option {
   min-width: 0;
-  min-height: 86px;
-  border: 1px solid var(--line);
+  min-height: 5.375rem;
+  border: 0.0625rem solid var(--line);
   border-radius: var(--radius);
   padding: 0.7rem 0.5rem;
   color: var(--muted);
@@ -261,16 +261,16 @@ h2 {
 
 .activity-option:hover,
 .activity-option.active {
-  transform: translateY(-5px);
+  transform: translateY(-0.3125rem);
   border-color: rgba(255, 204, 0, 0.55);
   color: var(--accent);
   box-shadow: var(--shadow-accent);
 }
 
 .activity-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
+  width: 2.375rem;
+  height: 2.375rem;
+  border-radius: 0.625rem;
   display: grid;
   place-items: center;
   color: #111111;
@@ -291,9 +291,9 @@ h2 {
   display: grid;
   gap: 0.4rem;
   align-content: center;
-  min-height: 44px;
-  border: 1px solid rgba(255, 204, 0, 0.28);
-  border-radius: 5px;
+  min-height: 2.75rem;
+  border: 0.0625rem solid rgba(255, 204, 0, 0.28);
+  border-radius: 0.3125rem;
   padding: 0.7rem 0.75rem;
   background-color: #191919;
 }
@@ -328,20 +328,20 @@ h2 {
 .field textarea {
   width: 100%;
   min-width: 0;
-  border: 1px solid var(--line);
-  border-radius: 5px;
+  border: 0.0625rem solid var(--line);
+  border-radius: 0.3125rem;
   color: #ffffff;
   background-color: #151515;
 }
 
 .field input,
 .field select {
-  height: 44px;
+  height: 2.75rem;
   padding: 0 0.75rem;
 }
 
 .field textarea {
-  min-height: 116px;
+  min-height: 7.25rem;
   resize: vertical;
   padding: 0.75rem;
 }
@@ -363,14 +363,14 @@ h2 {
   gap: 1rem;
   margin-top: 1rem;
   padding: 1rem;
-  border: 1px solid rgba(255, 204, 0, 0.3);
+  border: 0.0625rem solid rgba(255, 204, 0, 0.3);
   border-radius: var(--radius);
   background-color: #191919;
 }
 
 .checkout-summary {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(16.25rem, 0.9fr);
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -378,7 +378,7 @@ h2 {
 .checkout-summary .summary-box,
 .checkout-summary .payment-note {
   margin: 0;
-  min-height: 112px;
+  min-height: 7rem;
 }
 
 .checkout-summary .summary-box::before {
@@ -423,8 +423,8 @@ h2 {
   align-content: center;
   gap: 0.25rem;
   margin-top: 0.75rem;
-  border: 1px solid rgba(255, 204, 0, 0.26);
-  border-radius: 5px;
+  border: 0.0625rem solid rgba(255, 204, 0, 0.26);
+  border-radius: 0.3125rem;
   padding: 0.85rem 1rem;
   background-color: rgba(255, 204, 0, 0.08);
 }
@@ -449,13 +449,13 @@ h2 {
 
 .button,
 .reservation-action {
-  border: 1px solid transparent;
-  border-radius: 5px;
+  border: 0.0625rem solid transparent;
+  border-radius: 0.3125rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-height: 42px;
+  min-height: 2.625rem;
   padding: 0.5rem 1rem;
   color: #111111;
   background-color: var(--accent);
@@ -466,7 +466,7 @@ h2 {
 
 .button:hover,
 .reservation-action:hover {
-  transform: translateY(-2px);
+  transform: translateY(-0.125rem);
   background-color: var(--accent-hover);
   box-shadow: var(--shadow-accent);
 }
@@ -529,7 +529,7 @@ h2 {
 
 .bookings-section .section-heading {
   padding: 1.25rem 1.4rem;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 0.0625rem solid var(--line);
   margin-bottom: 0;
 }
 
@@ -555,7 +555,7 @@ h2 {
   gap: 1rem;
   margin-bottom: 1rem;
   padding: 1.25rem;
-  border: 1px solid rgba(255, 204, 0, 0.3);
+  border: 0.0625rem solid rgba(255, 204, 0, 0.3);
   border-radius: var(--radius);
   background-color: #191919;
 }
@@ -578,15 +578,15 @@ h2 {
 .star-rating {
   display: flex;
   gap: 0.35rem;
-  min-height: 44px;
+  min-height: 2.75rem;
   align-items: center;
 }
 
 .star-rating button {
-  width: 42px;
-  height: 42px;
-  border: 1px solid var(--line);
-  border-radius: 5px;
+  width: 2.625rem;
+  height: 2.625rem;
+  border: 0.0625rem solid var(--line);
+  border-radius: 0.3125rem;
   color: #777777;
   background-color: #151515;
   font-size: 1.45rem;
@@ -599,7 +599,7 @@ h2 {
   color: var(--accent);
   border-color: rgba(255, 204, 0, 0.65);
   box-shadow: var(--shadow-accent);
-  transform: translateY(-2px);
+  transform: translateY(-0.125rem);
 }
 
 .reviews-list {
@@ -609,7 +609,7 @@ h2 {
 }
 
 .review-item {
-  border: 1px solid var(--line);
+  border: 0.0625rem solid var(--line);
   border-radius: var(--radius);
   padding: 1rem;
   background-color: #191919;
@@ -637,7 +637,7 @@ h2 {
 .review-stars {
   color: var(--accent);
   white-space: nowrap;
-  letter-spacing: 1px;
+  letter-spacing: 0.0625rem;
 }
 
 .review-actions {
@@ -648,7 +648,7 @@ h2 {
 }
 
 .review-actions .reservation-action {
-  min-height: 36px;
+  min-height: 2.25rem;
   padding: 0.35rem 0.75rem;
   font-size: 0.9rem;
 }
@@ -665,9 +665,9 @@ h2 {
 }
 
 .activity-card {
-  width: 280px;
-  min-height: 245px;
-  border: 1px solid transparent;
+  width: 17.5rem;
+  min-height: 15.3125rem;
+  border: 0.0625rem solid transparent;
   border-radius: var(--radius);
   padding: 2rem;
   text-align: center;
@@ -680,7 +680,7 @@ h2 {
 }
 
 .activity-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-0.3125rem);
   box-shadow: var(--shadow-accent);
 }
 
@@ -710,7 +710,7 @@ h2 {
 }
 
 .price-pill {
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   padding: 0.5rem 0.65rem;
   color: #111111;
   background-color: var(--accent);
@@ -730,7 +730,7 @@ h2 {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 1rem;
   align-items: center;
-  border: 1px solid var(--line);
+  border: 0.0625rem solid var(--line);
   border-radius: var(--radius);
   padding: 1rem;
   background-color: #191919;
@@ -756,8 +756,8 @@ h2 {
 .status-badge {
   display: inline-flex;
   align-items: center;
-  min-height: 26px;
-  border-radius: 5px;
+  min-height: 1.625rem;
+  border-radius: 0.3125rem;
   padding: 0 0.55rem;
   color: #111111;
   background-color: var(--accent);
@@ -794,19 +794,19 @@ h2 {
 
 .toast {
   position: fixed;
-  right: 22px;
-  bottom: 22px;
+  right: 1.375rem;
+  bottom: 1.375rem;
   z-index: 200;
-  min-width: min(360px, calc(100vw - 44px));
-  max-width: calc(100vw - 44px);
-  border: 1px solid rgba(255, 204, 0, 0.45);
+  min-width: min(22.5rem, calc(100vw - 2.75rem));
+  max-width: calc(100vw - 2.75rem);
+  border: 0.0625rem solid rgba(255, 204, 0, 0.45);
   border-radius: var(--radius);
   padding: 0.85rem 1rem;
   color: #111111;
   background-color: var(--accent);
   box-shadow: var(--shadow-accent);
   opacity: 0;
-  transform: translateY(12px);
+  transform: translateY(0.75rem);
   pointer-events: none;
   transition: opacity 0.3s, transform 0.3s;
   font-weight: 700;
@@ -818,16 +818,16 @@ h2 {
 }
 
 .site-footer {
-  border-top: 1px solid rgba(255, 204, 0, 0.16);
+  border-top: 0.0625rem solid rgba(255, 204, 0, 0.16);
   background-color: rgba(0, 0, 0, 0.42);
 }
 
 .footer-inner {
-  width: min(1180px, calc(100% - 32px));
-  min-height: 118px;
+  width: min(73.75rem, calc(100% - 2rem));
+  min-height: 7.375rem;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(190px, 1fr) auto minmax(190px, 1fr);
+  grid-template-columns: minmax(11.875rem, 1fr) auto minmax(11.875rem, 1fr);
   align-items: center;
   gap: 1.5rem;
 }
@@ -861,7 +861,7 @@ h2 {
   line-height: 1.5;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 62rem) {
   .site-header {
     grid-template-columns: 1fr;
     justify-items: center;
@@ -928,7 +928,7 @@ h2 {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 37.5rem) {
   .site-header {
     padding: 1rem;
   }
@@ -944,7 +944,7 @@ h2 {
   }
 
   main {
-    width: min(100% - 24px, 1180px);
+    width: min(100% - 1.5rem, 73.75rem);
     padding-top: 1rem;
   }
 
@@ -978,8 +978,8 @@ h2 {
   }
 
   .activity-option {
-    min-height: 58px;
-    grid-template-columns: 38px 1fr;
+    min-height: 3.625rem;
+    grid-template-columns: 2.375rem 1fr;
     justify-items: start;
     padding-inline: 0.75rem;
   }
@@ -1036,7 +1036,7 @@ h2 {
   justify-content: flex-end;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 62rem) {
   .header-actions {
     justify-self: center;
     justify-content: center;
@@ -1052,24 +1052,24 @@ h2 {
   place-items: center;
   padding: 1.5rem;
   background: rgba(15, 15, 15, 0.94);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(0.625rem);
 }
 
 .logout-card {
-  width: min(420px, 100%);
+  width: min(26.25rem, 100%);
   padding: 2rem;
-  border: 1px solid rgba(255, 204, 0, 0.45);
-  border-radius: 10px;
+  border: 0.0625rem solid rgba(255, 204, 0, 0.45);
+  border-radius: 0.625rem;
   text-align: center;
   background-color: #1f1f1f;
-  box-shadow: 0 6px 20px rgba(255, 204, 0, 0.3);
+  box-shadow: 0 0.375rem 1.25rem rgba(255, 204, 0, 0.3);
 }
 
 .logout-icon {
   display: grid;
   place-items: center;
-  width: 64px;
-  height: 64px;
+  width: 4rem;
+  height: 4rem;
   margin: 0 auto 1rem;
   border-radius: 50%;
   color: #111111;
@@ -1077,8 +1077,8 @@ h2 {
 }
 
 .logout-icon svg {
-  width: 34px;
-  height: 34px;
+  width: 2.125rem;
+  height: 2.125rem;
   stroke-width: 2.4;
 }
 
@@ -1096,7 +1096,7 @@ h2 {
 #bookingDate {
   background-color: #000;
   color: #fff;
-  border: 1px solid #555;
+  border: 0.0625rem solid #555;
   color-scheme: dark;
 }
 
@@ -1108,23 +1108,23 @@ h2 {
 .user-info{
   display:flex;
   align-items:center;
-  gap:12px;
-  padding:8px 14px;
-  border-radius:12px;
+  gap:0.75rem;
+  padding:0.5rem 0.875rem;
+  border-radius:0.75rem;
   background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
-  backdrop-filter:blur(10px);
+  border:0.0625rem solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(0.625rem);
   transition:all .3s ease;
 }
 
 .user-info:hover{
   border-color:rgba(255,204,0,.4);
-  box-shadow:0 4px 18px rgba(255,204,0,.15);
+  box-shadow:0 0.25rem 1.125rem rgba(255,204,0,.15);
 }
 
 .user-avatar{
-  width:44px;
-  height:44px;
+  width:2.75rem;
+  height:2.75rem;
   border-radius:50%;
   display:flex;
   align-items:center;
@@ -1132,12 +1132,12 @@ h2 {
   background:linear-gradient(135deg,#ffcc00,#ffb300);
   color:#111;
   flex-shrink:0;
-  box-shadow:0 4px 12px rgba(255,204,0,.3);
+  box-shadow:0 0.25rem 0.75rem rgba(255,204,0,.3);
 }
 
 .user-avatar svg{
-  width:22px;
-  height:22px;
+  width:1.375rem;
+  height:1.375rem;
   stroke-width:2.2;
 }
 
@@ -1150,20 +1150,20 @@ h2 {
 .user-details small{
   color:#bdbdbd;
   font-size:.72rem;
-  margin-bottom:2px;
+  margin-bottom:0.125rem;
 }
 
 .user-details span{
   color:#ffffff;
   font-size:.95rem;
   font-weight:600;
-  max-width:140px;
+  max-width:8.75rem;
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
 }
 
-@media (max-width:600px){
+@media (max-width:37.5rem){
 
   .user-info{
     width:100%;
@@ -1171,7 +1171,7 @@ h2 {
   }
 
   .user-details span{
-    max-width:100px;
+    max-width:6.25rem;
   }
 }
 
@@ -1188,17 +1188,17 @@ h2 {
 .user-profile-button{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:0.75rem;
 
-  padding:8px 14px;
+  padding:0.5rem 0.875rem;
 
-  border-radius:14px;
+  border-radius:0.875rem;
 
   background:rgba(255,255,255,0.04);
 
-  border:1px solid rgba(255,255,255,0.08);
+  border:0.0625rem solid rgba(255,255,255,0.08);
 
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(0.625rem);
 
   color:#fff;
 
@@ -1209,12 +1209,12 @@ h2 {
 
 .user-profile-button:hover{
   border-color:rgba(255,204,0,.45);
-  box-shadow:0 4px 18px rgba(255,204,0,.15);
+  box-shadow:0 0.25rem 1.125rem rgba(255,204,0,.15);
 }
 
 .user-avatar{
-  width:44px;
-  height:44px;
+  width:2.75rem;
+  height:2.75rem;
 
   border-radius:50%;
 
@@ -1226,14 +1226,14 @@ h2 {
 
   color:#111;
 
-  box-shadow:0 4px 12px rgba(255,204,0,.25);
+  box-shadow:0 0.25rem 0.75rem rgba(255,204,0,.25);
 
   flex-shrink:0;
 }
 
 .user-avatar svg{
-  width:22px;
-  height:22px;
+  width:1.375rem;
+  height:1.375rem;
   stroke-width:2.2;
 }
 
@@ -1247,7 +1247,7 @@ h2 {
 .user-details small{
   color:#bdbdbd;
   font-size:.72rem;
-  margin-bottom:2px;
+  margin-bottom:0.125rem;
 }
 
 .user-details span{
@@ -1255,7 +1255,7 @@ h2 {
   font-size:.96rem;
   font-weight:600;
 
-  max-width:150px;
+  max-width:9.375rem;
 
   overflow:hidden;
   text-overflow:ellipsis;
@@ -1263,7 +1263,7 @@ h2 {
 }
 
 .user-arrow{
-  font-size:11px;
+  font-size:0.6875rem;
   color:#ccc;
   transition:transform .25s ease;
 }
@@ -1274,24 +1274,24 @@ h2 {
   top:115%;
   right:0;
 
-  width:230px;
+  width:14.375rem;
 
   background:#1c1c1c;
 
-  border:1px solid rgba(255,255,255,0.08);
+  border:0.0625rem solid rgba(255,255,255,0.08);
 
-  border-radius:14px;
+  border-radius:0.875rem;
 
   overflow:hidden;
 
   opacity:0;
   visibility:hidden;
 
-  transform:translateY(-10px);
+  transform:translateY(-0.625rem);
 
   transition:all .25s ease;
 
-  box-shadow:0 12px 30px rgba(0,0,0,.45);
+  box-shadow:0 0.75rem 1.875rem rgba(0,0,0,.45);
 
   z-index:999;
 }
@@ -1307,9 +1307,9 @@ h2 {
 
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:0.75rem;
 
-  padding:14px 16px;
+  padding:0.875rem 1rem;
 
   border:none;
 
@@ -1327,8 +1327,8 @@ h2 {
 }
 
 .dropdown-item svg{
-  width:18px;
-  height:18px;
+  width:1.125rem;
+  height:1.125rem;
 }
 
 .logout-item{
@@ -1341,7 +1341,7 @@ h2 {
   gap: 0.85rem;
   align-items: center;
   padding: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.09);
   background: rgba(255, 255, 255, 0.035);
 }
 
@@ -1362,15 +1362,15 @@ h2 {
 }
 
 .user-avatar.small {
-  width: 38px;
-  height: 38px;
-  border-radius: 11px;
+  width: 2.375rem;
+  height: 2.375rem;
+  border-radius: 0.6875rem;
 }
 
 .user-avatar.large {
-  width: 68px;
-  height: 68px;
-  border-radius: 18px;
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 1.125rem;
 }
 
 .user-avatar.has-photo {
@@ -1384,15 +1384,15 @@ h2 {
 }
 
 .user-dropdown {
-  width: 290px;
-  border-radius: 16px;
+  width: 18.125rem;
+  border-radius: 1rem;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015)),
     #171717;
 }
 
 .dropdown-item {
-  min-height: 48px;
+  min-height: 3rem;
   padding: 0.75rem 1rem;
   font-weight: 800;
 }
@@ -1407,8 +1407,8 @@ h2 {
   gap: 0.2rem;
   margin: 0.35rem 1rem 0.65rem;
   padding: 0.85rem 0.95rem;
-  border: 1px solid rgba(255, 204, 0, 0.22);
-  border-radius: 12px;
+  border: 0.0625rem solid rgba(255, 204, 0, 0.22);
+  border-radius: 0.75rem;
   background:
     linear-gradient(90deg, rgba(255, 204, 0, 0.12), rgba(255, 255, 255, 0.03));
 }
@@ -1438,7 +1438,7 @@ h2 {
   place-items: center;
   padding: 1rem;
   background: rgba(0, 0, 0, 0.68);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(0.5rem);
 }
 
 .account-modal[hidden] {
@@ -1446,20 +1446,20 @@ h2 {
 }
 
 .account-modal-card {
-  width: min(100%, 560px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
+  width: min(100%, 35rem);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
   overflow: hidden;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.016)),
     #1f1f1f;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.48);
+  box-shadow: 0 1.875rem 5rem rgba(0, 0, 0, 0.48);
 }
 
 .account-modal-card::before {
   content: "";
   display: block;
-  height: 4px;
+  height: 0.25rem;
   background: linear-gradient(90deg, #ffcc00, #46d6d2);
 }
 
@@ -1474,7 +1474,7 @@ h2 {
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: start;
   gap: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.08);
 }
 
 .account-modal-head h2 {
@@ -1482,10 +1482,10 @@ h2 {
 }
 
 .account-close {
-  width: 42px;
-  height: 42px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  width: 2.625rem;
+  height: 2.625rem;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.625rem;
   color: #fff;
   background: #111;
   font-size: 1.5rem;
@@ -1539,9 +1539,9 @@ h2 {
 
 .account-form input {
   width: 100%;
-  min-height: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.11);
-  border-radius: 8px;
+  min-height: 3.125rem;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.11);
+  border-radius: 0.5rem;
   padding: 0 1rem;
   color: #fff;
   background: #101010;
@@ -1556,7 +1556,7 @@ h2 {
 .profile-upload-field input::file-selector-button {
   margin-right: 1rem;
   border: 0;
-  border-radius: 7px;
+  border-radius: 0.4375rem;
   padding: 0.65rem 0.9rem;
   color: #111;
   background: #ffcc00;
@@ -1567,13 +1567,13 @@ h2 {
 .account-form input:focus {
   outline: none;
   border-color: rgba(255, 204, 0, 0.78);
-  box-shadow: 0 0 0 4px rgba(255, 204, 0, 0.12);
+  box-shadow: 0 0 0 0.25rem rgba(255, 204, 0, 0.12);
 }
 
 .account-settings-row {
   padding: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.625rem;
   background: rgba(255, 255, 255, 0.035);
 }
 
@@ -1587,7 +1587,7 @@ h2 {
   grid-column: 1 / -1;
 }
 
-@media (max-width:600px){
+@media (max-width:37.5rem){
 
   .header-actions{
     width:100%;
@@ -1600,7 +1600,7 @@ h2 {
   }
 
   .user-details span{
-    max-width:110px;
+    max-width:6.875rem;
   }
 
 }
@@ -1622,11 +1622,11 @@ h2 {
 
   padding:1rem;
 
-  border-radius:14px;
+  border-radius:0.875rem;
 
   background:#151515;
 
-  border:1px solid rgba(255,204,0,.15);
+  border:0.0625rem solid rgba(255,204,0,.15);
 }
 
 .facility-images{
@@ -1642,11 +1642,11 @@ h2 {
 
   width:100%;
 
-  height:180px;
+  height:11.25rem;
 
   object-fit:cover;
 
-  border-radius:12px;
+  border-radius:0.75rem;
 
   transition:.3s ease;
 }
@@ -1692,7 +1692,7 @@ h2 {
 
   padding:.9rem;
 
-  border-radius:10px;
+  border-radius:0.625rem;
 }
 
 .facility-card strong{
@@ -1709,7 +1709,7 @@ h2 {
   color:#ddd;
 }
 
-@media(max-width:800px){
+@media(max-width:50rem){
 
   .facility-preview{
 
@@ -1730,7 +1730,7 @@ h2 {
   gap:1rem;
 }
 
-@media(max-width:800px){
+@media(max-width:50rem){
 
   .facility-data{
     grid-template-columns:1fr;
@@ -1746,13 +1746,13 @@ h2 {
 
   align-items: flex-end;
 
-  gap: 14px;
+  gap: 0.875rem;
 
 }
 
 .cancel-booking {
 
-  width: 170px !important;
+  width: 10.625rem !important;
 
 }
 
@@ -1764,9 +1764,9 @@ h2 {
 
   justify-content: center;
 
-  width: 170px;
+  width: 10.625rem;
 
-  height: 44px;
+  height: 2.75rem;
 
 }
 
@@ -1779,31 +1779,31 @@ h2 {
 .location-preview,
 .user-profile-button,
 .dropdown-item {
-  border-radius: 6px;
+  border-radius: 0.375rem;
 }
 
 .button,
 .reservation-action,
 .field input,
 .field select {
-  min-height: 48px;
+  min-height: 3rem;
 }
 
 .field input,
 .field select {
-  height: 48px;
+  height: 3rem;
   padding: 0 0.85rem;
 }
 
 .field textarea {
-  min-height: 132px;
-  border-radius: 6px;
+  min-height: 8.25rem;
+  border-radius: 0.375rem;
   padding: 0.85rem;
 }
 
 .form-actions {
   display: grid;
-  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  grid-template-columns: repeat(2, minmax(10rem, 1fr));
   gap: 0.75rem;
 }
 
@@ -1813,7 +1813,7 @@ h2 {
 
 .reservation-actions {
   display: grid;
-  grid-template-columns: 170px;
+  grid-template-columns: 10.625rem;
   justify-items: stretch;
   align-items: stretch;
   gap: 0.75rem;
@@ -1822,33 +1822,33 @@ h2 {
 .reservation-actions .button,
 .reservation-actions .status-badge,
 .cancel-booking {
-  width: 170px !important;
-  height: 48px;
-  min-height: 48px;
+  width: 10.625rem !important;
+  height: 3rem;
+  min-height: 3rem;
   justify-content: center;
   text-align: center;
 }
 
 .status-badge {
-  min-width: 170px;
+  min-width: 10.625rem;
 }
 
 .star-rating button {
-  width: 44px;
-  height: 44px;
+  width: 2.75rem;
+  height: 2.75rem;
 }
 
 .review-actions {
   display: grid;
-  grid-template-columns: repeat(2, minmax(130px, 1fr));
+  grid-template-columns: repeat(2, minmax(8.125rem, 1fr));
 }
 
 .review-actions .reservation-action {
   width: 100%;
-  min-height: 44px;
+  min-height: 2.75rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 37.5rem) {
   .form-actions,
   .reservation-actions,
   .review-actions {
@@ -1876,15 +1876,15 @@ canvas {
   max-width: 100%;
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 87.5rem) {
   main {
-    width: min(1280px, calc(100% - 48px));
+    width: min(80rem, calc(100% - 3rem));
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 75rem) {
   .site-header {
-    grid-template-columns: minmax(180px, 1fr) auto;
+    grid-template-columns: minmax(11.25rem, 1fr) auto;
     gap: 1rem;
     padding: 1rem 1.25rem;
   }
@@ -1919,9 +1919,9 @@ canvas {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 56.25rem) {
   main {
-    width: min(100% - 24px, 1180px);
+    width: min(100% - 1.5rem, 73.75rem);
     padding: 1.25rem 0 3rem;
   }
 
@@ -1957,7 +1957,7 @@ canvas {
   }
 
   .reservation-actions {
-    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    grid-template-columns: repeat(2, minmax(9.375rem, 1fr));
     justify-items: stretch;
   }
 
@@ -1968,7 +1968,7 @@ canvas {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 43.75rem) {
   .site-header {
     grid-template-columns: 1fr;
     justify-items: center;
@@ -2014,14 +2014,14 @@ canvas {
 
   .star-rating {
     display: grid;
-    grid-template-columns: repeat(5, 44px);
+    grid-template-columns: repeat(5, 2.75rem);
     justify-content: center;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30rem) {
   main {
-    width: min(100% - 16px, 1180px);
+    width: min(100% - 1rem, 73.75rem);
   }
 
   .site-header {
@@ -2054,7 +2054,7 @@ canvas {
   .field select,
   .button,
   .reservation-action {
-    min-height: 46px;
+    min-height: 2.875rem;
   }
 
   .review-head {
@@ -2063,21 +2063,21 @@ canvas {
   }
 
   .star-rating {
-    grid-template-columns: repeat(5, minmax(38px, 1fr));
+    grid-template-columns: repeat(5, minmax(2.375rem, 1fr));
   }
 
   .star-rating button {
     width: 100%;
-    height: 42px;
+    height: 2.625rem;
   }
 
   .toast {
     min-width: 0;
-    width: calc(100vw - 24px);
+    width: calc(100vw - 1.5rem);
   }
 }
 
-@media (max-height: 560px) and (orientation: landscape) {
+@media (max-height: 35rem) and (orientation: landscape) {
   .booking-hero {
     padding-top: 1rem;
   }
@@ -2094,8 +2094,8 @@ body {
 }
 
 .site-header {
-  border-bottom: 1px solid rgba(255, 204, 0, 0.18);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+  border-bottom: 0.0625rem solid rgba(255, 204, 0, 0.18);
+  box-shadow: 0 0.875rem 2.25rem rgba(0, 0, 0, 0.28);
 }
 
 .top-nav a {
@@ -2109,8 +2109,8 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  height: 2px;
-  border-radius: 999px;
+  height: 0.125rem;
+  border-radius: 62.4375rem;
   background-color: var(--accent);
   transform: scaleX(0);
   transform-origin: center;
@@ -2149,7 +2149,7 @@ h1 {
 .bookings-section,
 .support-section,
 .reviews-section {
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(0.75rem);
 }
 
 .activity-option,
@@ -2167,7 +2167,7 @@ h1 {
 }
 
 .button.primary {
-  box-shadow: 0 8px 22px rgba(255, 204, 0, 0.2);
+  box-shadow: 0 0.5rem 1.375rem rgba(255, 204, 0, 0.2);
 }
 
 .trust-strip span {
@@ -2179,7 +2179,7 @@ h1 {
   gap: 0;
   padding: 0;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.14);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
     #1f1f1f;
@@ -2192,8 +2192,8 @@ h1 {
 }
 
 .bookings-section:has(.facility-images) .facility-images img {
-  height: clamp(190px, 19vw, 255px);
-  border-radius: 10px;
+  height: clamp(11.875rem, 19vw, 15.9375rem);
+  border-radius: 0.625rem;
   filter: saturate(0.96) contrast(1.04);
 }
 
@@ -2202,7 +2202,7 @@ h1 {
   display: grid;
   gap: 0.7rem;
   padding: 1.35rem 1.6rem 1.55rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 0.0625rem solid rgba(255, 255, 255, 0.1);
   background:
     linear-gradient(90deg, rgba(255, 204, 0, 0.14), transparent 38%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
@@ -2212,8 +2212,8 @@ h1 {
   content: "INSTALACION";
   width: max-content;
   padding: 0.25rem 0.55rem;
-  border: 1px solid rgba(255, 204, 0, 0.38);
-  border-radius: 999px;
+  border: 0.0625rem solid rgba(255, 204, 0, 0.38);
+  border-radius: 62.4375rem;
   color: #ffcc00;
   background: rgba(255, 204, 0, 0.08);
   font-size: 0.72rem;
@@ -2237,14 +2237,14 @@ h1 {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: min(100%, 180px);
-  height: 4px;
-  border-radius: 999px;
+  width: min(100%, 11.25rem);
+  height: 0.25rem;
+  border-radius: 62.4375rem;
   background: linear-gradient(90deg, #ffcc00, rgba(255, 204, 0, 0.12));
 }
 
 .bookings-section:has(.facility-images) .facility-info p {
-  max-width: 760px;
+  max-width: 47.5rem;
   margin: 0;
   color: rgba(255, 255, 255, 0.76);
   font-size: 1.05rem;
@@ -2260,9 +2260,9 @@ h1 {
 }
 
 .facility-card {
-  min-height: 96px;
+  min-height: 6rem;
   padding: 1.1rem 1.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.1);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
     #1f1f1f;
@@ -2280,7 +2280,7 @@ h1 {
   font-size: 1.15rem;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 43.75rem) {
   .bookings-section:has(.facility-images) .facility-images {
     grid-template-columns: 1fr;
   }
@@ -2300,7 +2300,7 @@ h1 {
 }
 
 .site-footer {
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0.0625rem 0 rgba(255, 255, 255, 0.04);
 }
 
 .support-reviews {
@@ -2313,7 +2313,7 @@ h1 {
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  min-height: 600px;
+  min-height: 37.5rem;
 }
 
 .support-reviews .section-heading,
@@ -2322,7 +2322,7 @@ h1 {
   justify-content: start;
   align-items: start;
   gap: 0.55rem;
-  min-height: 82px;
+  min-height: 5.125rem;
   margin-bottom: 1.25rem;
 }
 
@@ -2345,7 +2345,7 @@ h1 {
 }
 
 .support-reviews .field textarea {
-  min-height: 164px;
+  min-height: 10.25rem;
 }
 
 .support-reviews .form-actions {
@@ -2358,12 +2358,12 @@ h1 {
 }
 
 .reviews-section .empty-state.visible {
-  min-height: 132px;
+  min-height: 8.25rem;
   place-content: center;
   padding: 1.5rem 1rem 0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 56.25rem) {
   .support-section,
   .reviews-section {
     min-height: auto;
@@ -2379,13 +2379,13 @@ body {
 .site-header {
   border-bottom-color: rgba(255, 255, 255, 0.1);
   background: rgba(8, 8, 8, 0.9);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 1.125rem 2.8125rem rgba(0, 0, 0, 0.35);
 }
 
 .brand-mark,
 .activity-icon,
 .user-avatar {
-  border-radius: 13px;
+  border-radius: 0.8125rem;
 }
 
 .booking-hero {
@@ -2393,7 +2393,7 @@ body {
 }
 
 .hero-copy {
-  max-width: 640px;
+  max-width: 40rem;
 }
 
 .eyebrow,
@@ -2401,8 +2401,8 @@ body {
 .section-heading p {
   width: max-content;
   padding: 0.3rem 0.65rem;
-  border: 1px solid rgba(255, 204, 0, 0.38);
-  border-radius: 999px;
+  border: 0.0625rem solid rgba(255, 204, 0, 0.38);
+  border-radius: 62.4375rem;
   background: rgba(255, 204, 0, 0.08);
 }
 
@@ -2433,18 +2433,18 @@ h2 {
 .location-preview,
 .auth-required,
 .bookings-panel-content {
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.12);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.016)),
     var(--panel);
-  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1.5rem 3.4375rem rgba(0, 0, 0, 0.3);
 }
 
 .reservation-panel,
 .bookings-section,
 .support-section,
 .reviews-section {
-  border-radius: 14px;
+  border-radius: 0.875rem;
 }
 
 .activity-option,
@@ -2453,18 +2453,18 @@ h2 {
 .field textarea,
 .star-rating button,
 .user-profile-button {
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 .activity-option {
-  min-height: 116px;
+  min-height: 7.25rem;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
     #141414;
 }
 
 .activity-option.active {
-  box-shadow: 0 18px 38px rgba(255, 204, 0, 0.22);
+  box-shadow: 0 1.125rem 2.375rem rgba(255, 204, 0, 0.22);
 }
 
 .field input,
@@ -2476,20 +2476,20 @@ h2 {
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
-  box-shadow: 0 0 0 4px rgba(255, 204, 0, 0.12);
+  box-shadow: 0 0 0 0.25rem rgba(255, 204, 0, 0.12);
 }
 
 .button {
-  border-radius: 8px;
-  min-height: 50px;
+  border-radius: 0.5rem;
+  min-height: 3.125rem;
 }
 
 .button.primary {
-  box-shadow: 0 14px 34px rgba(255, 204, 0, 0.22);
+  box-shadow: 0 0.875rem 2.125rem rgba(255, 204, 0, 0.22);
 }
 
 .button.primary:hover {
-  box-shadow: 0 18px 42px rgba(255, 204, 0, 0.32);
+  box-shadow: 0 1.125rem 2.625rem rgba(255, 204, 0, 0.32);
 }
 
 .summary-box {
@@ -2502,7 +2502,7 @@ h2 {
 .reviews-section::before {
   content: "";
   display: block;
-  height: 4px;
+  height: 0.25rem;
   margin: -1rem -1rem 1rem;
   background: linear-gradient(90deg, #ffcc00, #46d6d2);
 }
@@ -2514,7 +2514,7 @@ h2 {
 }
 
 .review-item {
-  border-radius: 10px;
+  border-radius: 0.625rem;
 }
 
 .site-footer {
@@ -2529,7 +2529,7 @@ main {
 }
 
 .booking-hero {
-  grid-template-columns: minmax(0, 1fr) minmax(520px, 620px);
+  grid-template-columns: minmax(0, 1fr) minmax(32.5rem, 38.75rem);
   align-items: center;
 }
 
@@ -2556,7 +2556,7 @@ main {
 .activity-option {
   width: 100%;
   aspect-ratio: 1 / 0.78;
-  min-height: 110px;
+  min-height: 6.875rem;
   display: grid;
   place-items: center;
 }
@@ -2628,14 +2628,14 @@ main {
   height: 100%;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 68.75rem) {
   .booking-hero,
   .support-reviews {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 47.5rem) {
   .activity-picker,
   .booking-form,
   .form-grid,
@@ -2655,15 +2655,15 @@ main {
 }
 
 .site-header {
-  min-height: 96px;
-  grid-template-columns: minmax(260px, 1fr) auto minmax(260px, 1fr);
+  min-height: 6rem;
+  grid-template-columns: minmax(16.25rem, 1fr) auto minmax(16.25rem, 1fr);
   gap: 1.25rem;
   padding: 1rem clamp(1.25rem, 3vw, 2.6rem);
-  border-bottom: 1px solid rgba(255, 204, 0, 0.22);
+  border-bottom: 0.0625rem solid rgba(255, 204, 0, 0.22);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.01)),
     rgba(5, 5, 5, 0.94);
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42);
+  box-shadow: 0 1.125rem 2.625rem rgba(0, 0, 0, 0.42);
 }
 
 .brand {
@@ -2673,15 +2673,15 @@ main {
 }
 
 .brand-mark {
-  width: 54px;
-  height: 54px;
-  border-radius: 14px;
-  box-shadow: 0 12px 28px rgba(255, 204, 0, 0.24);
+  width: 3.375rem;
+  height: 3.375rem;
+  border-radius: 0.875rem;
+  box-shadow: 0 0.75rem 1.75rem rgba(255, 204, 0, 0.24);
 }
 
 .brand-mark svg {
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .brand strong {
@@ -2697,17 +2697,17 @@ main {
 .top-nav {
   gap: 0.35rem;
   padding: 0.35rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 999px;
+  border: 0.0625rem solid rgba(255, 255, 255, 0.1);
+  border-radius: 62.4375rem;
   background: rgba(255, 255, 255, 0.045);
 }
 
 .top-nav a {
-  min-height: 42px;
+  min-height: 2.625rem;
   display: inline-grid;
   place-items: center;
   padding: 0 1.05rem;
-  border-radius: 999px;
+  border-radius: 62.4375rem;
   color: rgba(255, 255, 255, 0.88);
   font-weight: 800;
 }
@@ -2715,7 +2715,7 @@ main {
 .top-nav a:hover {
   color: #111;
   background: #ffcc00;
-  box-shadow: 0 10px 24px rgba(255, 204, 0, 0.22);
+  box-shadow: 0 0.625rem 1.5rem rgba(255, 204, 0, 0.22);
 }
 
 .top-nav a::after {
@@ -2727,26 +2727,26 @@ main {
 }
 
 .user-profile-button {
-  min-height: 62px;
+  min-height: 3.875rem;
   padding: 0.55rem 0.8rem;
-  border-radius: 14px;
+  border-radius: 0.875rem;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015)),
     #151515;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0.625rem 1.625rem rgba(0, 0, 0, 0.28);
 }
 
 .user-profile-button:hover {
-  transform: translateY(-1px);
+  transform: translateY(-0.0625rem);
   border-color: rgba(255, 204, 0, 0.45);
-  box-shadow: 0 14px 32px rgba(255, 204, 0, 0.13);
+  box-shadow: 0 0.875rem 2rem rgba(255, 204, 0, 0.13);
 }
 
 .user-avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 14px;
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 0.875rem;
 }
 
 .user-details small {
@@ -2763,7 +2763,7 @@ main {
   font-size: 0.8rem;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 62.5rem) {
   .site-header {
     grid-template-columns: 1fr;
     justify-items: stretch;
