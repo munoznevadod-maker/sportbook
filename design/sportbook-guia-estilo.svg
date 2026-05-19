@@ -1,0 +1,126 @@
+<svg width="1920" height="1680" viewBox="0 0 1920 1680" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0" y="0" width="1920" height="1680" rx="0" fill="#b6b6b6" stroke="none"/>
+<rect x="44" y="44" width="1832" height="1592" rx="0" fill="#626262" stroke="none"/>
+<rect x="84" y="84" width="1752" height="1512" rx="0" fill="#0f0f0f" stroke="none"/>
+<rect x="84" y="84" width="1752" height="152" rx="0" fill="#050505" stroke="none"/>
+<rect x="122" y="122" width="56" height="56" rx="14" fill="#ffcc00" stroke="#ffcc00"/>
+<text x="150" y="158" fill="#111111" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="17" font-weight="900" text-anchor="middle">SB</text>
+<text x="198" y="158" fill="#ffcc00" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="34" font-weight="900" text-anchor="start">SportBook</text>
+<text x="122" y="210" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="42" font-weight="900" text-anchor="start">Guía de estilo y sistema de diseño</text>
+<text x="1180" y="156" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" text-anchor="start">Proyecto Jakarta EE · Reservas deportivas</text>
+<rect x="122" y="290" width="760" height="390" rx="14" fill="#1f1f1f" stroke="#333333"/>
+<text x="150" y="338" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="26" font-weight="900" text-anchor="start">Paleta de colores</text>
+<line x1="150" y1="360" x2="854" y2="360" stroke="rgba(255,204,0,0.3)" stroke-width="2" stroke-linecap="round"/>
+<rect x="156" y="390" width="118" height="118" rx="14" fill="#0f0f0f" stroke="#333333"/>
+<text x="156" y="542" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="18" font-weight="900" text-anchor="start">Negro</text>
+<text x="156" y="568" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="start">#0f0f0f</text>
+<rect x="274" y="390" width="118" height="118" rx="14" fill="#050505" stroke="#333333"/>
+<text x="274" y="542" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="18" font-weight="900" text-anchor="start">Cabecera</text>
+<text x="274" y="568" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="start">#050505</text>
+<rect x="392" y="390" width="118" height="118" rx="14" fill="#1f1f1f" stroke="#333333"/>
+<text x="392" y="542" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="18" font-weight="900" text-anchor="start">Panel</text>
+<text x="392" y="568" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="start">#1f1f1f</text>
+<rect x="510" y="390" width="118" height="118" rx="14" fill="#262626" stroke="#333333"/>
+<text x="510" y="542" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="18" font-weight="900" text-anchor="start">Panel suave</text>
+<text x="510" y="568" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="start">#262626</text>
+<rect x="628" y="390" width="118" height="118" rx="14" fill="#333333" stroke="#333333"/>
+<text x="628" y="542" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="18" font-weight="900" text-anchor="start">Borde</text>
+<text x="628" y="568" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="start">#333333</text>
+<rect x="746" y="390" width="118" height="118" rx="14" fill="#ffffff" stroke="#333333"/>
+<text x="746" y="542" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="18" font-weight="900" text-anchor="start">Texto</text>
+<text x="746" y="568" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="start">#ffffff</text>
+<rect x="156" y="580" width="118" height="118" rx="14" fill="#cccccc" stroke="#333333"/>
+<text x="156" y="732" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="18" font-weight="900" text-anchor="start">Texto gris</text>
+<text x="156" y="758" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="start">#cccccc</text>
+<rect x="274" y="580" width="118" height="118" rx="14" fill="#ffcc00" stroke="#333333"/>
+<text x="274" y="732" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="18" font-weight="900" text-anchor="start">SportBook</text>
+<text x="274" y="758" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="start">#ffcc00</text>
+<rect x="392" y="580" width="118" height="118" rx="14" fill="#ffd633" stroke="#333333"/>
+<text x="392" y="732" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="18" font-weight="900" text-anchor="start">Hover</text>
+<text x="392" y="758" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="start">#ffd633</text>
+<rect x="510" y="580" width="118" height="118" rx="14" fill="#ff6b5f" stroke="#333333"/>
+<text x="510" y="732" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="18" font-weight="900" text-anchor="start">Error</text>
+<text x="510" y="758" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="start">#ff6b5f</text>
+<rect x="628" y="580" width="118" height="118" rx="14" fill="#45d483" stroke="#333333"/>
+<text x="628" y="732" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="18" font-weight="900" text-anchor="start">Éxito</text>
+<text x="628" y="758" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="start">#45d483</text>
+<rect x="930" y="290" width="828" height="390" rx="14" fill="#1f1f1f" stroke="#333333"/>
+<text x="958" y="338" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="26" font-weight="900" text-anchor="start">Tipografías y jerarquías</text>
+<line x1="958" y1="360" x2="1730" y2="360" stroke="rgba(255,204,0,0.3)" stroke-width="2" stroke-linecap="round"/>
+<text x="966" y="388" fill="#ffcc00" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="24" font-weight="900" text-anchor="start">Poppins / Segoe UI / Arial</text>
+<text x="966" y="465" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="58" font-weight="900" text-anchor="start">H1 · SportBook</text>
+<text x="966" y="530" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="32" font-weight="900" text-anchor="start">H2 · Elige tu deporte y guarda tu plaza</text>
+<text x="966" y="585" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="24" font-weight="900" text-anchor="start">H3 · Completa tus datos</text>
+<text x="966" y="632" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="18" font-weight="600" text-anchor="start">Texto normal para formularios, tarjetas y paneles.</text>
+<rect x="1482" y="594" width="112" height="34" rx="17" fill="rgba(255,204,0,0.12)" stroke="rgba(255,204,0,0.12)"/>
+<text x="1538" y="617" fill="#ffcc00" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="13" font-weight="900" text-anchor="middle">Etiqueta</text>
+<rect x="122" y="740" width="760" height="412" rx="14" fill="#1f1f1f" stroke="#333333"/>
+<text x="150" y="788" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="26" font-weight="900" text-anchor="start">Formularios y controles</text>
+<line x1="150" y1="810" x2="854" y2="810" stroke="rgba(255,204,0,0.3)" stroke-width="2" stroke-linecap="round"/>
+<text x="158" y="836" fill="#ffcc00" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="20" font-weight="900" text-anchor="start">Campos</text>
+<rect x="158" y="870" width="260" height="50" rx="6" fill="#0b0b0b" stroke="#333333"/>
+<text x="174" y="901" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" text-anchor="start">Nombre completo</text>
+<rect x="158" y="940" width="260" height="50" rx="6" fill="#0b0b0b" stroke="#ffcc00"/>
+<text x="174" y="971" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" text-anchor="start">tu@gmail.com</text>
+<rect x="158" y="1010" width="260" height="50" rx="6" fill="#0b0b0b" stroke="#ff6b5f"/>
+<text x="174" y="1041" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" text-anchor="start">Contraseña</text>
+<text x="440" y="836" fill="#ffcc00" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="20" font-weight="900" text-anchor="start">Botones</text>
+<rect x="440" y="870" width="210" height="50" rx="7" fill="#ffcc00" stroke="#ffcc00"/>
+<text x="545" y="902" fill="#111111" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="16" font-weight="900" text-anchor="middle">Reservar y pagar</text>
+<rect x="440" y="940" width="210" height="50" rx="7" fill="transparent" stroke="#333333"/>
+<text x="545" y="972" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="16" font-weight="900" text-anchor="middle">Iniciar sesión</text>
+<rect x="440" y="1010" width="210" height="50" rx="7" fill="rgba(255,107,95,0.18)" stroke="#ff6b5f"/>
+<text x="545" y="1042" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="16" font-weight="900" text-anchor="middle">Cerrar sesión</text>
+<text x="158" y="1108" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="17" font-weight="600" text-anchor="start">Los formularios usan fondo oscuro, borde gris y foco amarillo.</text>
+<rect x="930" y="740" width="828" height="412" rx="14" fill="#1f1f1f" stroke="#333333"/>
+<text x="958" y="788" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="26" font-weight="900" text-anchor="start">Componentes visuales e iconografía</text>
+<line x1="958" y1="810" x2="1730" y2="810" stroke="rgba(255,204,0,0.3)" stroke-width="2" stroke-linecap="round"/>
+<rect x="970" y="838" width="120" height="112" rx="10" fill="#262626" stroke="#333333"/>
+<rect x="1006" y="856" width="48" height="48" rx="12" fill="#ffcc00" stroke="#ffcc00"/>
+<text x="1030" y="889" fill="#111111" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="22" font-weight="900" text-anchor="middle">U</text>
+<text x="1030" y="929" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="middle">Usuario</text>
+<rect x="1115" y="838" width="120" height="112" rx="10" fill="#262626" stroke="#333333"/>
+<rect x="1151" y="856" width="48" height="48" rx="12" fill="#ffcc00" stroke="#ffcc00"/>
+<text x="1175" y="889" fill="#111111" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="22" font-weight="900" text-anchor="middle">R</text>
+<text x="1175" y="929" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="middle">Reserva</text>
+<rect x="1260" y="838" width="120" height="112" rx="10" fill="#262626" stroke="#333333"/>
+<rect x="1296" y="856" width="48" height="48" rx="12" fill="#ffcc00" stroke="#ffcc00"/>
+<text x="1320" y="889" fill="#111111" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="22" font-weight="900" text-anchor="middle">€</text>
+<text x="1320" y="929" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="middle">Pago</text>
+<rect x="1405" y="838" width="120" height="112" rx="10" fill="#262626" stroke="#333333"/>
+<rect x="1441" y="856" width="48" height="48" rx="12" fill="#ffcc00" stroke="#ffcc00"/>
+<text x="1465" y="889" fill="#111111" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="22" font-weight="900" text-anchor="middle">?</text>
+<text x="1465" y="929" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="middle">Ayuda</text>
+<rect x="1550" y="838" width="120" height="112" rx="10" fill="#262626" stroke="#333333"/>
+<rect x="1586" y="856" width="48" height="48" rx="12" fill="#ffcc00" stroke="#ffcc00"/>
+<text x="1610" y="889" fill="#111111" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="22" font-weight="900" text-anchor="middle">A</text>
+<text x="1610" y="929" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="middle">Admin</text>
+<rect x="970" y="1000" width="340" height="100" rx="10" fill="#262626" stroke="#333333"/>
+<text x="1000" y="1043" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="22" font-weight="900" text-anchor="start">Tarjeta de información</text>
+<text x="1000" y="1075" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="start">Fondo #262626, borde #333333.</text>
+<rect x="1348" y="1000" width="340" height="100" rx="10" fill="#262626" stroke="#333333"/>
+<text x="1378" y="1043" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="22" font-weight="900" text-anchor="start">Panel administrador</text>
+<text x="1378" y="1075" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="start">Tablas, filtros y acciones.</text>
+<rect x="122" y="1210" width="1636" height="310" rx="14" fill="#1f1f1f" stroke="#333333"/>
+<text x="150" y="1258" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="26" font-weight="900" text-anchor="start">Estados de la interfaz</text>
+<line x1="150" y1="1280" x2="1730" y2="1280" stroke="rgba(255,204,0,0.3)" stroke-width="2" stroke-linecap="round"/>
+<rect x="164" y="1320" width="210" height="92" rx="10" fill="#262626" stroke="#333333"/>
+<text x="186" y="1360" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="20" font-weight="900" text-anchor="start">Normal</text>
+<text x="186" y="1388" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" text-anchor="start">Elemento en reposo</text>
+<rect x="424" y="1320" width="210" height="92" rx="10" fill="#ffd633" stroke="#ffd633"/>
+<text x="446" y="1360" fill="#111111" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="20" font-weight="900" text-anchor="start">Hover</text>
+<text x="446" y="1388" fill="#111111" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" text-anchor="start">Amarillo más claro</text>
+<rect x="684" y="1320" width="210" height="92" rx="10" fill="#ffcc00" stroke="#ffcc00"/>
+<text x="706" y="1360" fill="#111111" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="20" font-weight="900" text-anchor="start">Activo</text>
+<text x="706" y="1388" fill="#111111" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" text-anchor="start">Sección seleccionada</text>
+<rect x="944" y="1320" width="210" height="92" rx="10" fill="rgba(255,107,95,0.16)" stroke="#ff6b5f"/>
+<text x="966" y="1360" fill="#ffffff" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="20" font-weight="900" text-anchor="start">Error</text>
+<text x="966" y="1388" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" text-anchor="start">Campo incorrecto</text>
+<rect x="1204" y="1320" width="210" height="92" rx="10" fill="#45d483" stroke="#45d483"/>
+<text x="1226" y="1360" fill="#111111" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="20" font-weight="900" text-anchor="start">Éxito</text>
+<text x="1226" y="1388" fill="#111111" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" text-anchor="start">Acción completada</text>
+<rect x="1464" y="1320" width="210" height="92" rx="10" fill="#151515" stroke="#333333"/>
+<text x="1486" y="1360" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="20" font-weight="900" text-anchor="start">Vacío</text>
+<text x="1486" y="1388" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" text-anchor="start">Sin datos todavía</text>
+<text x="158" y="1475" fill="#cccccc" font-family="Poppins, Segoe UI, Arial, sans-serif" font-size="18" font-weight="600" text-anchor="start">Uso: amarillo para marca y acciones principales; rojo para peligro; verde para confirmaciones; gris para estados vacíos.</text>
+</svg>

@@ -9,8 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
       ? "http://localhost:8085"
       : window.location.origin;
 
-  const PUBLIC_API = `${API_BASE}/api`;
-  
   const params =
     new URLSearchParams(
       window.location.search

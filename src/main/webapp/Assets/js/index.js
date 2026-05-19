@@ -4,9 +4,6 @@ const API_BASE =
     ? window.location.origin
     : "http://localhost:8085";
 
-const PUBLIC_API = `${API_BASE}/api`;
-
-
 const scrollHint = document.querySelector(".scroll-hint");
 const scrollTargets = ["#about", "#features", "#instalaciones", "#ayuda"];
 let nextSectionIndex = 0;

@@ -1,8 +1,6 @@
 
-URL de Figma: https://www.figma.com/design/QiS6hOjycYqBnw71svscg1/Mi-pagina?node-id=0-1&t=0jIuNUrHkZKFPYl1-1
+## Enlaces
 
-URL de Railway: https://sportbook-production-e881.up.railway.app
+- Figma: https://www.figma.com/design/QiS6hOjycYqBnw71svscg1/Mi-pagina?node-id=0-1&t=0jIuNUrHkZKFPYl1-1
 
-Proyecto: SportBook
-
-Descripcion: Aplicacion web para reservas deportivas desarrollada con Jakarta EE, Tomcat, MySQL, Docker Compose, HTML, CSS y JavaScript.
+- Railway: https://sportbook-production-e881.up.railway.ap

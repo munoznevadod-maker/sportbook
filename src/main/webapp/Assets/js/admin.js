@@ -4,8 +4,6 @@ const API_BASE =
     ? window.location.origin
     : "http://localhost:8085";
 
-const PUBLIC_API = `${API_BASE}/api`;
-
 const elements = {
 
   navButtons:

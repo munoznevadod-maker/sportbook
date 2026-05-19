@@ -1,10 +1,11 @@
 {
-  "name": "jakartaee-docker-compose-project",
+  "name": "sportbook",
   "version": "1.0.0",
-  "description": "Aplicacion web de reservas deportivas con:",
+  "description": "Aplicación web de reservas deportivas con Jakarta EE, MySQL y Docker.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "design:tablet": "node tools/generate-tablet-boceto.cjs",
+    "design:style-guide": "node tools/generate-style-guide.cjs"
   },
   "repository": {
     "type": "git",

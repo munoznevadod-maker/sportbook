@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ejemplo</groupId>
-    <artifactId>buscador-contactos</artifactId>
+    <artifactId>sportbook</artifactId>
     <version>1.0.0</version>
     <packaging>war</packaging>
 
@@ -56,7 +56,7 @@
 
 
     <build>
-        <finalName>buscador-contactos</finalName>
+        <finalName>sportbook</finalName>
 
         <plugins>
 

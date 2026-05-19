@@ -8,10 +8,6 @@ const API_BASE =
     )
     : "http://localhost:8085";
 
-const PUBLIC_API = `${API_BASE}/api`;
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
 
   const form =

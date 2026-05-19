@@ -12,9 +12,6 @@ const PUBLIC_API = `${API_BASE}/api`;
 
 
 
-const STORAGE_KEY = "sportbook-client-reservations-v1";
-const HELP_STORAGE_KEY = "sportbook-help-requests-v1";
-const REVIEW_STORAGE_KEY = "sportbook-reviews-v1";
 const AUTH_STORAGE_KEY = "sportbook-authenticated";
 const USER_EMAIL_STORAGE_KEY = "sportbook-user-email";
 const USER_PHONE_STORAGE_KEY = "sportbook-user-phone";
@@ -159,9 +156,6 @@ const elements = {
 
   toast:
     document.querySelector("#toast"),
-
-  clearBookingsButton:
-    document.querySelector("#clearBookingsButton"),
 
   helpForm:
     document.querySelector("#helpForm"),
