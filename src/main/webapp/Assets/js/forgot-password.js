@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         accountFound.innerHTML = `
           <strong>
-            ${data.codigo ? "Codigo de recuperacion" : "Revisa tu correo"}
+            ${data.codigo ? "Código de recuperación" : "Revisa tu correo"}
           </strong>
 
           ${
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (data.codigo) {
           accountFound.innerHTML = `
             <strong>
-              Codigo de recuperacion
+              Código de recuperación
             </strong>
 
             ${
@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
               : ""
             }
 
-            Usa este codigo para continuar:
+            Usa este código para continuar:
             <strong>${escapeHtml(data.codigo)}</strong>
           `;
         }

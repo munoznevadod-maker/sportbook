@@ -74,7 +74,7 @@ public class AuthRecoverController extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             writeJson(response, Json.createObjectBuilder()
                     .add("ok", false)
-                    .add("mensaje", "No se pudo procesar la recuperacion")
+                    .add("mensaje", "No se pudo procesar la recuperación")
                     .build());
         }
     }
@@ -85,7 +85,7 @@ public class AuthRecoverController extends HttpServlet {
         if (!isValidEmail(email)) {
             writeJson(response, Json.createObjectBuilder()
                     .add("ok", false)
-                    .add("mensaje", "Introduce un correo electronico valido")
+                    .add("mensaje", "Introduce un correo electrónico válido")
                     .build());
             return;
         }
@@ -125,7 +125,7 @@ public class AuthRecoverController extends HttpServlet {
         JsonObjectBuilder builder = Json.createObjectBuilder()
                 .add("ok", true)
                 .add("email", recoveryCode.email())
-                .add("mensaje", "Te hemos enviado un codigo de verificacion");
+                .add("mensaje", "Te hemos enviado un código de verificación");
 
         if (!recoveryCode.username().isBlank()) {
             builder.add("nombre", recoveryCode.username());
@@ -143,7 +143,7 @@ public class AuthRecoverController extends HttpServlet {
                 .add("ok", true)
                 .add("email", recoveryCode.email())
                 .add("codigo", recoveryCode.code())
-                .add("mensaje", "No se pudo enviar el correo. Usa este codigo para continuar");
+                .add("mensaje", "No se pudo enviar el correo. Usa este código para continuar");
 
         if (!recoveryCode.username().isBlank()) {
             builder.add("nombre", recoveryCode.username());
@@ -160,7 +160,7 @@ public class AuthRecoverController extends HttpServlet {
         if (!isValidEmail(email)) {
             writeJson(response, Json.createObjectBuilder()
                     .add("ok", false)
-                    .add("mensaje", "Introduce un correo electronico valido")
+                    .add("mensaje", "Introduce un correo electrónico válido")
                     .build());
             return;
         }
@@ -176,7 +176,7 @@ public class AuthRecoverController extends HttpServlet {
         if (!code.matches("\\d{6}")) {
             writeJson(response, Json.createObjectBuilder()
                     .add("ok", false)
-                    .add("mensaje", "Introduce el codigo de 6 digitos enviado por correo")
+                    .add("mensaje", "Introduce el código de 6 dígitos enviado por correo")
                     .build());
             return;
         }
@@ -193,8 +193,8 @@ public class AuthRecoverController extends HttpServlet {
         writeJson(response, Json.createObjectBuilder()
                 .add("ok", ok)
                 .add("mensaje", ok
-                        ? "Contrasena actualizada"
-                        : "Codigo incorrecto o caducado")
+                        ? "Contraseña actualizada"
+                        : "Código incorrecto o caducado")
                 .build());
     }
 

@@ -215,7 +215,7 @@ function renderPaymentInfo() {
     }
 
     elements.paymentInfo.textContent =
-      "Deberas ir a la instalacion el dia de la reserva y pagar alli en persona antes de empezar la actividad.";
+      "Deberás ir a la instalación el día de la reserva y pagar allí en persona antes de empezar la actividad.";
 
     if (elements.bookingSubmitButton) {
       elements.bookingSubmitButton.textContent =
@@ -231,7 +231,7 @@ function renderPaymentInfo() {
   }
 
   elements.paymentInfo.textContent =
-    `Deberas pagar por Bizum al telefono ${BIZUM_PHONE} como maximo un dia antes de la reserva.`;
+    `Deberás pagar por Bizum al teléfono ${BIZUM_PHONE} como máximo un día antes de la reserva.`;
 
   if (elements.bookingSubmitButton) {
     elements.bookingSubmitButton.textContent =
@@ -243,8 +243,8 @@ function renderPaymentInfo() {
 function reservationPaymentMessage(method) {
 
   return method === "Centro"
-    ? "Tu plaza queda reservada. Deberas ir a la instalacion el dia de la reserva y pagar alli en persona antes de empezar la actividad."
-    : `Tu plaza queda reservada. Paga por Bizum al telefono ${BIZUM_PHONE} como maximo un dia antes de la reserva.`;
+    ? "Tu plaza queda reservada. Deberás ir a la instalación el día de la reserva y pagar allí en persona antes de empezar la actividad."
+    : `Tu plaza queda reservada. Paga por Bizum al teléfono ${BIZUM_PHONE} como máximo un día antes de la reserva.`;
 }
 
 
@@ -782,9 +782,9 @@ const facilityData = {
 const resourceFacilityData = {
 
   "Futbol 11": {
-    title: "Campo Futbol 11",
+    title: "Campo Fútbol 11",
     description:
-      "Campo exterior de cesped artificial para partidos completos. Incluye porterias reglamentarias, iluminacion nocturna y vestuarios.",
+      "Campo exterior de césped artificial para partidos completos. Incluye porterías reglamentarias, iluminación nocturna y vestuarios.",
     images: [
       "https://images.pexels.com/photos/12768058/pexels-photo-12768058.jpeg?cs=srgb&dl=pexels-introspectivedsgn-12768058.jpg&fm=jpg",
       "https://images.pexels.com/photos/12536501/pexels-photo-12536501.jpeg?cs=srgb&dl=pexels-jason-scott-3936034-12536501.jpg&fm=jpg"
@@ -794,9 +794,9 @@ const resourceFacilityData = {
   },
 
   "Futbol 7": {
-    title: "Campo Futbol 7",
+    title: "Campo Fútbol 7",
     description:
-      "Campo anexo para grupos medianos, entrenamientos y partidos rapidos. Superficie de cesped artificial y acceso directo a vestuarios.",
+      "Campo anexo para grupos medianos, entrenamientos y partidos rápidos. Superficie de césped artificial y acceso directo a vestuarios.",
     images: [
       "https://images.pexels.com/photos/12536501/pexels-photo-12536501.jpeg?cs=srgb&dl=pexels-jason-scott-3936034-12536501.jpg&fm=jpg",
       "https://images.pexels.com/photos/12768058/pexels-photo-12768058.jpeg?cs=srgb&dl=pexels-introspectivedsgn-12768058.jpg&fm=jpg"
@@ -806,9 +806,9 @@ const resourceFacilityData = {
   },
 
   "Fútbol sala": {
-    title: "Pabellon Futbol Sala",
+    title: "Pabellón Fútbol Sala",
     description:
-      "Pista cubierta con suelo tecnico, gradas y buena iluminacion. Pensada para partidos indoor durante todo el ano.",
+      "Pista cubierta con suelo técnico, gradas y buena iluminación. Pensada para partidos indoor durante todo el año.",
     images: [
       "https://images.pexels.com/photos/9787275/pexels-photo-9787275.jpeg?cs=srgb&dl=pexels-ibrahim-9119962-9787275.jpg&fm=jpg",
       "https://images.pexels.com/photos/9787275/pexels-photo-9787275.jpeg?cs=srgb&dl=pexels-ibrahim-9119962-9787275.jpg&fm=jpg"
@@ -844,7 +844,7 @@ const resourceFacilityData = {
   Terraza: {
     title: "Terraza Yoga",
     description:
-      "Zona exterior para sesiones al aire libre. Ideal para clases de manana y grupos reducidos con luz natural.",
+      "Zona exterior para sesiones al aire libre. Ideal para clases de mañana y grupos reducidos con luz natural.",
     images: [
       "https://images.pexels.com/photos/7318661/pexels-photo-7318661.jpeg?cs=srgb&dl=pexels-mart-production-7318661.jpg&fm=jpg",
       "https://images.pexels.com/photos/7318661/pexels-photo-7318661.jpeg?cs=srgb&dl=pexels-mart-production-7318661.jpg&fm=jpg"
@@ -862,25 +862,25 @@ const resourceFacilityData = {
       "https://images.pexels.com/photos/17211446/pexels-photo-17211446.jpeg?cs=srgb&dl=pexels-eyecon-design-500632474-17211446.jpg&fm=jpg"
     ],
     schedule: "07:00 - 23:00",
-    days: "Todos los dias"
+    days: "Todos los días"
   },
 
   "Zona cardio": {
     title: "Zona Cardio",
     description:
-      "Espacio con cintas, bicicletas, elipticas y remo. Ideal para sesiones individuales de resistencia y calentamiento.",
+      "Espacio con cintas, bicicletas, elípticas y remo. Ideal para sesiones individuales de resistencia y calentamiento.",
     images: [
       "https://images.pexels.com/photos/17211446/pexels-photo-17211446.jpeg?cs=srgb&dl=pexels-eyecon-design-500632474-17211446.jpg&fm=jpg",
       "https://images.pexels.com/photos/17211446/pexels-photo-17211446.jpeg?cs=srgb&dl=pexels-eyecon-design-500632474-17211446.jpg&fm=jpg"
     ],
     schedule: "07:00 - 22:30",
-    days: "Todos los dias"
+    days: "Todos los días"
   },
 
   "Entrenamiento personal": {
     title: "Entrenamiento Personal",
     description:
-      "Sala tecnica para sesiones guiadas con entrenador. Permite trabajo personalizado, evaluacion y seguimiento.",
+      "Sala técnica para sesiones guiadas con entrenador. Permite trabajo personalizado, evaluación y seguimiento.",
     images: [
       "https://images.pexels.com/photos/17211446/pexels-photo-17211446.jpeg?cs=srgb&dl=pexels-eyecon-design-500632474-17211446.jpg&fm=jpg",
       "https://images.pexels.com/photos/17211446/pexels-photo-17211446.jpeg?cs=srgb&dl=pexels-eyecon-design-500632474-17211446.jpg&fm=jpg"
@@ -890,9 +890,9 @@ const resourceFacilityData = {
   },
 
   "Pista de pádel 1": {
-    title: "Pista Padel 1",
+    title: "Pista Pádel 1",
     description:
-      "Pista exterior con cristal, iluminacion y buen agarre. Recomendada para partidos de tarde y parejas habituales.",
+      "Pista exterior con cristal, iluminación y buen agarre. Recomendada para partidos de tarde y parejas habituales.",
     images: [
       "https://offloadmedia.feverup.com/lisboasecreta.co/wp-content/uploads/2022/07/08090140/Padel-os-melhores-campos-para-jogar-em-Lisboa-Foto-por-%40abcpadel-_2.jpeg",
       "https://offloadmedia.feverup.com/lisboasecreta.co/wp-content/uploads/2022/07/08090141/Padel-os-melhores-campos-para-jogar-em-Lisboa-Foto-por-%40abcpadel-_1.jpeg"
@@ -902,9 +902,9 @@ const resourceFacilityData = {
   },
 
   "Pista de pádel 2": {
-    title: "Pista Padel 2",
+    title: "Pista Pádel 2",
     description:
-      "Pista exterior para reservas rapidas, clases y partidos casuales. Dispone de iluminacion y zona de descanso cercana.",
+      "Pista exterior para reservas rápidas, clases y partidos casuales. Dispone de iluminación y zona de descanso cercana.",
     images: [
       "https://offloadmedia.feverup.com/lisboasecreta.co/wp-content/uploads/2022/07/08090141/Padel-os-melhores-campos-para-jogar-em-Lisboa-Foto-por-%40abcpadel-_1.jpeg",
       "https://offloadmedia.feverup.com/lisboasecreta.co/wp-content/uploads/2022/07/08090140/Padel-os-melhores-campos-para-jogar-em-Lisboa-Foto-por-%40abcpadel-_2.jpeg"
@@ -914,9 +914,9 @@ const resourceFacilityData = {
   },
 
   "Pista cubierta": {
-    title: "Pista Padel Cubierta",
+    title: "Pista Pádel Cubierta",
     description:
-      "Pista indoor protegida de lluvia y viento. Perfecta para jugar con condiciones estables durante todo el ano.",
+      "Pista indoor protegida de lluvia y viento. Perfecta para jugar con condiciones estables durante todo el año.",
     images: [
       "https://offloadmedia.feverup.com/lisboasecreta.co/wp-content/uploads/2022/07/08090140/Padel-os-melhores-campos-para-jogar-em-Lisboa-Foto-por-%40abcpadel-_2.jpeg",
       "https://offloadmedia.feverup.com/lisboasecreta.co/wp-content/uploads/2022/07/08090141/Padel-os-melhores-campos-para-jogar-em-Lisboa-Foto-por-%40abcpadel-_1.jpeg"
@@ -928,25 +928,25 @@ const resourceFacilityData = {
   "Calle 1": {
     title: "Piscina Calle 1",
     description:
-      "Calle para natacion libre y entrenamiento tecnico. Recomendada para usuarios que buscan ritmo continuo.",
+      "Calle para natación libre y entrenamiento técnico. Recomendada para usuarios que buscan ritmo continuo.",
     images: [
       "https://images.pexels.com/photos/9030294/pexels-photo-9030294.jpeg?cs=srgb&dl=pexels-kindelmedia-9030294.jpg&fm=jpg",
       "https://images.pexels.com/photos/9030294/pexels-photo-9030294.jpeg?cs=srgb&dl=pexels-kindelmedia-9030294.jpg&fm=jpg"
     ],
     schedule: "08:00 - 21:30",
-    days: "Todos los dias"
+    days: "Todos los días"
   },
 
   "Calle 2": {
     title: "Piscina Calle 2",
     description:
-      "Calle de natacion para sesiones suaves, tecnica y resistencia. Buena opcion para horarios de media manana.",
+      "Calle de natación para sesiones suaves, técnica y resistencia. Buena opción para horarios de media mañana.",
     images: [
       "https://images.pexels.com/photos/9030294/pexels-photo-9030294.jpeg?cs=srgb&dl=pexels-kindelmedia-9030294.jpg&fm=jpg",
       "https://images.pexels.com/photos/9030294/pexels-photo-9030294.jpeg?cs=srgb&dl=pexels-kindelmedia-9030294.jpg&fm=jpg"
     ],
     schedule: "08:00 - 21:30",
-    days: "Todos los dias"
+    days: "Todos los días"
   },
 
   "Piscina infantil": {
@@ -1288,7 +1288,7 @@ function renderReservations(
             `
             : `
               <p class="reservation-meta">
-                Pago presencial en la instalacion
+                Pago presencial en la instalación
               </p>
             `}
 
@@ -1491,7 +1491,7 @@ logoutButton?.addEventListener(
         credentials: "include"
       });
     } catch (error) {
-      console.error("No se pudo cerrar la sesion en el servidor", error);
+      console.error("No se pudo cerrar la sesión en el servidor", error);
     }
 
     localStorage.removeItem(

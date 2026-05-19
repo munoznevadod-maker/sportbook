@@ -491,8 +491,8 @@ function renderPublicHelp() {
       emptyMarkup(
         "No hay mensajes",
         search
-          ? "No coincide ningun mensaje publico."
-          : "Los formularios publicos apareceran aqui."
+          ? "No coincide ningún mensaje público."
+          : "Los formularios públicos aparecerán aquí."
       );
 
     return;
@@ -1173,7 +1173,7 @@ elements.logoutButton?.addEventListener(
         credentials: "same-origin"
       });
     } catch (error) {
-      console.error("No se pudo cerrar la sesion en el servidor", error);
+      console.error("No se pudo cerrar la sesión en el servidor", error);
     }
 
     localStorage.removeItem(

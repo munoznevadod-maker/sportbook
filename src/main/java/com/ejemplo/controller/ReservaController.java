@@ -59,7 +59,7 @@ public class ReservaController extends HttpServlet {
             if (reservaExiste(fecha, instalacion, hora)) {
                 write(response, Map.of(
                         "ok", false,
-                        "mensaje", "Esta hora ya esta reservada."));
+                        "mensaje", "Esta hora ya está reservada."));
                 return;
             }
 

@@ -17,7 +17,7 @@ public final class AuthSupport {
         if (session == null || session.getAttribute("idUsuario") == null) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.setContentType("application/json;charset=UTF-8");
-            response.getWriter().print("{\"ok\":false,\"mensaje\":\"Debes iniciar sesion\"}");
+            response.getWriter().print("{\"ok\":false,\"mensaje\":\"Debes iniciar sesión\"}");
             return false;
         }
 

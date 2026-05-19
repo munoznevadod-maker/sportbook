@@ -66,7 +66,7 @@ public final class EmailService {
                 Message.RecipientType.TO,
                 InternetAddress.parse(to, false)
         );
-        message.setSubject("Codigo de recuperacion SportBook", "UTF-8");
+        message.setSubject("Código de recuperación SportBook", "UTF-8");
         message.setText(buildBody(username, code), "UTF-8");
 
         Transport.send(message);
@@ -78,7 +78,7 @@ public final class EmailService {
                 : "Hola " + username + ",";
 
         return greeting + "\n\n"
-                + "Tu codigo de recuperacion de SportBook es: " + code + "\n\n"
+                + "Tu código de recuperación de SportBook es: " + code + "\n\n"
                 + "Caduca en 10 minutos. Si no has solicitado este cambio, ignora este correo.\n\n"
                 + "SportBook";
     }
