@@ -1084,3 +1084,366 @@ body {
         justify-self: stretch;
     }
 }
+
+/* Responsive definitivo del panel administrador */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.admin-layout,
+.main,
+.sidebar,
+.panel,
+.table-wrap,
+.topbar,
+.toolbar,
+.stats,
+.filters,
+.payment-workflow,
+.admin-footer {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.admin-layout {
+    width: 100%;
+}
+
+.topbar,
+.toolbar,
+.admin-footer {
+    width: 100%;
+}
+
+@media (min-width: 1400px) {
+    .admin-layout {
+        grid-template-columns: 300px minmax(0, 1fr);
+    }
+
+    .main {
+        padding: 2rem 2.5rem;
+    }
+}
+
+@media (max-width: 1280px) {
+    .admin-layout {
+        grid-template-columns: 250px minmax(0, 1fr);
+    }
+
+    .sidebar,
+    .main {
+        padding: 1.15rem;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .payment-workflow {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        min-width: 720px;
+    }
+}
+
+@media (max-width: 980px) {
+    .admin-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+        height: auto;
+        min-height: 0;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 204, 0, 0.18);
+    }
+
+    .nav {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .nav button {
+        text-align: center;
+        white-space: normal;
+    }
+
+    .sidebar-actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .topbar,
+    .toolbar,
+    .admin-footer {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+    }
+
+    .topbar .button,
+    .toolbar > .filters,
+    .toolbar > .search-filter {
+        width: 100%;
+        min-width: 0;
+        justify-self: stretch;
+    }
+
+    .admin-footer,
+    .admin-footer div,
+    .admin-footer > span {
+        grid-column: auto;
+        justify-items: center;
+        justify-self: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 760px) {
+    .sidebar,
+    .main {
+        padding: 1rem;
+    }
+
+    .brand {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .nav,
+    .sidebar-actions,
+    .stats,
+    .filters,
+    .payment-workflow,
+    #blockForm {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        min-height: 0;
+    }
+
+    .topbar h1 {
+        font-size: 1.8rem;
+    }
+
+    .stat,
+    .panel,
+    .payment-workflow article {
+        padding: 0.9rem;
+    }
+
+    .table-wrap {
+        width: 100%;
+        overflow-x: visible;
+    }
+
+    table {
+        min-width: 0;
+    }
+
+    table,
+    thead,
+    tbody,
+    tr,
+    th,
+    td {
+        display: block;
+        width: 100%;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr {
+        margin-bottom: 0.9rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 0.85rem;
+        background: rgba(255, 255, 255, 0.025);
+    }
+
+    tr:last-child {
+        margin-bottom: 0;
+    }
+
+    td {
+        display: grid;
+        grid-template-columns: minmax(90px, 34%) minmax(0, 1fr);
+        gap: 0.75rem;
+        align-items: start;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 0.65rem 0;
+        font-size: 0.9rem;
+        overflow-wrap: anywhere;
+    }
+
+    td:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    td::before {
+        color: var(--accent);
+        font-size: 0.74rem;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+
+    #paymentsTable td:nth-child(1)::before {
+        content: "Cliente";
+    }
+
+    #paymentsTable td:nth-child(2)::before {
+        content: "Reserva";
+    }
+
+    #paymentsTable td:nth-child(3)::before {
+        content: "Importe";
+    }
+
+    #paymentsTable td:nth-child(4)::before {
+        content: "Metodo";
+    }
+
+    #paymentsTable td:nth-child(5)::before {
+        content: "Estado";
+    }
+
+    #paymentsTable td:nth-child(6)::before {
+        content: "Pago";
+    }
+
+    #paymentsTable td:nth-child(7)::before {
+        content: "Acciones";
+    }
+
+    #helpTable td:nth-child(1)::before,
+    #unregisteredHelpTable td:nth-child(1)::before {
+        content: "Nombre";
+    }
+
+    #helpTable td:nth-child(2)::before,
+    #unregisteredHelpTable td:nth-child(2)::before {
+        content: "Gmail";
+    }
+
+    #helpTable td:nth-child(3)::before,
+    #unregisteredHelpTable td:nth-child(3)::before {
+        content: "Motivo";
+    }
+
+    #helpTable td:nth-child(4)::before,
+    #unregisteredHelpTable td:nth-child(4)::before {
+        content: "Mensaje";
+    }
+
+    #helpTable td:nth-child(5)::before,
+    #unregisteredHelpTable td:nth-child(5)::before {
+        content: "Tipo";
+    }
+
+    #reviewsTable td:nth-child(1)::before {
+        content: "Nombre";
+    }
+
+    #reviewsTable td:nth-child(2)::before {
+        content: "Actividad";
+    }
+
+    #reviewsTable td:nth-child(3)::before {
+        content: "Valoracion";
+    }
+
+    #reviewsTable td:nth-child(4)::before {
+        content: "Comentario";
+    }
+
+    #reviewsTable td:nth-child(5)::before {
+        content: "Acciones";
+    }
+
+    #blockedTable td:nth-child(1)::before {
+        content: "Correo";
+    }
+
+    #blockedTable td:nth-child(2)::before {
+        content: "Motivo";
+    }
+
+    #blockedTable td:nth-child(3)::before {
+        content: "Fecha";
+    }
+
+    #blockedTable td:nth-child(4)::before {
+        content: "Acciones";
+    }
+
+    .actions {
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .actions .button,
+    .filters input,
+    .filters select,
+    .button {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .badge {
+        width: max-content;
+        min-width: 0;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 430px) {
+    .sidebar,
+    .main {
+        padding: 0.75rem;
+    }
+
+    .brand {
+        gap: 0.6rem;
+    }
+
+    .brand-icon {
+        width: 46px;
+        height: 46px;
+    }
+
+    .brand strong {
+        font-size: 1.2rem;
+    }
+
+    .brand small {
+        font-size: 0.78rem;
+    }
+
+    .topbar h1 {
+        font-size: 1.55rem;
+    }
+
+    .toolbar h2 {
+        font-size: 1.1rem;
+    }
+
+    .nav button,
+    .button,
+    input,
+    select {
+        min-height: 44px;
+    }
+
+    td {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+    }
+}
