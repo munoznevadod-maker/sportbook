@@ -1,0 +1,21 @@
+{
+  "name": "jakartaee-docker-compose-project",
+  "version": "1.0.0",
+  "description": "Aplicacion web de reservas deportivas con:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/munoznevadod-maker/sportbook.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/munoznevadod-maker/sportbook/issues"
+  },
+  "homepage": "https://github.com/munoznevadod-maker/sportbook#readme"
+}
