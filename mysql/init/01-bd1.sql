@@ -18,6 +18,11 @@ VALUES ('admin','admin@gmail.com','1234','ADMIN')
 ON DUPLICATE KEY UPDATE
 rol = 'ADMIN';
 
+INSERT INTO usuarios (username,email,password,rol)
+VALUES ('Borja','borja@gmail.com','1234','USER')
+ON DUPLICATE KEY UPDATE
+rol = 'USER';
+
 
 CREATE TABLE IF NOT EXISTS reservas (
     id INT AUTO_INCREMENT PRIMARY KEY,

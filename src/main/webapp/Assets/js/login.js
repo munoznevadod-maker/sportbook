@@ -10,8 +10,7 @@ const API_BASE =
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const form =
-    document.getElementById("loginForm");
+  const form = document.getElementById("loginForm");
 
   const error =
     document.getElementById("error");
