@@ -126,8 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
 
         const res =
-          await fetch(
-            `${API_BASE}/auth/recover/check`,
+          await fetch(`${API_BASE}/auth/recover/check`,
             {
 
               method: "POST",
@@ -308,8 +307,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
 
         const res =
-          await fetch(
-            `${API_BASE}/auth/recover/reset`,
+          await fetch(`${API_BASE}/auth/recover/reset`,
             {
 
               method: "POST",

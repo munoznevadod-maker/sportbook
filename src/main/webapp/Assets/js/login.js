@@ -45,8 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
 
-        const res =
-          await fetch(`${API_BASE}/auth/login`,
+        const res = await fetch(`${API_BASE}/auth/login`,
             {
               method: "POST",
               credentials: "include",

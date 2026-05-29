@@ -264,8 +264,7 @@ async function loadReservations() {
   try {
 
     const response =
-      await fetch(
-        `${API_BASE}/admin/reservas`,
+      await fetch(`${API_BASE}/admin/reservas`,
         {
           credentials: "include"
         }
@@ -312,8 +311,7 @@ async function loadHelpRequests() {
   try {
 
     const response =
-      await fetch(
-        `${API_BASE}/admin/ayuda`,
+      await fetch(`${API_BASE}/admin/ayuda`,
         {
           credentials: "include"
         }
@@ -365,8 +363,7 @@ async function cargarAyudasPublicas() {
   try {
 
     const response =
-      await fetch(
-        `${API_BASE}/public-help-list`
+      await fetch(`${API_BASE}/public-help-list`
       );
 
     const ayudas =
@@ -560,8 +557,7 @@ async function loadReviews() {
   try {
 
     const response =
-      await fetch(
-        `${API_BASE}/admin/resenas`,
+      await fetch(`${API_BASE}/admin/resenas`,
         {
           credentials: "include"
         }
@@ -689,8 +685,7 @@ async function renderBlocked() {
   try {
 
     const response =
-      await fetch(
-        `${API_BASE}/admin/bloqueados`,
+      await fetch(`${API_BASE}/admin/bloqueados`,
         {
           credentials: "include"
         }
@@ -1275,8 +1270,7 @@ document.addEventListener(
       try {
 
         const response =
-          await fetch(
-            `${API_BASE}/admin/reservas/pago`,
+          await fetch(`${API_BASE}/admin/reservas/pago`,
             {
               method: "POST",
 
@@ -1337,8 +1331,7 @@ document.addEventListener(
       try {
 
         const response =
-          await fetch(
-            `${API_BASE}/admin/reservas/pago`,
+          await fetch(`${API_BASE}/admin/reservas/pago`,
             {
               method: "POST",
 
@@ -1412,8 +1405,7 @@ elements.blockForm?.addEventListener(
     try {
 
       const response =
-        await fetch(
-          `${API_BASE}/admin/bloquear`,
+        await fetch(`${API_BASE}/admin/bloquear`,
           {
             method: "POST",
 
@@ -1488,8 +1480,7 @@ elements.blockedTable?.addEventListener(
     try {
 
       const response =
-        await fetch(
-          `${API_BASE}/admin/desbloquear`,
+        await fetch(`${API_BASE}/admin/desbloquear`,
           {
             method: "POST",
 
@@ -1564,8 +1555,7 @@ elements.reviewsTable?.addEventListener(
     try {
 
       const response =
-        await fetch(
-          `${API_BASE}/admin/resenas/eliminar`,
+        await fetch(`${API_BASE}/admin/resenas/eliminar`,
           {
             method: "POST",
 

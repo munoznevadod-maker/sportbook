@@ -461,10 +461,7 @@ async function updateSlotAvailability() {
 
   try {
 
-    const response =
-      await fetch(
-        `${PUBLIC_API}/reservas/disponibilidad?date=${selectedDate}&resource=${selectedResource}`
-      );
+    const response = await fetch(`${PUBLIC_API}/reservas/disponibilidad?date=${selectedDate}&resource=${selectedResource}`);
 
     const data =
       await response.json();
@@ -474,19 +471,15 @@ async function updateSlotAvailability() {
         hour.substring(0, 5)
       );
 
-    renderOccupiedHours(
-      occupiedHours
-    );
+    renderOccupiedHours(occupiedHours);
 
-    const options =
-      elements.bookingTime.querySelectorAll("option");
+    const options = elements.bookingTime.querySelectorAll("option");
 
     options.forEach(option => {
 
       if (!option.value) return;
 
-      const cleanHour =
-        option.value.substring(0, 5);
+      const cleanHour = option.value.substring(0, 5);
 
       const occupied =
         occupiedHours.includes(
@@ -508,8 +501,7 @@ async function updateSlotAvailability() {
 
         option.style.color = "#00ff88";
 
-        option.textContent =
-          `${cleanHour} ✅ Libre`;
+        option.textContent = `${cleanHour} ✅ Libre`;
 
       }
 
@@ -885,77 +877,50 @@ const resourceFacilityData = {
 
 function renderFacilityInfo(sport) {
 
-  const selectedResource =
-    elements.resource?.value || "";
+  const selectedResource = elements.resource?.value || "";
 
-  const facilityKey =
-    `${sport || ""}|${selectedResource}`;
+  const facilityKey = `${sport || ""}|${selectedResource}`;
 
-  lastRenderedFacilityKey =
-    facilityKey;
+  lastRenderedFacilityKey = facilityKey;
 
-  const data =
-    resourceFacilityData[selectedResource] ||
-    facilityData[sport];
+  const data = resourceFacilityData[selectedResource] || facilityData[sport];
 
   if (!data) return;
 
-  document.getElementById(
-    "facilityTitle"
-  ).textContent =
-    data.title;
+  document.getElementById("facilityTitle").textContent = data.title;
 
-  document.getElementById(
-    "facilityDescription"
-  ).textContent =
-    data.description;
+  document.getElementById("facilityDescription").textContent = data.description;
 
-  document.getElementById(
-    "facilitySchedule"
-  ).textContent =
-    data.schedule;
+  document.getElementById("facilitySchedule").textContent = data.schedule;
 
-  document.getElementById(
-    "facilityDays"
-  ).textContent =
-    data.days;
+  document.getElementById("facilityDays").textContent = data.days;
 
   renderOccupiedHours([]);
 
-  document.getElementById(
-    "facilityImages"
-  ).innerHTML =
-
-    data.images.map(image => `
-
-      <img src="${image}" alt="${data.title}" onerror="this.src='Assets/img/hero-sportbook.png'; this.alt='Imagen no disponible de ${data.title}';">
-
-    `).join("");
+  document.getElementById("facilityImages").innerHTML = data.images.map(image => `<img src="${image}" alt="${data.title}" onerror="this.src='Assets/img/hero-sportbook.png'; this.alt='Imagen no disponible de ${data.title}';">`).join("");
 
 }
 
 
 elements.form?.addEventListener(
+
   "submit",
+
   async (event) => {
 
     event.preventDefault();
 
-    const sport =
-      elements.sport.value;
+    const sport = elements.sport.value;
 
     if (!sport) {
 
-      showToast(
-        "Selecciona una actividad."
-      );
+      showToast("Selecciona una actividad.");
 
       return;
 
     }
 
-    const activity =
-      activities[sport];
+    const activity = activities[sport];
 
     const reservation = {
 
@@ -1005,30 +970,21 @@ elements.form?.addEventListener(
     try {
 
       const response =
-        await fetch(
-          `${PUBLIC_API}/reservas`,
+        await fetch(`${PUBLIC_API}/reservas`,
           {
             method: "POST",
 
-            headers: {
-              "Content-Type":
-                "application/json"
-            },
+            headers: {"Content-Type":"application/json"},
 
-            body:
-              JSON.stringify(
-                reservation
-              )
+            body:JSON.stringify(reservation)
           }
         );
 
-      const data =
-        await response.json();
+      const data = await response.json();
 
       if (data.ok) {
 
-        const reservationMessage =
-          document.createElement("div");
+        const reservationMessage =document.createElement("div");
         reservationMessage.className ="logout-screen";
         reservationMessage.innerHTML = `
 
@@ -1042,18 +998,12 @@ elements.form?.addEventListener(
               </svg>
             </div>
 
-            <h2>
-              Reserva registrada
-            </h2>
+            <h2>Reserva registrada</h2>
 
-            <p>
-              ${reservationPaymentMessage(reservation.paymentMethod)}
-            </p>
+            <p>${reservationPaymentMessage(reservation.paymentMethod)}</p>
           </div>`;
 
-        document.body.appendChild(
-          reservationMessage
-        );
+        document.body.appendChild(reservationMessage);
 
         setTimeout(() => {
 
@@ -1067,9 +1017,7 @@ elements.form?.addEventListener(
 
         await cargarReservas();
 
-        updateActivity(
-          reservation.sport
-        );
+        updateActivity(reservation.sport);
 
         await updateSlotAvailability();
 
@@ -1079,9 +1027,7 @@ elements.form?.addEventListener(
 
       console.error(error);
 
-      showToast(
-        "Error de conexión."
-      );
+      showToast("Error de conexión.");
 
     }
 
@@ -1093,17 +1039,12 @@ async function cargarReservas() {
 
   try {
 
-    const email =
-      localStorage.getItem(
-        USER_EMAIL_STORAGE_KEY
-      ) || "";
+    const email = localStorage.getItem(USER_EMAIL_STORAGE_KEY) || "";
 
     const response =
-      await fetch(
-        `${PUBLIC_API}/reservas/usuario`,
+      await fetch(`${PUBLIC_API}/reservas/usuario`,
         {
-          credentials:
-            "include"
+          credentials:"include"
         }
       );
 
@@ -1113,8 +1054,7 @@ async function cargarReservas() {
       return;
     }
 
-    const data =
-      await response.json();
+    const data = await response.json();
 
     if (!data || !data.reservas) {
 
@@ -1124,9 +1064,7 @@ async function cargarReservas() {
 
     }
 
-    renderReservations(
-      data.reservas
-    );
+    renderReservations(data.reservas);
 
   } catch (error) {
 
@@ -1398,9 +1336,7 @@ document.addEventListener(
 
 
 const logoutButton =
-  document.querySelector(
-    "#logoutButton"
-  );
+  document.querySelector("#logoutButton");
 
 logoutButton?.addEventListener(
   "click",
@@ -1580,8 +1516,7 @@ elements.helpForm?.addEventListener(
     try {
 
       const response =
-        await fetch(
-          `${API_BASE}/admin/ayuda`,
+        await fetch(`${API_BASE}/admin/ayuda`,
           {
             method: "POST",
 
@@ -1646,8 +1581,7 @@ async function cargarResenas() {
   try {
 
     const response =
-      await fetch(
-        `${PUBLIC_API}/resenas`
+      await fetch(`${PUBLIC_API}/resenas`
       );
 
     const data =
@@ -1789,8 +1723,7 @@ elements.reviewForm?.addEventListener(
     try {
 
       const response =
-        await fetch(
-          `${PUBLIC_API}/resenas`,
+        await fetch(`${PUBLIC_API}/resenas`,
           {
             method: "POST",
 
@@ -2027,8 +1960,7 @@ async function loadProfileImageFromServer() {
 
   try {
     const response =
-      await fetch(
-        `${API_BASE}/auth/profile-image`,
+      await fetch(`${API_BASE}/auth/profile-image`,
         {
           credentials: "include"
         }
@@ -2102,8 +2034,7 @@ accountProfileForm?.addEventListener(
 
     try {
       const response =
-        await fetch(
-          `${API_BASE}/auth/profile-image`,
+        await fetch(`${API_BASE}/auth/profile-image`,
           {
             method: "POST",
             headers: {
@@ -2214,8 +2145,7 @@ removeProfileImageButton?.addEventListener(
 
     try {
       const response =
-        await fetch(
-          `${API_BASE}/auth/profile-image`,
+        await fetch(`${API_BASE}/auth/profile-image`,
           {
             method: "DELETE",
             credentials: "include"
@@ -2287,8 +2217,7 @@ document.addEventListener(
     try {
 
       const response =
-        await fetch(
-          `${PUBLIC_API}/reservas/${id}`,
+        await fetch(`${PUBLIC_API}/reservas/${id}`,
           {
             method: "DELETE"
           }

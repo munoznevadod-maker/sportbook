@@ -166,8 +166,7 @@ if (publicHelpForm) {
 
             try {
                 const response =
-                    await fetch(
-                        `${API_BASE}/public-help-list`,
+                    await fetch(`${API_BASE}/public-help-list`,
                         {
                             method: "POST",
                             headers: {
