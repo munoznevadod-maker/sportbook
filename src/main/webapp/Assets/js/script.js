@@ -103,82 +103,57 @@ const resourceLocations = {
 
 const elements = {
 
-  refreshBookingsButton:
-    document.querySelector("#refreshBookingsButton"),
+  refreshBookingsButton:document.querySelector("#refreshBookingsButton"),
 
-  form:
-    document.querySelector("#bookingForm"),
+  form:document.querySelector("#bookingForm"),
 
-  resource:
-    document.querySelector("#resource"),
+  resource:document.querySelector("#resource"),
 
-  resourceLocation:
-    document.querySelector("#resourceLocation"),
+  resourceLocation:document.querySelector("#resourceLocation"),
 
-  sport:
-    document.querySelector("#sport"),
+  sport:document.querySelector("#sport"),
 
-  bookingDate:
-    document.querySelector("#bookingDate"),
+  bookingDate:document.querySelector("#bookingDate"),
 
-  bookingTime:
-    document.querySelector("#bookingTime"),
+  bookingTime:document.querySelector("#bookingTime"),
 
-  people:
-    document.querySelector("#people"),
+  people:document.querySelector("#people"),
 
-  paymentMethod:
-    document.querySelector("#paymentMethod"),
+  paymentMethod:document.querySelector("#paymentMethod"),
 
-  paymentInfo:
-    document.querySelector("#paymentInfo"),
+  paymentInfo:document.querySelector("#paymentInfo"),
 
-  paymentInfoTitle:
-    document.querySelector("#paymentInfoTitle"),
+  paymentInfoTitle:document.querySelector("#paymentInfoTitle"),
 
-  bookingSubmitButton:
-    document.querySelector("#bookingSubmitButton"),
+  bookingSubmitButton:document.querySelector("#bookingSubmitButton"),
 
-  activityPicker:
-    document.querySelector("#activityPicker"),
+  activityPicker:document.querySelector("#activityPicker"),
 
-  summaryTitle:
-    document.querySelector("#summaryTitle"),
+  summaryTitle:document.querySelector("#summaryTitle"),
 
-  summaryMeta:
-    document.querySelector("#summaryMeta"),
+  summaryMeta:document.querySelector("#summaryMeta"),
 
-  summaryPrice:
-    document.querySelector("#summaryPrice"),
+  summaryPrice:document.querySelector("#summaryPrice"),
 
-  bookingsList:
-    document.querySelector("#bookingsList"),
+  bookingsList:document.querySelector("#bookingsList"),
 
-  toast:
-    document.querySelector("#toast"),
+  toast:document.querySelector("#toast"),
 
-  helpForm:
-    document.querySelector("#helpForm"),
+  helpForm:document.querySelector("#helpForm"),
 
-  reviewForm:
-    document.querySelector("#reviewForm"),
+  reviewForm:document.querySelector("#reviewForm"),
 
-  starRating:
-    document.querySelector("#starRating"),
+  starRating:document.querySelector("#starRating"),
 
-  reviewsList:
-    document.querySelector("#reviewsList"),
+  reviewsList:document.querySelector("#reviewsList"),
 
-  usernameDisplay:
-    document.querySelector("#usernameDisplay")
+  usernameDisplay:document.querySelector("#usernameDisplay")
 
 };
 
-const facilityBusyCard =
-  document.querySelector("#facilityBusyCard");
+const facilityBusyCard = document.querySelector("#facilityBusyCard");
 
-const facilityBusyText =
-  document.querySelector("#facilityBusy");
+const facilityBusyText = document.querySelector("#facilityBusy");
 
 let selectedRating = 0;
 let lastRenderedFacilityKey = "";
@@ -198,8 +173,7 @@ function renderPaymentInfo() {
 
   if (!elements.paymentInfo) return;
 
-  const method =
-    elements.paymentMethod?.value || "Bizum";
+  const method = elements.paymentMethod?.value || "Bizum";
 
   if (method === "Centro") {
 
@@ -245,54 +219,38 @@ function reservationPaymentMessage(method) {
 function renderLoggedUser() {
 
   const username =
-    localStorage.getItem(
-      USERNAME_STORAGE_KEY
-    ) || "Usuario";
+    localStorage.getItem(USERNAME_STORAGE_KEY) || "Usuario";
 
   if (elements.usernameDisplay) {
     elements.usernameDisplay.textContent =
     username;
   }
 
-  const accountMenuName =
-    document.querySelector("#accountMenuName");
+  const accountMenuName = document.querySelector("#accountMenuName");
 
-  const accountProfileName =
-    document.querySelector("#accountProfileName");
+  const accountProfileName = document.querySelector("#accountProfileName");
 
   if (accountMenuName) {
-    accountMenuName.textContent =
-      username;
+    accountMenuName.textContent = username;
   }
 
   if (accountProfileName) {
-    accountProfileName.textContent =
-      username;
+    accountProfileName.textContent = username;
   }
 
   const profileImage =
-    localStorage.getItem(
-      USER_PROFILE_IMAGE_STORAGE_KEY
-    );
+    localStorage.getItem(USER_PROFILE_IMAGE_STORAGE_KEY);
 
-  document.querySelectorAll(
-    ".user-avatar"
-  ).forEach(avatar => {
+  document.querySelectorAll(".user-avatar").forEach(avatar => {
 
     if (profileImage) {
-      avatar.style.backgroundImage =
-        `url("${profileImage}")`;
+      avatar.style.backgroundImage = `url("${profileImage}")`;
 
-      avatar.classList.add(
-        "has-photo"
-      );
+      avatar.classList.add("has-photo");
     } else {
-      avatar.style.backgroundImage =
-        "";
+      avatar.style.backgroundImage = "";
 
-      avatar.classList.remove(
-        "has-photo"
-      );
+      avatar.classList.remove("has-photo");
     }
   });
 
@@ -303,21 +261,16 @@ function showToast(message) {
 
   if (!elements.toast) return;
 
-  elements.toast.textContent =
-    message;
+  elements.toast.textContent = message;
 
-  elements.toast.classList.add(
-    "show"
-  );
+  elements.toast.classList.add("show");
 
   clearTimeout(showToast.timer);
 
   showToast.timer =
     setTimeout(() => {
 
-      elements.toast.classList.remove(
-        "show"
-      );
+      elements.toast.classList.remove("show");
 
     }, 2500);
 
@@ -325,40 +278,26 @@ function showToast(message) {
 
 function clearStoredSession() {
 
-  localStorage.removeItem(
-    AUTH_STORAGE_KEY
-  );
+  localStorage.removeItem(AUTH_STORAGE_KEY);
 
-  localStorage.removeItem(
-    USER_EMAIL_STORAGE_KEY
-  );
+  localStorage.removeItem(USER_EMAIL_STORAGE_KEY);
 
-  localStorage.removeItem(
-    USER_PHONE_STORAGE_KEY
-  );
+  localStorage.removeItem(USER_PHONE_STORAGE_KEY);
 
-  localStorage.removeItem(
-    USERNAME_STORAGE_KEY
-  );
+  localStorage.removeItem(USERNAME_STORAGE_KEY);
 
-  localStorage.removeItem(
-    USER_PROFILE_IMAGE_STORAGE_KEY
-  );
+  localStorage.removeItem(USER_PROFILE_IMAGE_STORAGE_KEY);
 }
 
 function redirectToLogin() {
 
   clearStoredSession();
 
-  showToast(
-    "Tu sesión ha caducado. Inicia sesión de nuevo."
-  );
+  showToast("Tu sesión ha caducado. Inicia sesión de nuevo.");
 
   setTimeout(() => {
 
-    window.location.replace(
-      "login.html"
-    );
+    window.location.replace("login.html");
 
   }, 900);
 }
@@ -389,54 +328,42 @@ function formatCurrency(value) {
 
 function updateSummary() {
 
-  const sport =
-    elements.sport.value;
+  const sport = elements.sport.value;
 
-  const activity =
-    activities[sport];
+  const activity = activities[sport];
 
   if (!activity) {
 
-    elements.summaryTitle.textContent =
-      "Sin actividad seleccionada";
+    elements.summaryTitle.textContent = "Sin actividad seleccionada";
 
-    elements.summaryMeta.textContent =
-      "El total aparecerá al elegir actividad y personas.";
+    elements.summaryMeta.textContent = "El total aparecerá al elegir actividad y personas.";
 
-    elements.summaryPrice.textContent =
-      "--";
+    elements.summaryPrice.textContent = "--";
 
     return;
 
   }
 
-  const people =
-    Number(elements.people.value || 1);
+  const people = Number(elements.people.value || 1);
 
-  const total =
-    activity.price * people;
+  const total = activity.price * people;
 
-  elements.summaryTitle.textContent =
-    activity.label;
+  elements.summaryTitle.textContent = activity.label;
 
-  elements.summaryMeta.textContent =
-    `${activity.duration} · ${formatCurrency(activity.price)} por persona`;
+  elements.summaryMeta.textContent = `${activity.duration} · ${formatCurrency(activity.price)} por persona`;
 
-  elements.summaryPrice.textContent =
-    formatCurrency(total);
+  elements.summaryPrice.textContent = formatCurrency(total);
 
 }
 
 
 function updateActivity(sport) {
 
-  const activity =
-    activities[sport];
+  const activity = activities[sport];
 
   if (!activity) return;
 
-  elements.sport.value =
-    sport;
+  elements.sport.value = sport;
 
   elements.resource.innerHTML =
     `<option value="">Selecciona una instalación</option>` +

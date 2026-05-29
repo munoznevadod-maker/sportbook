@@ -12,42 +12,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.getElementById("loginForm");
 
-  const error =
-    document.getElementById("error");
+  const error = document.getElementById("error");
 
-  const params =
-    new URLSearchParams(window.location.search);
+  const params = new URLSearchParams(window.location.search);
 
-  const redirect =
-    params.get("redirect");
+  const redirect = params.get("redirect");
 
-  const registerLink =
-    document.querySelector(
-      '.extra-links a[href="register.html"]'
-    );
+  const registerLink = document.querySelector('.extra-links a[href="register.html"]');
 
-  const forgotPasswordLink =
-    document.getElementById(
-      "forgotPasswordLink"
-    );
+  const forgotPasswordLink = document.getElementById("forgotPasswordLink");
 
   if (registerLink && redirect === "ayuda") {
 
-    registerLink.href =
-      "register.html?redirect=ayuda";
+    registerLink.href = "register.html?redirect=ayuda";
 
   }
 
   if (forgotPasswordLink && redirect === "ayuda") {
 
-    forgotPasswordLink.href =
-      "forgot-password.html?redirect=ayuda";
+    forgotPasswordLink.href = "forgot-password.html?redirect=ayuda";
 
   }
 
   form.addEventListener(
-    "submit",
-    async (e) => {
+    "submit", async (e) => {
 
       e.preventDefault();
 
@@ -58,15 +46,14 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
 
         const res =
-          await fetch(
-            `${API_BASE}/auth/login`,
+          await fetch(`${API_BASE}/auth/login`,
             {
               method: "POST",
               credentials: "include",
 
               headers: {
                 "Content-Type":
-                  "application/json"
+                "application/json"
               },
 
               body: JSON.stringify({
@@ -76,72 +63,38 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           );
 
-        const data =
-          await res.json();
+        const data = await res.json();
 
         if (!data.ok) {
 
-          error.textContent =
-            data.mensaje ||
-            "Inicio de sesión incorrecto";
+          error.textContent = data.mensaje || "Inicio de sesión incorrecto";
 
           return;
 
         }
 
         const role =
-          String(
-            data.rol ||
-            data.usuario?.rol ||
-            ""
-          ).toLowerCase();
+          String(data.rol || data.usuario?.rol || "").toLowerCase();
 
-        localStorage.setItem(
-          "sportbook-authenticated",
-          "true"
-        );
+        localStorage.setItem("sportbook-authenticated","true");
 
-        localStorage.setItem(
-          "sportbook-username",
-          data.username ||
-          data.usuario?.username ||
-          ""
-        );
+        localStorage.setItem("sportbook-username",data.username || data.usuario?.username || "");
 
-        localStorage.setItem(
-          "sportbook-user-email",
-          data.email ||
-          data.usuario?.email ||
-          login
-        );
+        localStorage.setItem("sportbook-user-email",data.email || data.usuario?.email || login);
 
-        localStorage.setItem(
-          "sportbook-user-phone",
-          data.phone ||
-          data.usuario?.phone ||
-          ""
-        );
+        localStorage.setItem("sportbook-user-phone",data.phone || data.usuario?.phone || "");
 
-        localStorage.setItem(
-          "sportbook-user-role",
-          role
-        );
+        localStorage.setItem("sportbook-user-role",role);
 
         if (data.profileImage) {
-          localStorage.setItem(
-            "sportbook-profile-image",
-            data.profileImage
-          );
+          localStorage.setItem("sportbook-profile-image",data.profileImage);
         } else {
-          localStorage.removeItem(
-            "sportbook-profile-image"
-          );
+          localStorage.removeItem("sportbook-profile-image");
         }
 
         if (role === "admin") {
 
-          window.location.href =
-            "admin.html";
+          window.location.href = "admin.html";
 
         } else {
 
@@ -154,8 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       } catch (err) {
 
-        error.textContent =
-          "Error en el servidor";
+        error.textContent = "Error en el servidor";
 
       }
 
