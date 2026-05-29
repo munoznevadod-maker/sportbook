@@ -51,15 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       e.preventDefault();
 
-      const login =
-        document.getElementById("login")
-        .value
-        .trim();
+      const login = document.getElementById("login").value.trim();
 
-      const password =
-        document.getElementById("password")
-        .value
-        .trim();
+      const password = document.getElementById("password").value.trim();
 
       try {
 

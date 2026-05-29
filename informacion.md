@@ -14,5 +14,8 @@ contraseña: 1234
 
 -Usuario
 
-correo: 
+usuario: Borja
+correo: admin@gmail.com
+contraseña: 1234
+
 
