@@ -9,10 +9,8 @@ public class UsuarioRegisterModel {
                              String email,
                              String password) {
 
-        try (
-            Connection con =
-                ConexionBD.getConnection()
-        ) {
+        try (Connection con = ConexionBD.getConnection()) 
+        {
 
             if (BloqueoUsuarioModel
                     .estaBloqueado(email)) {
@@ -21,14 +19,8 @@ public class UsuarioRegisterModel {
             }
 
             try (
-                PreparedStatement ps =
-                    con.prepareStatement(
-
-                        "INSERT INTO usuarios " +
-                        "(username, email, password) " +
-                        "VALUES (?, ?, ?)"
-
-                    )
+                PreparedStatement ps = con.prepareStatement("INSERT INTO usuarios " + "(username, email, password) " + "VALUES (?, ?, ?)"
+)
             ) {
 
                 ps.setString(1, username);
