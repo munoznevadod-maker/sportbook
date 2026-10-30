@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: sportbook
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /healthz
+    envVars:
+      - key: JAVA_OPTS
+        value: -Xms64m -Xmx256m -XX:MaxMetaspaceSize=128m
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_SSL_MODE
+        value: REQUIRED
+      - key: DB_INIT_SCHEMA
+        value: "true"

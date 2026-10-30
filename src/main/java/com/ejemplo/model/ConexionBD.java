@@ -3,6 +3,7 @@ package com.ejemplo.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class ConexionBD {
 
@@ -16,7 +17,7 @@ public class ConexionBD {
     private static final String URL = DB_URL != null && !DB_URL.isBlank()
             ? normalizeJdbcUrl(DB_URL)
             : "jdbc:mysql://" + DB_HOST + ":" + DB_PORT + "/" + DB_NAME
-            + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+            + "?serverTimezone=UTC";
 
     static {
         try {
@@ -27,7 +28,13 @@ public class ConexionBD {
     }
 
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, DB_USER, DB_PASSWORD);
+        Properties properties = new Properties();
+        properties.setProperty("user", DB_USER);
+        properties.setProperty("password", DB_PASSWORD);
+        properties.setProperty("sslMode", env("DB_SSL_MODE", "PREFERRED"));
+        properties.setProperty("connectTimeout", "10000");
+        properties.setProperty("socketTimeout", "30000");
+        return DriverManager.getConnection(URL, properties);
     }
 
     private static String env(String key, String fallback) {
@@ -54,6 +61,6 @@ public class ConexionBD {
 
     private static String withParams(String url) {
         String separator = url.contains("?") ? "&" : "?";
-        return url + separator + "useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+        return url + separator + "serverTimezone=UTC";
     }
 }
